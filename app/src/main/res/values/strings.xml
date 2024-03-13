@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PronuntiApp</string>
+    <string name="title_activity_register">register</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_up">Registrati</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_register">Non hai un account? Registrati!</string>
+    <string name="hint_password">Inserisci password ...</string>
+    <string name="hint_email">Inserisci e-mail ...</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="action_sign_in_short">"Sign in"</string>
+    <string name="invalid_username">Username non valido</string>
+    <string name="invalid_password">Password deve avere almeno 5 caratteri</string>
+    <string name="login_failed">"Login fallito"</string>
+</resources>
