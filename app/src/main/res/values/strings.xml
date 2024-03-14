@@ -6,14 +6,15 @@
     <string name="action_sign_up">Registrati</string>
     <string name="action_sign_in">Login</string>
     <string name="action_register">Non hai un account? Registrati!</string>
-    <string name="hint_password">Inserisci password ...</string>
-    <string name="hint_cognome">Inserisci cognome ...</string>
-    <string name="hint_nome">Inserisci nome ...</string>
-    <string name="hint_email">Inserisci e-mail ...</string>
+    <string name="hint_password">Inserisci password &#8230;</string>
+    <string name="hint_cognome">Inserisci cognome &#8230;</string>
+    <string name="hint_nome">Inserisci nome &#8230;</string>
+    <string name="hint_email">Inserisci e-mail &#8230;</string>
     <string name="welcome">"Benvenuto nel tuo profilo, "</string>
     <string name="action_sign_in_short">"Sign in"</string>
     <string name="invalid_username">Username non valido</string>
     <string name="invalid_password">Password deve avere almeno 5 caratteri</string>
     <string name="login_failed">"Login fallito"</string>
     <string name="action_sign_out">Logout</string>
+    <string name="invalid_input">Input non valido</string>
 </resources>
