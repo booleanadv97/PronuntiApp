@@ -25,9 +25,9 @@ class Login : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.editTextEmailAddressL)
         val passwordEditText = findViewById<EditText>(R.id.editTextPasswordL)
         signupLink.setOnClickListener{
-            startActivity(Intent(this, Signup::class.java));
+            startActivity(Intent(this, Signup::class.java))
         }
-        logInButton.setOnClickListener { v: View? ->
+        logInButton.setOnClickListener { _: View? ->
             val email: String = emailEditText.getText().toString().trim()
             val password: String = passwordEditText.getText().toString().trim()
             mAuth!!.signInWithEmailAndPassword(email, password)
@@ -36,11 +36,12 @@ class Login : AppCompatActivity() {
                 ) { task: Task<AuthResult?> ->
                     if (task.isSuccessful) {
                         // Log in success, update UI with the signed-in user's information
-                        val user = mAuth!!.currentUser
                         Toast.makeText(
                             this@Login, "Log in successful.",
                             Toast.LENGTH_SHORT
                         ).show()
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
                     } else {
                         // If log in fails, display a message to the user.
                         Toast.makeText(

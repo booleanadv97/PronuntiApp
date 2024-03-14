@@ -1,36 +1,42 @@
 package com.example.pronuntiapp
+import android.app.Activity
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat.Type.systemBars
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var tabLayout: TabLayout
+    private lateinit var viewPager: ViewPager2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
-    override fun onStart() {
+   override fun onStart() {
         super.onStart()
         val auth: FirebaseAuth = Firebase.auth
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            Log.d("Utenti", currentUser.uid.toString())
+            tabLayout = findViewById(R.id.tab_layout)
+            viewPager = findViewById(R.id.viewPager2)
+            viewPager.adapter = ViewPagerAdapter(supportFragmentManager, lifecycle, auth)
+            TabLayoutMediator(tabLayout, viewPager){
+                    tab,index ->
+                tab.text = when(index){
+                    0 -> {"Home"}
+                    1 -> {"Profile"}
+                    else -> { throw Resources.NotFoundException("Position not found")}
+                }
+            }.attach()
         }else {
-            startActivity(Intent(this, Login::class.java));
-            finish();
+            startActivity(Intent(this, Login::class.java))
         }
     }
 }
