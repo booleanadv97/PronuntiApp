@@ -39,7 +39,7 @@ class Register : AppCompatActivity() {
                                         this, "Sign up successful.",
                                         Toast.LENGTH_SHORT
                                 ).show()
-                                addUserToRTDB(task.result?.user?.uid.toString(), email, fName, lName, password)
+                                addUserToRTDB(task.result?.user?.uid.toString(), email, fName, lName)
                                 startActivity(Intent(this, MainActivity::class.java))
                                 finish()
                             } else {
@@ -58,10 +58,10 @@ class Register : AppCompatActivity() {
             }
         }
     }
-    private fun addUserToRTDB(uid : String, email : String, fName : String, lName : String, password: String){
+    private fun addUserToRTDB(uid : String, email : String, fName : String, lName : String){
         val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app/")
         val ref = database.getReference("/users/$uid")
-        val user = User(email, fName, lName, password)
+        val user = User(email, fName, lName)
         ref.setValue(user)
                 .addOnSuccessListener {
                     Log.d("RegisterActivity", "New registration : userid: $uid - email: $email")
