@@ -40,15 +40,12 @@ class ManageParentsFragment : Fragment() {
                         )
                         val textViewFName = TextView(context)
                         textViewFName.text = child.getValue<User>()?.email
-                        textViewFName.setTextColor(R.color.black)
                         tr1.addView(textViewFName)
                         val textViewFName2 = TextView(context)
                         textViewFName2.text = child.getValue<User>()?.firstName
-                        textViewFName2.setTextColor(R.color.black)
                         tr1.addView(textViewFName2)
                         val textViewFName3 = TextView(context)
                         textViewFName3.text = child.getValue<User>()?.lastName
-                        textViewFName3.setTextColor(R.color.black)
                         tr1.addView(textViewFName3)
                         tableLayout.addView(
                             tr1, TableLayout.LayoutParams(

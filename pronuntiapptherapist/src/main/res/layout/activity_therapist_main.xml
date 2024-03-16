@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.pronuntiapptherapist.ui.TherapistMainActivity">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayoutTherapist"
         android:layout_width="match_parent"
@@ -20,13 +21,13 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/appicon_nobg_35px"
-            android:contentDescription="@string/app_name" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/appicon_nobg_35px"
+                android:contentDescription="@string/app_name" />
         </androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.tabs.TabLayout

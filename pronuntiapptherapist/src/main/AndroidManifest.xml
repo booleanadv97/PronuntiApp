@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PronuntiApp">
         <activity
+            android:name=".ui.AddImageExercise"
+            android:exported="false" />
+        <activity
             android:name=".ui.TherapistMainActivity"
             android:exported="true">
             <intent-filter>

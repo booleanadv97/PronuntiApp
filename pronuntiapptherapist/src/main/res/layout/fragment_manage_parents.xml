@@ -9,13 +9,16 @@
     android:stretchColumns="*"
     android:paddingRight="5dp">
 
-    <TableRow android:background="#51B435" android:padding="15dp"
+    <TableRow  android:padding="15dp"
+        android:background="@drawable/rounded_shape_25"
         tools:ignore="UselessParent">
         <TextView
+            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/users_table_h1" />
+            android:text="@string/users_table_h1"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

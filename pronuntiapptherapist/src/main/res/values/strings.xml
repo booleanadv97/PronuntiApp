@@ -24,5 +24,16 @@
     <string name="users_table_h1">Email</string>
     <string name="users_table_h2">Cognome</string>
     <string name="users_table_h3">Nome</string>
+    <string name="submit">Invia</string>
+    <string name="upload">Carica</string>
+
+    <!-- containerAddImageExercise -->
+    <string name="textViewExerciseName_text">Nome esercizio</string>
+    <string name="editTextImageExerciseName_hint">Inserisci nome esercizio</string>
+    <string name="add_exercise">Aggiungi esercizio</string>
+    <string name="textViewExerciseDescription_text">Descrizione</string>
+    <string name="textViewSubmitImage_text">Carica immagine</string>
+    <string name="editTextExerciseDescription_text">Inserisci descrizione esercizio</string>
+    <!--  -->
 
 </resources>
