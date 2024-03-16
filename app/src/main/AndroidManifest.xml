@@ -18,9 +18,6 @@
         android:theme="@style/Theme.PronuntiApp"
         tools:targetApi="31">
         <activity
-            android:name="com.example.pronuntiapptherapist.ui.TherapistMainActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.Register"
             android:exported="false" />
         <activity

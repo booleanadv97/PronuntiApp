@@ -10,7 +10,7 @@ import com.example.pronuntiapptherapist.fragments.ManageParentsFragment
 
 private const val NUM_TABS = 3
 
-public class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {

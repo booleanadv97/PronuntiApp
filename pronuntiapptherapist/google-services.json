@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "455564018208",
+    "firebase_url": "https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pronuntiappfirebase",
+    "storage_bucket": "pronuntiappfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455564018208:android:1b3dded108423278863245",
+        "android_client_info": {
+          "package_name": "com.example.pronuntiapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvAD_FwJ3GrNBtUHeX1RKq5AbJa589T3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455564018208:android:f27010a81129e9e2863245",
+        "android_client_info": {
+          "package_name": "com.example.pronuntiapptherapist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvAD_FwJ3GrNBtUHeX1RKq5AbJa589T3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

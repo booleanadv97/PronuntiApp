@@ -18,7 +18,6 @@ class TherapistMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTherapistMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val viewModelProviderFactory = TherapistMainViewModelProviderFactory(application)
         val viewPager = binding.viewPagerTherapist
         val tabLayout = binding.tabLayoutTherapist
         val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
