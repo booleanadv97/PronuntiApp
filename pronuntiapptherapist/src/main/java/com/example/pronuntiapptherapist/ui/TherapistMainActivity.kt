@@ -2,7 +2,6 @@ package com.example.pronuntiapptherapist.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
 import com.example.pronuntiapptherapist.databinding.ActivityTherapistMainBinding
 import com.example.pronuntiapptherapist.adapters.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator

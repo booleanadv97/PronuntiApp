@@ -1,4 +1,5 @@
 package com.example.pronuntiapptherapist.adapters
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -30,8 +31,9 @@ internal class GridViewAdapter(
         return 0
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var convertView = convertView
+    @SuppressLint("InflateParams")
+    override fun getView(position: Int, convertVieww: View?, parent: ViewGroup?): View {
+        var convertView = convertVieww
         // on blow line we are checking if layout inflater
         // is null, if it is null we are initializing it.
         if (layoutInflater == null) {
