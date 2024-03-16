@@ -3,8 +3,6 @@ package com.example.pronuntiapptherapist.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.ActivityTherapistMainBinding
 import com.example.pronuntiapptherapist.adapters.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
@@ -17,7 +15,6 @@ val fragmentsTitle = arrayOf(
 class TherapistMainActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityTherapistMainBinding
-    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTherapistMainBinding.inflate(layoutInflater)

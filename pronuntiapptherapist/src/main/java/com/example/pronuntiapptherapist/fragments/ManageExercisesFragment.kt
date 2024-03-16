@@ -9,13 +9,9 @@ import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.GridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageExercisesBinding
 import com.example.pronuntiapptherapist.models.GridViewModal
-import com.example.pronuntiapptherapist.models.User
 import com.example.pronuntiapptherapist.ui.AddImageExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
