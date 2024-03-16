@@ -41,7 +41,6 @@ android {
 
 dependencies {
     implementation(libs.firebase.storage)
-    val nav_version = "2.7.7"
 
     // Java language implementation
     implementation(libs.androidx.navigation.fragment.ktx)
