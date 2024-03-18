@@ -19,20 +19,7 @@
         </State>
       </entry>
       <entry key="pronuntiapptherapist">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\boolean\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-16T20:37:47.618817400Z" />
-        </State>
+        <State />
       </entry>
     </value>
   </component>

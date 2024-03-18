@@ -19,15 +19,17 @@
     <string name="invalid_input">Input non valido</string>
     <string name="registered_users">Utenti registrati: %1d.</string>
     <string name="therapist_home_page">Home</string>
-    <string name="therapist_exercises_page">Exercises</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_exercises_land_text">Esercizi di denominazione</string>
     <string name="users_table_h1">Email</string>
     <string name="users_table_h2">Cognome</string>
     <string name="users_table_h3">Nome</string>
     <string name="submit">Invia</string>
     <string name="upload">Carica</string>
+    <string name="fill_fields">Compila tutti i campi richiesti</string>
+    <string name="exercise_added">Esercizio aggiunto con successo</string>
+    <string name="exercise_not_added">Errore! L\'esercizio non è stato aggiunto</string>
 
-    <!-- containerAddImageExercise -->
+    <!-- AddImageExercise -->
     <string name="textViewExerciseName_text">Nome esercizio</string>
     <string name="editTextImageExerciseName_hint">Inserisci nome esercizio</string>
     <string name="add_exercise">Aggiungi esercizio</string>
@@ -36,4 +38,27 @@
     <string name="editTextExerciseDescription_text">Inserisci descrizione esercizio</string>
     <!--  -->
 
+    <!-- ManageExercises -->
+    <string name="image_exercises">Gestisci esercizi di denominazione immagini</string>
+    <string name="audio_seq_repeat">Gestici esercizi ripetizione di sequenze di parole</string>
+    <string name="image_recognition">Gestisci esercizi di riconoscimento di coppie minime</string>
+    <!--  -->
+
+    <!-- AddImageRecognitionExercise-->
+    <string name="txt_correct_image">Carica immagine contenente la risposta corretta</string>
+    <string name="txt_alt_image">Carica immagine alternativa</string>
+    <string name="txt_audio">Registra risposta</string>
+    <string name="rec_start">Start</string>
+    <string name="rec_stop">Stop</string>
+    <string name="txt_upload_button_correct_img">Carica immagine</string>
+    <string name="txt_upload_button_alt_img">Carica</string>
+    <!--  -->
+
+    <!-- ManageImageRecognitionExercises-->
+    <string name="txt_manage_image_recognition_land">Esercizi di riconoscimento di coppie minime </string>
+    <!-- -->
+
+    <!-- WaitUploadFragment-->
+    <string name="txt_wait">Completamento upload in corso &#8230;</string>
+    <string name="txt_upload_complete">Upload completato</string>
 </resources>

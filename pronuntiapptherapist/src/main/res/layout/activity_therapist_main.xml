@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -26,26 +26,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/appicon_nobg_35px"
-                android:contentDescription="@string/app_name" />
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@drawable/appicon_nobg_35px" />
         </androidx.appcompat.widget.Toolbar>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayoutTherapist"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:tabBackground="@color/white"
-            app:tabGravity="fill"
-            app:tabInlineLabel="true"
-            app:tabMode="fixed"
-            app:tabTextColor="@color/black"
-            />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
+    <FrameLayout
+        android:id="@+id/frameLayoutTherapist"
         android:layout_width="match_parent"
-        android:id="@+id/viewPagerTherapist"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/appBarLayoutTherapist"/>
+        android:layout_height="645dp">
 
-</RelativeLayout>
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:id="@+id/bottomNavigationView"
+        android:layout_height="match_parent"
+        app:menu="@menu/bottom_nav"
+        />
+
+</LinearLayout>

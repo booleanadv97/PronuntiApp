@@ -1,4 +1,5 @@
 package com.example.pronuntiapptherapist.adapters
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,13 +9,12 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.models.GridViewModal
+import com.example.pronuntiapptherapist.models.ImageExercise
+import com.example.pronuntiapptherapist.models.ImageRecognitionExercise
 import com.squareup.picasso.Picasso
 
-
-internal class GridViewAdapter(
-    private val exerciseList: List<GridViewModal>,
-    private val context: Context
+class ImageRecognitionExerciseGridViewAdapter(private val exerciseList: List<ImageRecognitionExercise>,
+                                              private val context: Context
 ) :
     BaseAdapter() {
 
@@ -52,7 +52,7 @@ internal class GridViewAdapter(
         exerciseIV = convertView!!.findViewById(R.id.idIVCourse)
         exerciseTV = convertView.findViewById(R.id.idTVCourse)
         // on below line we are setting image for our course image view.
-        Picasso.get().load(exerciseList[position].url).into(exerciseIV)
+        Picasso.get().load(exerciseList[position].urlCorrectAnswerImage).into(exerciseIV)
         // on below line we are setting text in our course text view.
         exerciseTV.text = exerciseList[position].exerciseName
         // at last we are returning our convert view.

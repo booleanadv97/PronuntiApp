@@ -1,46 +1,114 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/containerExercises"
-    tools:context="com.example.pronuntiapptherapist.fragments.ManageExercisesFragment">
+    android:layout_marginTop="80dp"
+    android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/therapist_exercises_page"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/gridViewExercises"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewImageExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
 
-        <GridView
-            android:id="@+id/gridViewExercises"
-            android:layout_width="298dp"
-            android:layout_height="454dp"
-            android:layout_marginBottom="24dp"
-            android:horizontalSpacing="6dp"
-            android:numColumns="2"
-            android:verticalSpacing="6dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonAddExercise"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.934" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
-        <Button
-            android:id="@+id/buttonAddExercise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_exercise"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.877"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.947" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageImageExercise"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/image_exercises"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/image_exercise" />
+
+            <TextView
+                android:id="@+id/txtImageExercise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/image_exercises"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewAudioSeq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/imageAudioSeq"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/audio_seq_repeat"
+                android:src="@drawable/audio_seq_repeat" />
+
+            <TextView
+                android:id="@+id/txtAudioSeq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/audio_seq_repeat"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewImageRecognition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/image_recognition"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/image_recognition"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/image_recognition" />
+
+            <TextView
+                android:id="@+id/txtImageRecognition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:text="@string/image_recognition" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
