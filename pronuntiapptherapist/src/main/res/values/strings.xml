@@ -58,7 +58,9 @@
     <string name="txt_manage_image_recognition_land">Esercizi di riconoscimento di coppie minime </string>
     <!-- -->
 
-    <!-- WaitUploadFragment-->
+    <!-- AddImageRecognitionWaitUploadFragment-->
     <string name="txt_wait">Completamento upload in corso &#8230;</string>
     <string name="txt_upload_complete">Upload completato</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

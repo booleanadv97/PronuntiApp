@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.pronuntiapptherapist.fragments.AddImageRecognitionExerciseFragment
 import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,6 +20,7 @@ import kotlin.streams.asSequence
 
 class AddImageRecognitionExerciseViewModel : ViewModel() {
     private val STRING_LENGTH = 32
+    val EXERCISE_RESULT_ONGOING = "ON"
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
     lateinit var imageCorrectUri: Uri
     lateinit var imageAltUri: Uri
@@ -43,24 +45,23 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
         FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
             "Image Recognition Exercises"
         )
-
     fun addExerciseToRTDB(name: String, description: String) {
         _progressBarLevel.value = 0
         exercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(!snapshot.hasChild(name)){
+                        _addExerciseResult.value = EXERCISE_RESULT_ONGOING
                         exerciseName = name
                         exerciseDescription = description
                         exercisesRef.removeEventListener(this)
                         addExerciseOnImageCorrectUpload()
-                        _addExerciseResult.value = "OK"
                     }else{
                         _addExerciseResult.value = "Esercizio già presente nel sistema"
                     }
                 }
                 override fun onCancelled(error: DatabaseError) {
-                    _addExerciseResult.value = "Error checking user: $error"
-                    Log.w("FirebaseUtil", "Error checking user: $error")
+                    _addExerciseResult.value = "Error checking exercise: $error"
+                    Log.w("FirebaseUtil", "Error checking exercise: $error")
                 }
             })
     }

@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -25,7 +28,6 @@ class AddImageRecognitionExerciseFragment : Fragment() {
     private lateinit var binding: FragmentAddImageRecognitionExerciseBinding
     private lateinit var viewModel: AddImageRecognitionExerciseViewModel
     private val REQUEST_MICROPHONE_PERMISSION = 1
-    private val EXERCISE_STATUS_OK = "OK"
     private lateinit var mediaRecorder: MediaRecorder
     private var imagePickerCorrectImage: ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -68,6 +70,7 @@ class AddImageRecognitionExerciseFragment : Fragment() {
         ) {
             requestMicrophonePermission()
         } else {
+            binding.buttonStopRec.isEnabled = false
             mediaRecorder = MediaRecorder().apply {
                 setAudioSource(MediaRecorder.AudioSource.MIC)
                 setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
@@ -101,21 +104,40 @@ class AddImageRecognitionExerciseFragment : Fragment() {
             }
             binding.buttonSubmit.setOnClickListener {
                 if (checkFields()) {
-                    binding.buttonSubmit.isEnabled = false
                     viewModel.addExerciseToRTDB(binding.editTextImageExerciseName.text.toString(), binding.editTextExerciseDescription.text.toString())
+                    var observed = false
                     viewModel.addExerciseResult.observe(viewLifecycleOwner){
-                        if(it == EXERCISE_STATUS_OK)
-                        {
-                            val fragmentManager = requireActivity().supportFragmentManager
-                            val fragmentTransaction = fragmentManager.beginTransaction()
-                            fragmentTransaction.replace(R.id.frameLayoutTherapist, WaitUploadFragment())
-                            fragmentTransaction.addToBackStack(null)
-                            fragmentTransaction.commit()
-                        }else{
-                            Toast.makeText(
-                                context, it,
-                                Toast.LENGTH_SHORT
-                            ).show()
+                        if(!observed) {
+                            when (it) {
+                                viewModel.EXERCISE_RESULT_ONGOING -> {
+                                    binding.buttonSubmit.isEnabled = false
+                                    val inflater = LayoutInflater.from(requireContext())
+                                    val containerView = requireActivity().findViewById<FrameLayout>(R.id.frameLayoutTherapist)
+                                    containerView.removeAllViews()
+                                    val newView = inflater.inflate(R.layout.fragment_wait_upload, containerView, false)
+                                    containerView.addView(newView)
+                                    val txtProgress = newView.findViewById<TextView>(R.id.txtProgress)
+                                    val progressBar =  newView.findViewById<ProgressBar>(R.id.progressBarUpload)
+                                    viewModel.progressBarLevel.observe(viewLifecycleOwner){
+                                        progressBar.progress = it
+                                        if(it < 100)
+                                            txtProgress.text = "$it%"
+                                        else {
+                                            containerView.removeAllViews()
+                                            fragmentManager?.popBackStack()
+                                        }
+                                    }
+                                }
+                                else -> {
+                                    if(!binding.buttonSubmit.isEnabled)
+                                        binding.buttonSubmit.isEnabled = true
+                                    Toast.makeText(
+                                        context, "Errore: $it",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    observed = true
+                                }
+                            }
                         }
                     }
                 } else {
@@ -140,7 +162,7 @@ class AddImageRecognitionExerciseFragment : Fragment() {
     ): View {
         binding = FragmentAddImageRecognitionExerciseBinding.inflate(inflater)
         viewModel =
-            ViewModelProvider(requireActivity())[AddImageRecognitionExerciseViewModel::class.java]
+            ViewModelProvider(this)[AddImageRecognitionExerciseViewModel::class.java]
         return binding.root
     }
 
