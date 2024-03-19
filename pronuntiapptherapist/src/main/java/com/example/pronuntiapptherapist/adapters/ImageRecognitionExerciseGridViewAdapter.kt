@@ -9,8 +9,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.models.ImageExercise
-import com.example.pronuntiapptherapist.models.ImageRecognitionExercise
+import com.example.pronuntiapptherapist.models.ImageRecognitionExercise.ImageRecognitionExercise
 import com.squareup.picasso.Picasso
 
 class ImageRecognitionExerciseGridViewAdapter(private val exerciseList: List<ImageRecognitionExercise>,

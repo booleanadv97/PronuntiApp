@@ -4,11 +4,16 @@
     <item android:title="Home" android:id="@+id/home"
         android:icon="@drawable/baseline_home_24"
         />
-    <item android:title="Manage Parents"
+    <item android:title="Parents"
         android:id="@+id/parents"
         android:icon="@drawable/baseline_accessibility_24"
         />
-    <item android:title="Manage Exercises"
+    <item android:title="Exercises"
         android:id="@+id/exercises"
         android:icon="@drawable/baseline_book_24"/>
+
+    <item android:title="Appointments"
+        android:id="@+id/appointments"
+        android:icon="@drawable/baseline_calendar_month_24"/>
+
 </menu>

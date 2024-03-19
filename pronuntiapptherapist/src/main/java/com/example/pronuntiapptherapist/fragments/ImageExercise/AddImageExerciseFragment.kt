@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.fragments
+package com.example.pronuntiapptherapist.fragments.ImageExercise
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentAddImageExerciseBinding
-import com.example.pronuntiapptherapist.models.AddImageExerciseViewModel
+import com.example.pronuntiapptherapist.models.ImageExercise.AddImageExerciseViewModel
 
 
 class AddImageExerciseFragment : Fragment() {

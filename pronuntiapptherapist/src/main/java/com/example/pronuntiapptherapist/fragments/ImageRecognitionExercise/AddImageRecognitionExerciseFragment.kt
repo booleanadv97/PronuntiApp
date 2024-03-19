@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.fragments
+package com.example.pronuntiapptherapist.fragments.ImageRecognitionExercise
 
 import android.Manifest
 import android.content.Intent
@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentAddImageRecognitionExerciseBinding
-import com.example.pronuntiapptherapist.models.AddImageRecognitionExerciseViewModel
+import com.example.pronuntiapptherapist.models.ImageRecognitionExercise.AddImageRecognitionExerciseViewModel
 import java.io.File
 
 class AddImageRecognitionExerciseFragment : Fragment() {

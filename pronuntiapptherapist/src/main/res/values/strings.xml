@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PronuntiApp</string>
+    <string name="app_name">PronuntiApp Therapist</string>
     <string name="title_activity_register">register</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -61,6 +61,13 @@
     <!-- AddImageRecognitionWaitUploadFragment-->
     <string name="txt_wait">Completamento upload in corso &#8230;</string>
     <string name="txt_upload_complete">Upload completato</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- ManageAudioExercises-->
+    <string name="txt_audio_exercises_land">Esercizi di ripetizione di sequenze di parole</string>
+    <!-- -->
+
+    <!-- ManageParents-->
+    <string name="txt_parents_list_desc">Lista genitori</string>
+    <!-- -->
+
 </resources>

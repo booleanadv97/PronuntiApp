@@ -8,6 +8,9 @@ import android.widget.GridView
 import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentManageExercisesBinding
+import com.example.pronuntiapptherapist.fragments.AudioExercise.ManageAudioExercisesFragment
+import com.example.pronuntiapptherapist.fragments.ImageExercise.ManageImageExercisesFragment
+import com.example.pronuntiapptherapist.fragments.ImageRecognitionExercise.ManageImageRecognitionExercisesFragment
 import com.google.firebase.database.FirebaseDatabase
 
 
@@ -25,6 +28,13 @@ class ManageExercisesFragment : Fragment() {
             val fragmentManager = requireActivity().supportFragmentManager
             val transaction = fragmentManager.beginTransaction()
             transaction.replace(R.id.frameLayoutTherapist, ManageImageExercisesFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+        binding.cardViewAudioSeq.setOnClickListener{
+            val fragmentManager = requireActivity().supportFragmentManager
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.frameLayoutTherapist, ManageAudioExercisesFragment())
             transaction.addToBackStack(null)
             transaction.commit()
         }

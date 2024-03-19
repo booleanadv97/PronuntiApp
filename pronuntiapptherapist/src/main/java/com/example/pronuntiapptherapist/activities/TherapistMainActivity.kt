@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.ui
+package com.example.pronuntiapptherapist.activities
 
 import android.content.Intent
 import android.net.wifi.WifiManager
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.ActivityTherapistMainBinding
 import com.example.pronuntiapptherapist.fragments.HomeFragment
+import com.example.pronuntiapptherapist.fragments.ManageAppointmentsFragment
 import com.example.pronuntiapptherapist.fragments.ManageExercisesFragment
 import com.example.pronuntiapptherapist.fragments.ManageParentsFragment
 import com.example.pronuntiapptherapist.models.ConnectivityLiveData
@@ -17,6 +18,7 @@ val fragmentsTitle = arrayOf(
     "Home",
     "Manage parents",
     "Manage exercises",
+    "Manage appointments"
 )
 class TherapistMainActivity : AppCompatActivity() {
     lateinit var binding : ActivityTherapistMainBinding
@@ -45,6 +47,7 @@ class TherapistMainActivity : AppCompatActivity() {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.parents -> replaceFragment(ManageParentsFragment())
                 R.id.exercises -> replaceFragment(ManageExercisesFragment())
+                R.id.appointments -> replaceFragment(ManageAppointmentsFragment())
                 else -> {}
             }
             true

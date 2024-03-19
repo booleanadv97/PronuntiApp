@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.models
+package com.example.pronuntiapptherapist.models.AudioExercise
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.pronuntiapptherapist.fragments.AddImageRecognitionExerciseFragment
 import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -18,20 +17,12 @@ import com.google.firebase.storage.storage
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.streams.asSequence
 
-class AddImageRecognitionExerciseViewModel : ViewModel() {
+class AddAudioExerciseViewModel : ViewModel() {
     private val STRING_LENGTH = 32
     val EXERCISE_RESULT_ONGOING = "ON"
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-    lateinit var imageCorrectUri: Uri
-    lateinit var imageAltUri: Uri
-    private var correctImageId : String? = ""
-    private var altImageId : String? = ""
-    private var imgAltUrl : String? = ""
-    private var imgCorrectUrl : String? = ""
     var exerciseName : String? = ""
     var exerciseDescription : String? = ""
-    var imgAltName: String? = ""
-    var imgCorrectName: String? = ""
     private var audioUrl: String? = ""
     lateinit var outputMP4File: String
     lateinit var mp4Uri: Uri
@@ -43,52 +34,31 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
     val addExerciseResult : LiveData<String> = _addExerciseResult
     private val exercisesRef =
         FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
-            "Image Recognition Exercises"
+            "Audio Exercises"
         )
     fun addExerciseToRTDB(name: String, description: String) {
         _progressBarLevel.value = 0
         exercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if(!snapshot.hasChild(name)){
-                        _addExerciseResult.value = EXERCISE_RESULT_ONGOING
-                        exerciseName = name
-                        exerciseDescription = description
-                        exercisesRef.removeEventListener(this)
-                        addExerciseOnImageCorrectUpload()
-                    }else{
-                        _addExerciseResult.value = "Esercizio già presente nel sistema"
-                    }
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(!snapshot.hasChild(name)){
+                    _addExerciseResult.value = EXERCISE_RESULT_ONGOING
+                    exerciseName = name
+                    exerciseDescription = description
+                    addExerciseOnMP4Upload()
+                }else{
+                    _addExerciseResult.value = "Esercizio già presente nel sistema"
                 }
-                override fun onCancelled(error: DatabaseError) {
-                    _addExerciseResult.value = "Error checking exercise: $error"
-                    Log.w("FirebaseUtil", "Error checking exercise: $error")
-                }
-            })
-    }
-    fun addExerciseOnImageCorrectUpload(){
-        correctImageId = randomString()
-        storageRef.child("imageRecognitionExercises/$correctImageId").putFile(imageCorrectUri).addOnSuccessListener {
-            storageRef.child("imageRecognitionExercises/$correctImageId").downloadUrl.addOnSuccessListener {
-                imgCorrectUrl = it.toString()
-                _progressBarLevel.value = 25
-                addExerciseOnImageAltUpload()
             }
-        }
-    }
-    private fun addExerciseOnImageAltUpload(){
-        altImageId = randomString()
-        storageRef.child("imageRecognitionExercises/$altImageId").putFile(imageAltUri).addOnSuccessListener {
-            storageRef.child("imageRecognitionExercises/$altImageId").downloadUrl.addOnSuccessListener {
-                imgAltUrl = it.toString()
-                _progressBarLevel.value = 50
-                addExerciseOnMP4Upload()
+            override fun onCancelled(error: DatabaseError) {
+                _addExerciseResult.value = "Error checking exercise: $error"
+                Log.w("FirebaseUtil", "Error checking exercise: $error")
             }
-        }
+        })
     }
     private fun addExerciseOnMP4Upload(){
         audioAnsId = randomString()
-        storageRef.child("audioRecognitionExercises/$audioAnsId").putFile(mp4Uri).addOnSuccessListener {
-            val audioRef = storageRef.child("audioRecognitionExercises/$audioAnsId")
+        storageRef.child("audioExercises/$audioAnsId").putFile(mp4Uri).addOnSuccessListener {
+            val audioRef = storageRef.child("audioExercises/$audioAnsId")
             val downloadUrlTask = audioRef.getDownloadUrl()
             downloadUrlTask.addOnSuccessListener { uri ->
                 audioUrl = uri.toString()
@@ -98,15 +68,11 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
         }
     }
     private fun addExercise(){
-        val newExercise = ImageRecognitionExercise(
+        val newExercise = AudioExercise(
             exerciseName,
             exerciseDescription,
-            imgCorrectUrl,
-            correctImageId,
-            imgAltUrl,
-            altImageId,
-            audioAnsId,
-            audioUrl)
+            audioUrl,
+            audioAnsId)
         exercisesRef.child(newExercise.exerciseName.toString()).setValue(newExercise)
             .addOnSuccessListener {
                 _progressBarLevel.value = 100

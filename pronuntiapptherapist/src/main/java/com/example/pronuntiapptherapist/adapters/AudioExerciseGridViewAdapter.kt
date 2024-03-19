@@ -5,22 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.models.ImageExercise.ImageExercise
-import com.squareup.picasso.Picasso
+import com.example.pronuntiapptherapist.models.AudioExercise.AudioExercise
 
 
-internal class ImageExerciseGridViewAdapter(
-    private val exerciseList: List<ImageExercise>,
+internal class AudioExerciseGridViewAdapter(
+    private val exerciseList: List<AudioExercise>,
     private val context: Context
 ) :
     BaseAdapter() {
 
     private var layoutInflater: LayoutInflater? = null
-    private lateinit var exerciseTV: TextView
-    private lateinit var exerciseIV: ImageView
+    private lateinit var exerciseNameTV: TextView
+    private lateinit var exerciseDescriptionTV: TextView
     override fun getCount(): Int {
         return exerciseList.size
     }
@@ -39,12 +37,12 @@ internal class ImageExerciseGridViewAdapter(
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         }
         if (convertView == null) {
-            convertView = layoutInflater!!.inflate(R.layout.image_exercises_gridview_item, null)
+            convertView = layoutInflater!!.inflate(R.layout.audio_exercises_gridview_item, null)
         }
-        exerciseIV = convertView!!.findViewById(R.id.idIVCourse)
-        exerciseTV = convertView.findViewById(R.id.idTVCourse)
-        Picasso.get().load(exerciseList[position].url).into(exerciseIV)
-        exerciseTV.text = exerciseList[position].exerciseName
+        exerciseNameTV = convertView!!.findViewById(R.id.txtAudioExerciseName)
+        exerciseNameTV.text = exerciseList[position].exerciseName
+        exerciseDescriptionTV = convertView.findViewById(R.id.txtAudioExerciseDescription)
+        exerciseDescriptionTV.text = exerciseList[position].exerciseDescription
         return convertView
     }
 }
