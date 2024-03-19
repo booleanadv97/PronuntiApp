@@ -25,6 +25,8 @@ class AddImageExerciseViewModel : ViewModel() {
     private var imageId : String? = ""
     var exerciseName : String? = ""
     var exerciseDescription : String? = ""
+    private val _txtProgress = MutableLiveData<String>()
+    val txtProgress : LiveData<String> = _txtProgress
     private val _progressBarLevel = MutableLiveData<Int>()
     val progressBarLevel : LiveData<Int> = _progressBarLevel
     private val imgExercisesRef =
@@ -44,11 +46,14 @@ class AddImageExerciseViewModel : ViewModel() {
             .joinToString("")
 
     fun addImageExerciseToRTDB(exercise : String, description : String){
+        _progressBarLevel.value = 0
+        _txtProgress.value = "${_progressBarLevel.value}%"
         imgExercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (!snapshot.hasChild(exercise)) {
                     _exerciseResult.value = EXERCISE_STATUS_ONGOING
                     _progressBarLevel.value = 25
+                    _txtProgress.value = "${_progressBarLevel.value}%"
                     exerciseName = exercise
                     exerciseDescription = description
                     onCheckExerciseExists()
@@ -71,6 +76,7 @@ class AddImageExerciseViewModel : ViewModel() {
                 .child(imageId!!).downloadUrl.addOnSuccessListener { uri ->
                     imgUrl = uri.toString()
                     _progressBarLevel.value = 75
+                    _txtProgress.value = "${_progressBarLevel.value}%"
                     onImgUpload()
                 }
         }.addOnFailureListener {
@@ -89,6 +95,7 @@ class AddImageExerciseViewModel : ViewModel() {
             )
             .addOnSuccessListener {
                 _progressBarLevel.value = 100
+                _txtProgress.value = "${_progressBarLevel.value}%"
                 Log.d(
                     "$this -> Save exercise to RTDB", "Exercise $exerciseName saved to RTDB"
                 )

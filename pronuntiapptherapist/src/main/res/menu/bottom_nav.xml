@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home" android:id="@+id/home"
+    <item android:title="@string/therapist_home_page" android:id="@+id/home"
         android:icon="@drawable/baseline_home_24"
         />
-    <item android:title="Parents"
+    <item android:title="@string/therapist_parents_page"
         android:id="@+id/parents"
         android:icon="@drawable/baseline_accessibility_24"
         />
-    <item android:title="Exercises"
+    <item android:title="@string/therapist_exercises_page"
         android:id="@+id/exercises"
         android:icon="@drawable/baseline_book_24"/>
 
-    <item android:title="Appointments"
+    <item android:title="@string/therapist_appointments_page"
         android:id="@+id/appointments"
         android:icon="@drawable/baseline_calendar_month_24"/>
 

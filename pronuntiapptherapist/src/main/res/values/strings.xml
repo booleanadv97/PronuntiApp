@@ -18,7 +18,6 @@
     <string name="action_sign_out">Logout</string>
     <string name="invalid_input">Input non valido</string>
     <string name="registered_users">Utenti registrati: %1d.</string>
-    <string name="therapist_home_page">Home</string>
     <string name="image_exercises_land_text">Esercizi di denominazione</string>
     <string name="users_table_h1">Email</string>
     <string name="users_table_h2">Cognome</string>
@@ -69,5 +68,13 @@
     <!-- ManageParents-->
     <string name="txt_parents_list_desc">Lista genitori</string>
     <!-- -->
+
+    <!-- NavBar-->
+    <string name="therapist_home_page">Home</string>
+    <string name="therapist_parents_page">Parents</string>
+    <string name="therapist_exercises_page">Exercises</string>
+    <string name="therapist_appointments_page">Appointments</string>
+    <!-- -->
+
 
 </resources>

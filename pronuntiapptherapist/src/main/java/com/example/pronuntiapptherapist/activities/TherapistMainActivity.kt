@@ -14,12 +14,7 @@ import com.example.pronuntiapptherapist.fragments.ManageParentsFragment
 import com.example.pronuntiapptherapist.models.ConnectivityLiveData
 import com.google.android.material.snackbar.Snackbar
 
-val fragmentsTitle = arrayOf(
-    "Home",
-    "Manage parents",
-    "Manage exercises",
-    "Manage appointments"
-)
+
 class TherapistMainActivity : AppCompatActivity() {
     lateinit var binding : ActivityTherapistMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -15,10 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 
 class ManageExercisesFragment : Fragment() {
-    lateinit var gridView : GridView
     private lateinit var binding : FragmentManageExercisesBinding
-    private val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
-    private val imgExercisesRef = database.getReference("Image Exercises")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

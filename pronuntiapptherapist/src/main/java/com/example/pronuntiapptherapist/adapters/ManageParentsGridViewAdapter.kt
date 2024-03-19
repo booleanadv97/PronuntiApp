@@ -40,12 +40,15 @@ internal class ManageParentsGridViewAdapter(
         if (convertView == null) {
             convertView = layoutInflater!!.inflate(R.layout.manage_parents_gridview_item, null)
         }
+        val emailTvText = "E-mail: ${parentsList[position].email}"
         parentEmailTV = convertView!!.findViewById(R.id.txtEmail)
-        parentEmailTV.text = "E-mail: ${parentsList[position].email}"
-        parentFirstNameTV = convertView!!.findViewById(R.id.txtFirstName)
-        parentFirstNameTV.text = "Cognome: ${parentsList[position].firstName}"
-        parentLastNameTV = convertView!!.findViewById(R.id.txtLastName)
-        parentLastNameTV.text = "Nome: ${parentsList[position].lastName}"
+        parentEmailTV.text = emailTvText
+        val firstNameTvText = "Cognome: ${parentsList[position].firstName}"
+        parentFirstNameTV = convertView.findViewById(R.id.txtFirstName)
+        parentFirstNameTV.text = firstNameTvText
+        val lastNameTvText =  "Nome: ${parentsList[position].lastName}"
+        parentLastNameTV = convertView.findViewById(R.id.txtLastName)
+        parentLastNameTV.text = lastNameTvText
         return convertView
     }
 }

@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.AudioExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageAudioExercisesBinding
-import com.example.pronuntiapptherapist.fragments.ImageExercise.AddImageExerciseFragment
 import com.example.pronuntiapptherapist.models.AudioExercise.AudioExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

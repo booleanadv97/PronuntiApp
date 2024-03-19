@@ -27,6 +27,8 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
     private var altImageId : String? = ""
     private var imgAltUrl : String? = ""
     private var imgCorrectUrl : String? = ""
+    private val _txtProgress = MutableLiveData<String>()
+    val txtProgress : LiveData<String> = _txtProgress
     var exerciseName : String? = ""
     var exerciseDescription : String? = ""
     var imgAltName: String? = ""
@@ -46,6 +48,7 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
         )
     fun addExerciseToRTDB(name: String, description: String) {
         _progressBarLevel.value = 0
+        _txtProgress.value = "${_progressBarLevel.value}%"
         exercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(!snapshot.hasChild(name)){
@@ -70,6 +73,7 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
             storageRef.child("imageRecognitionExercises/$correctImageId").downloadUrl.addOnSuccessListener {
                 imgCorrectUrl = it.toString()
                 _progressBarLevel.value = 25
+                _txtProgress.value = "${_progressBarLevel.value}%"
                 addExerciseOnImageAltUpload()
             }
         }
@@ -80,6 +84,7 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
             storageRef.child("imageRecognitionExercises/$altImageId").downloadUrl.addOnSuccessListener {
                 imgAltUrl = it.toString()
                 _progressBarLevel.value = 50
+                _txtProgress.value = "${_progressBarLevel.value}%"
                 addExerciseOnMP4Upload()
             }
         }
@@ -92,6 +97,7 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
             downloadUrlTask.addOnSuccessListener { uri ->
                 audioUrl = uri.toString()
                 _progressBarLevel.value = 75
+                _txtProgress.value = "${_progressBarLevel.value}%"
                 addExercise()
             }
         }
@@ -109,6 +115,7 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
         exercisesRef.child(newExercise.exerciseName.toString()).setValue(newExercise)
             .addOnSuccessListener {
                 _progressBarLevel.value = 100
+                _txtProgress.value = "${_progressBarLevel.value}%"
                 Log.d("$this", "Added new exercise ${newExercise.exerciseName}")
             }.addOnFailureListener {
                 _addExerciseResult.value = "Failed to add exercise ${newExercise.exerciseName} $it"

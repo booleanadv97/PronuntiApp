@@ -21,11 +21,13 @@ import com.example.pronuntiapptherapist.databinding.FragmentAddAudioExerciseBind
 import com.example.pronuntiapptherapist.models.AudioExercise.AddAudioExerciseViewModel
 import java.io.File
 
+@Suppress("DEPRECATION")
 class AddAudioExerciseFragment : Fragment() {
     private lateinit var binding : FragmentAddAudioExerciseBinding
     private lateinit var viewModel: AddAudioExerciseViewModel
     private val REQUEST_MICROPHONE_PERMISSION = 1
     private lateinit var mediaRecorder: MediaRecorder
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1) {
@@ -81,10 +83,13 @@ class AddAudioExerciseFragment : Fragment() {
                                     containerView.addView(newView)
                                     val txtProgress = newView.findViewById<TextView>(R.id.txtProgress)
                                     val progressBar =  newView.findViewById<ProgressBar>(R.id.progressBarUpload)
-                                    viewModel.progressBarLevel.observe(viewLifecycleOwner){
-                                        progressBar.progress = it
-                                        if(it < 100)
-                                            txtProgress.text = "$it%"
+                                    viewModel.progressBarLevel.observe(viewLifecycleOwner){progressBarLevel ->
+                                        progressBar.progress = progressBarLevel
+                                        if(progressBarLevel < 100) {
+                                            viewModel.txtProgress.observe(viewLifecycleOwner) { text ->
+                                                txtProgress.text = text
+                                            }
+                                        }
                                         else {
                                             containerView.removeAllViews()
                                             fragmentManager?.popBackStack()

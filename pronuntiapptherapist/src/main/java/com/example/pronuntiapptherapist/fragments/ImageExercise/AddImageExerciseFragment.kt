@@ -18,6 +18,7 @@ import com.example.pronuntiapptherapist.databinding.FragmentAddImageExerciseBind
 import com.example.pronuntiapptherapist.models.ImageExercise.AddImageExerciseViewModel
 
 
+@Suppress("DEPRECATION")
 class AddImageExerciseFragment : Fragment() {
     private lateinit var viewModel : AddImageExerciseViewModel
     private lateinit var binding: FragmentAddImageExerciseBinding
@@ -62,10 +63,13 @@ class AddImageExerciseFragment : Fragment() {
                                 containerView.addView(newView)
                                 val txtProgress = newView.findViewById<TextView>(R.id.txtProgress)
                                 val progressBar =  newView.findViewById<ProgressBar>(R.id.progressBarUpload)
-                                viewModel.progressBarLevel.observe(viewLifecycleOwner){
-                                    progressBar.progress = it
-                                    if(it < 100)
-                                        txtProgress.text = "$it%"
+                                viewModel.progressBarLevel.observe(viewLifecycleOwner){progressBarLevel ->
+                                    progressBar.progress = progressBarLevel
+                                    if(progressBarLevel < 100){
+                                        viewModel.txtProgress.observe(viewLifecycleOwner){
+                                            text -> txtProgress.text = text
+                                        }
+                                    }
                                     else {
                                         containerView.removeAllViews()
                                         fragmentManager?.popBackStack()

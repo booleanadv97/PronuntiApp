@@ -24,6 +24,7 @@ import com.example.pronuntiapptherapist.databinding.FragmentAddImageRecognitionE
 import com.example.pronuntiapptherapist.models.ImageRecognitionExercise.AddImageRecognitionExerciseViewModel
 import java.io.File
 
+@Suppress("DEPRECATION")
 class AddImageRecognitionExerciseFragment : Fragment() {
     private lateinit var binding: FragmentAddImageRecognitionExerciseBinding
     private lateinit var viewModel: AddImageRecognitionExerciseViewModel
@@ -53,6 +54,7 @@ class AddImageRecognitionExerciseFragment : Fragment() {
                 }
             }
         }
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1) {
@@ -118,10 +120,13 @@ class AddImageRecognitionExerciseFragment : Fragment() {
                                     containerView.addView(newView)
                                     val txtProgress = newView.findViewById<TextView>(R.id.txtProgress)
                                     val progressBar =  newView.findViewById<ProgressBar>(R.id.progressBarUpload)
-                                    viewModel.progressBarLevel.observe(viewLifecycleOwner){
-                                        progressBar.progress = it
-                                        if(it < 100)
-                                            txtProgress.text = "$it%"
+                                    viewModel.progressBarLevel.observe(viewLifecycleOwner){progressBarLevel ->
+                                        progressBar.progress = progressBarLevel
+                                        if(progressBarLevel < 100) {
+                                            viewModel.txtProgress.observe(viewLifecycleOwner){
+                                                text -> txtProgress.text = text
+                                            }
+                                        }
                                         else {
                                             containerView.removeAllViews()
                                             fragmentManager?.popBackStack()
@@ -132,7 +137,7 @@ class AddImageRecognitionExerciseFragment : Fragment() {
                                     if(!binding.buttonSubmit.isEnabled)
                                         binding.buttonSubmit.isEnabled = true
                                     Toast.makeText(
-                                        context, "Errore: $it",
+                                        context, "Error: $it",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     observed = true

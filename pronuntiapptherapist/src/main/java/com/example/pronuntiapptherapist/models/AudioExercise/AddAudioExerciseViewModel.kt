@@ -26,6 +26,9 @@ class AddAudioExerciseViewModel : ViewModel() {
     private var audioUrl: String? = ""
     lateinit var outputMP4File: String
     lateinit var mp4Uri: Uri
+    private val _txtProgress = MutableLiveData<String>()
+    val txtProgress : LiveData<String> = _txtProgress
+
     var audioAnsId: String? = ""
     private val storageRef = Firebase.storage.reference
     private val _progressBarLevel = MutableLiveData<Int>()
@@ -38,6 +41,7 @@ class AddAudioExerciseViewModel : ViewModel() {
         )
     fun addExerciseToRTDB(name: String, description: String) {
         _progressBarLevel.value = 0
+        _txtProgress.value = "${_progressBarLevel.value}%"
         exercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(!snapshot.hasChild(name)){
@@ -62,7 +66,8 @@ class AddAudioExerciseViewModel : ViewModel() {
             val downloadUrlTask = audioRef.getDownloadUrl()
             downloadUrlTask.addOnSuccessListener { uri ->
                 audioUrl = uri.toString()
-                _progressBarLevel.value = 75
+                _progressBarLevel.value = 50
+                _txtProgress.value = "${_progressBarLevel.value}%"
                 addExercise()
             }
         }
@@ -76,6 +81,7 @@ class AddAudioExerciseViewModel : ViewModel() {
         exercisesRef.child(newExercise.exerciseName.toString()).setValue(newExercise)
             .addOnSuccessListener {
                 _progressBarLevel.value = 100
+                _txtProgress.value = "${_progressBarLevel.value}%"
                 Log.d("$this", "Added new exercise ${newExercise.exerciseName}")
             }.addOnFailureListener {
                 _addExerciseResult.value = "Failed to add exercise ${newExercise.exerciseName} $it"
@@ -91,19 +97,4 @@ class AddAudioExerciseViewModel : ViewModel() {
             .asSequence()
             .map(charPool::get)
             .joinToString("")
-
-    @SuppressLint("Range")
-    fun getFileName(context: Context, uri: Uri): String? {
-        if (uri.scheme == "content") {
-            val cursor = context.contentResolver.query(uri, null, null, null, null)
-            cursor.use {
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        return cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
-                    }
-                }
-            }
-        }
-        return uri.path?.lastIndexOf('/')?.let { uri.path?.substring(it) }
-    }
 }

@@ -1,11 +1,9 @@
 package com.example.pronuntiapptherapist.models
 
-import android.widget.AdapterView
-import android.widget.Toast
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.pronuntiapptherapist.adapters.ManageParentsGridViewAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
