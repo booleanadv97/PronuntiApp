@@ -1,18 +1,15 @@
 package com.example.pronuntiapptherapist.fragments.ImageExercise
 
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ImageExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageImageExercisesBinding
-import com.example.pronuntiapptherapist.fragments.AudioExercise.AudioExDetailsFragment
 import com.example.pronuntiapptherapist.models.ImageExercise.ImageExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

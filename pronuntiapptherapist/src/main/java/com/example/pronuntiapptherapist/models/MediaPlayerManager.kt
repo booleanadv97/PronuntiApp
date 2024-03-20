@@ -4,8 +4,7 @@ import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri
 
-class MediaPlayerManager(context: Context) {
-    val context = context
+class MediaPlayerManager(val context: Context) {
     var mediaPlayer: MediaPlayer? = null
 
     fun playAudio(audioPath: String) {
@@ -30,10 +29,4 @@ class MediaPlayerManager(context: Context) {
         }
     }
 
-    fun releaseMediaPlayer() {
-        if (mediaPlayer != null) {
-            mediaPlayer!!.release()
-            mediaPlayer = null
-        }
-    }
 }

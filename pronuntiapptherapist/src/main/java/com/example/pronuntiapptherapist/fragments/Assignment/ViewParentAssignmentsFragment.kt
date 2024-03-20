@@ -5,15 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.GridView
 import androidx.lifecycle.ViewModelProvider
-import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ViewAssignmentsGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentViewParentAssignmentsBinding
-import com.example.pronuntiapptherapist.fragments.AudioExercise.ManageAudioExercisesFragment
-import com.example.pronuntiapptherapist.fragments.ImageExercise.ManageImageExercisesFragment
-import com.example.pronuntiapptherapist.fragments.ImageRecognitionExercise.ManageImageRecognitionExercisesFragment
 import com.example.pronuntiapptherapist.models.Assignment.ViewAssignments
 
 class ViewParentAssignmentsFragment : Fragment() {

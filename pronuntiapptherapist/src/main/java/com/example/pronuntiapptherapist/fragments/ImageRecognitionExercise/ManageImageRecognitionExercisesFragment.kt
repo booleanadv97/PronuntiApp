@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ImageRecognitionExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageImageRecognitionExercisesBinding
-import com.example.pronuntiapptherapist.fragments.ImageExercise.ImageExDetailsFragment
 import com.example.pronuntiapptherapist.models.ImageRecognitionExercise.ImageRecognitionExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

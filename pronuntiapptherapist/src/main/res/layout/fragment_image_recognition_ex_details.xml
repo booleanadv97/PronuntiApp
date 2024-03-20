@@ -115,14 +115,14 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/audio_exercise_play"
-                        />
+                        tools:ignore="ButtonStyle" />
                     <Button
                         android:id="@+id/btnStop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/audio_exercise_stop"
-                        />
+                        tools:ignore="ButtonStyle" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
