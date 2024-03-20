@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ImageRecognitionExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageImageRecognitionExercisesBinding
+import com.example.pronuntiapptherapist.fragments.ImageExercise.ImageExDetailsFragment
 import com.example.pronuntiapptherapist.models.ImageRecognitionExercise.ImageRecognitionExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -45,10 +46,19 @@ class ManageImageRecognitionExercisesFragment : Fragment() {
                     val exerciseAdapter = context?.let { ImageRecognitionExerciseGridViewAdapter(exerciseList = exerciseList, it) }
                     gridView.adapter = exerciseAdapter
                     gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                        Toast.makeText(
-                            context, exerciseList[position].exerciseName + " selected",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        val bundle = Bundle()
+                        bundle.putString("exerciseName",exerciseList[position].exerciseName)
+                        bundle.putString("exerciseDescription",exerciseList[position].exerciseDescription)
+                        bundle.putString("urlAlternativeImage",exerciseList[position].urlAlternativeImage)
+                        bundle.putString("urlCorrectAnswerImage",exerciseList[position].urlCorrectAnswerImage)
+                        bundle.putString("audioUrl",exerciseList[position].audioUrl)
+                        val fragmentManager = requireActivity().supportFragmentManager
+                        val fragmentTransaction = fragmentManager.beginTransaction()
+                        val targetFragment = ImageRecognitionExDetailsFragment()
+                        targetFragment.arguments = bundle
+                        fragmentTransaction.replace(R.id.frameLayoutTherapist, targetFragment)
+                        fragmentTransaction.addToBackStack(null)
+                        fragmentTransaction.commit()
                     }
                 }
             }

@@ -63,6 +63,8 @@
 
     <!-- ManageAudioExercises-->
     <string name="txt_audio_exercises_land">Esercizi di ripetizione di sequenze di parole</string>
+    <string name="audio_exercise_play">Play</string>
+    <string name="audio_exercise_stop">Stop</string>
     <!-- -->
 
     <!-- ManageParents-->
@@ -74,7 +76,19 @@
     <string name="therapist_parents_page">Parents</string>
     <string name="therapist_exercises_page">Exercises</string>
     <string name="therapist_appointments_page">Appointments</string>
-    <!-- -->
-
+    <!-- Exercise details -->
+    <string name="ex_details_land_txt">Exercise details</string>
+    <string name="txt_image">Immagine</string>
+    <string name="correct_img_txt">Immagine corretta</string>
+    <string name="alt_img_txt">Immagine alternativa</string>
+    <string name="txt_audio_details">Audio</string>
+    <string name="txt_exercise_name">Nome esercizio</string>
+    <string name="txt_exercise_description">Descrizione esercizio</string>
+    <string name="assign_exercise_txt">Assegna esercizio</string>
+    <!-- AssignExercise -->
+    <string name="txt_choose_parent">Scegli il genitore del bambino</string>
+    <string name="txt_start_date">Scegli data inizio</string>
+    <string name="txt_end_date">Scegli data fine</string>
+    <string name="wrong_date">Errore: data inizio > data fine</string>
 
 </resources>

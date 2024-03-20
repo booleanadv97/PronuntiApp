@@ -23,6 +23,7 @@ class ManageParentsViewModel : ViewModel() {
                     for (child in snapshot.children) {
                         currentList = currentList + (
                             User(
+                                child.getValue<User>()?.userId,
                                 child.getValue<User>()?.email,
                                 child.getValue<User>()?.firstName,
                                 child.getValue<User>()?.lastName

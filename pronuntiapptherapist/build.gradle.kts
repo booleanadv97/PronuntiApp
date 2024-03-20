@@ -53,6 +53,7 @@ dependencies {
 
     // Feature module Support
     implementation (libs.androidx.navigation.dynamic.features.fragment)
+    implementation(libs.androidx.core)
 
     // Testing Navigation
     androidTestImplementation (libs.androidx.navigation.testing)

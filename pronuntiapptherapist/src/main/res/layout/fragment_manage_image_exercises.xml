@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/containerExercises"
-    tools:context="com.example.pronuntiapptherapist.fragments.ManageExercisesFragment">
+    android:id="@+id/containerImageExercises"
+    tools:context="com.example.pronuntiapptherapist.fragments.ImageExercise.ManageImageExercisesFragment">
 
     <TextView
         android:layout_width="wrap_content"

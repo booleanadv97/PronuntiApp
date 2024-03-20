@@ -63,7 +63,7 @@ class Register : AppCompatActivity() {
     private fun addUserToRTDB(uid : String, email : String, fName : String, lName : String){
         val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app/")
         val ref = database.getReference("/users/$uid")
-        val user = User(email, fName, lName)
+        val user = User(uid, email, fName, lName)
         ref.setValue(user)
                 .addOnSuccessListener {
                     Log.d("RegisterActivity", "New registration : userid: $uid - email: $email")

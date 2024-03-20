@@ -1,5 +1,6 @@
 package com.example.pronuntiapptherapist.fragments.ImageExercise
 
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ImageExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageImageExercisesBinding
+import com.example.pronuntiapptherapist.fragments.AudioExercise.AudioExDetailsFragment
 import com.example.pronuntiapptherapist.models.ImageExercise.ImageExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -41,10 +43,17 @@ class ManageImageExercisesFragment : Fragment() {
                     val exerciseAdapter = context?.let { ImageExerciseGridViewAdapter(exerciseList = exerciseList, it) }
                     gridView.adapter = exerciseAdapter
                     gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                        Toast.makeText(
-                            context, exerciseList[position].exerciseName + " selected",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        val bundle = Bundle()
+                        bundle.putString("exerciseName",exerciseList[position].exerciseName)
+                        bundle.putString("exerciseDescription",exerciseList[position].exerciseDescription)
+                        bundle.putString("imageUrl",exerciseList[position].url)
+                        val fragmentManager = requireActivity().supportFragmentManager
+                        val fragmentTransaction = fragmentManager.beginTransaction()
+                        val targetFragment = ImageExDetailsFragment()
+                        targetFragment.arguments = bundle
+                        fragmentTransaction.replace(R.id.frameLayoutTherapist, targetFragment)
+                        fragmentTransaction.addToBackStack(null)
+                        fragmentTransaction.commit()
                     }
                 }
             }

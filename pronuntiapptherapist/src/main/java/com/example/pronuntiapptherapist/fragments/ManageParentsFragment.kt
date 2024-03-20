@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapptherapist.adapters.ManageParentsGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageParentsBinding
@@ -16,12 +15,11 @@ import com.example.pronuntiapptherapist.models.ManageParentsViewModel
 
 class ManageParentsFragment : Fragment() {
     private lateinit var viewModel : ManageParentsViewModel
-    lateinit var gridView : GridView
+    private lateinit var gridView : GridView
     private lateinit var binding : FragmentManageParentsBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getParentsList()
         gridView = binding.gridViewExercises
         viewModel.getParentsList()
         viewModel.parentsList.observe(viewLifecycleOwner) {
@@ -31,10 +29,6 @@ class ManageParentsFragment : Fragment() {
             gridView.adapter = manageParentsAdapter
             gridView.onItemClickListener =
                 AdapterView.OnItemClickListener { _, _, position, _ ->
-                    Toast.makeText(
-                        context, list[position].email + " selected",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
         }
     }

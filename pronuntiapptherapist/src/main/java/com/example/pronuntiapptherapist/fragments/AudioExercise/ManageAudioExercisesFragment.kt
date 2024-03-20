@@ -1,5 +1,7 @@
 package com.example.pronuntiapptherapist.fragments.AudioExercise
 
+import AudioExerciseGridViewAdapter
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,51 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.adapters.AudioExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageAudioExercisesBinding
-import com.example.pronuntiapptherapist.models.AudioExercise.AudioExercise
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.getValue
+import com.example.pronuntiapptherapist.models.AudioExercise.ManageAudioExerciseViewModel
+
 
 class ManageAudioExercisesFragment : Fragment() {
-    lateinit var gridView : GridView
+    private lateinit var gridView : GridView
     private lateinit var binding : FragmentManageAudioExercisesBinding
-    private val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
-    private val audioExercisesRef = database.getReference("Audio Exercises")
+    private lateinit var viewModel : ManageAudioExerciseViewModel
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         gridView = binding.gridViewExercises
-        var exerciseList = listOf<AudioExercise>()
-        audioExercisesRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()) {
-                    for (child in snapshot.children) {
-                        exerciseList = exerciseList + AudioExercise(
-                            child.getValue<AudioExercise>()?.exerciseName,
-                            child.getValue<AudioExercise>()?.exerciseDescription,
-                            child.getValue<AudioExercise>()?.audioUrl,
-                            child.getValue<AudioExercise>()?.audioId
-                        )
-                    }
-                    val exerciseAdapter = context?.let { AudioExerciseGridViewAdapter(exerciseList = exerciseList, it) }
-                    gridView.adapter = exerciseAdapter
-                    gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                        Toast.makeText(
-                            context, exerciseList[position].exerciseName + " selected",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {
-            }
-        })
+        viewModel.getExerciseList()
         val addExerciseButton = binding.buttonAddExercise
         addExerciseButton.setOnClickListener {
             val fragmentManager = requireActivity().supportFragmentManager
@@ -60,12 +33,34 @@ class ManageAudioExercisesFragment : Fragment() {
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
+        viewModel.exerciseList.observe(viewLifecycleOwner) {
+                list ->
+            val exerciseAdapter =
+                context?.let { AudioExerciseGridViewAdapter(it, dataSource = list) }
+            gridView.adapter = exerciseAdapter
+            gridView.onItemClickListener =
+                AdapterView.OnItemClickListener { _, _, position, _ ->
+                    val bundle = Bundle()
+                    bundle.putString("exerciseName",list[position].exerciseName)
+                    bundle.putString("exerciseDescription",list[position].exerciseDescription)
+                    bundle.putString("audioUrl",list[position].audioUrl)
+                    bundle.putString("audioId",list[position].audioId)
+                    val fragmentManager = requireActivity().supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    val targetFragment = AudioExDetailsFragment()
+                    targetFragment.arguments = bundle
+                    fragmentTransaction.replace(R.id.frameLayoutTherapist, targetFragment)
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
+                }
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentManageAudioExercisesBinding.inflate(inflater)
+        viewModel = ViewModelProvider(this)[ManageAudioExerciseViewModel::class.java]
         return binding.root
     }
 }

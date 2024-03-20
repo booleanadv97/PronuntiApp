@@ -1,0 +1,58 @@
+package com.example.pronuntiapptherapist.models
+
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.getValue
+import java.util.UUID
+
+class AssignExerciseViewModel : ViewModel() {
+    val EXERCISE_RESULT_OK = "OK"
+    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    private val parentsRef = database.getReference("users")
+    private val assignedExercisesRef = database.getReference("Assigned Exercises")
+    var _parentsList : MutableLiveData<List<User>> = MutableLiveData(emptyList())
+    val parentsList : LiveData<List<User>> = _parentsList
+    private val _exerciseResult = MutableLiveData<String>()
+    val exerciseResult : LiveData<String> = _exerciseResult
+    fun assignExercise(parentId : String, exerciseType : String, exerciseName : String, startDate : String, endDate : String){
+        val newAssign = AssignedExercise(parentId, exerciseType, exerciseName, "", startDate, endDate, "")
+        val assignedId = UUID.randomUUID().toString()
+        assignedExercisesRef.child(assignedId).setValue(newAssign)
+            .addOnSuccessListener {
+                _exerciseResult.value = EXERCISE_RESULT_OK
+                Log.d("$this","Created new assign $assignedId")
+            }
+            .addOnFailureListener {
+                _exerciseResult.value = it.stackTraceToString()
+                Log.d("$this","Failed to create new assign $assignedId, ${it.stackTraceToString()}")
+            }
+    }
+    fun getParentsList(){
+        parentsRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var currentList = emptyList<User>()
+                if(snapshot.exists()) {
+                    for (child in snapshot.children) {
+                        currentList = currentList + (
+                                User(
+                                    child.getValue<User>()?.userId,
+                                    child.getValue<User>()?.email,
+                                    child.getValue<User>()?.firstName,
+                                    child.getValue<User>()?.lastName
+                                )
+                                )
+                        _parentsList.postValue(currentList)
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+    }
+}
