@@ -90,5 +90,7 @@
     <string name="txt_start_date">Scegli data inizio</string>
     <string name="txt_end_date">Scegli data fine</string>
     <string name="wrong_date">Errore: data inizio > data fine</string>
+    <!-- ViewParentAssignments -->
+    <string name="txt_view_assigned_lang">Esercizi assegnati</string>
 
 </resources>

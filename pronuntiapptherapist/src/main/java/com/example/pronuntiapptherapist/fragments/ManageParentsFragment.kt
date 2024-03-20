@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
 import androidx.lifecycle.ViewModelProvider
+import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ManageParentsGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageParentsBinding
+import com.example.pronuntiapptherapist.fragments.Assignment.ViewParentAssignmentsFragment
 import com.example.pronuntiapptherapist.models.ManageParentsViewModel
 
 
@@ -29,6 +31,15 @@ class ManageParentsFragment : Fragment() {
             gridView.adapter = manageParentsAdapter
             gridView.onItemClickListener =
                 AdapterView.OnItemClickListener { _, _, position, _ ->
+                    val bundle = Bundle()
+                    bundle.putString("parentId",list[position].userId)
+                    val fragmentManager = requireActivity().supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    val targetFragment = ViewParentAssignmentsFragment()
+                    targetFragment.arguments = bundle
+                    fragmentTransaction.replace(R.id.frameLayoutTherapist, targetFragment)
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
                 }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.fragments
+package com.example.pronuntiapptherapist.fragments.Assignment
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ManageParentsGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentAssignExerciseBinding
-import com.example.pronuntiapptherapist.models.AssignExerciseViewModel
+import com.example.pronuntiapptherapist.models.Assignment.AssignExerciseViewModel
 import java.util.Calendar
 
 class AssignExercise : Fragment() {

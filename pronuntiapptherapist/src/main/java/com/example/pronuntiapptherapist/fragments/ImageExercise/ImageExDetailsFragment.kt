@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentImageExDetailsBinding
-import com.example.pronuntiapptherapist.fragments.AssignExercise
+import com.example.pronuntiapptherapist.fragments.Assignment.AssignExercise
 import com.squareup.picasso.Picasso
 
 class ImageExDetailsFragment : Fragment() {
