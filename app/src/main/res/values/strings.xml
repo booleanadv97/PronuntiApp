@@ -18,22 +18,36 @@
     <string name="action_sign_out">Logout</string>
     <string name="invalid_input">Input non valido</string>
     <string name="registered_users">Utenti registrati: %1d.</string>
-    <string name="therapist_home_page">Home</string>
-    <string name="therapist_exercises_page">Exercises</string>
+    <string name="home_page_txt_land">Home</string>
+    <string name="assignments_txt_land">Compiti</string>
     <string name="users_table_h1">Email</string>
     <string name="users_table_h2">Cognome</string>
     <string name="users_table_h3">Nome</string>
 
-    <!-- Home-->
+    <!-- HomeParent-->
     <string name="continue_as_parent">Continua come genitore</string>
     <string name="continue_as_patient">Continua come paziente</string>
     <!-- -->
     <!-- Appointments -->
-    <string name="nav_bar_appointments_txt">Appointments</string>
+    <string name="nav_bar_appointments_txt">Appuntamenti</string>
     <string name="no_appointments">Non hai alcun appuntamento</string>
     <string name="appointments_land_txt">Lista appuntamenti</string>
     <string name="appointment_date_txt">Data appuntamento</string>
     <string name="appointment_hour_txt">Ora appuntamento</string>
     <string name="btn_add_appointment_txt">Aggiungi appuntamento</string>
     <string name="appointment_check_txt">Appuntamento approvato</string>
+
+    <!-- Assignments -->
+    <string name="txt_exercise_name">Nome esercizio</string>
+    <string name="txt_view_assigned_lang">Lista compiti</string>
+    <string name="txtStartDateTxt">Data inizio</string>
+    <string name="txtEndDateTxt">Data fine</string>
+    <string name="txtExerciseTypeTxt">Tipologia</string>
+
+    <!-- HomePatient -->
+    <string name="home_patient_txt_land">Bentornato!</string>
+    <string name="patient_button_start_txt">INIZIA</string>
+    <string name="patient_change_char_button_txt">CAMBIA PERSONAGGIO</string>
+    <string name="patient_top_button_txt">CLASSIFICA</string>
+    <!--  -->
 </resources>

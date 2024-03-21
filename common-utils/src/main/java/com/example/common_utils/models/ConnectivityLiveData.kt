@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.models
+package com.example.common_utils.models
 
 import android.content.Context
 import android.net.ConnectivityManager

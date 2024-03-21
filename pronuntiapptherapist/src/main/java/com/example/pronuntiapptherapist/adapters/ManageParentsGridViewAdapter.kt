@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.example.common_utils.models.User
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.models.User
 
 
 internal class ManageParentsGridViewAdapter(

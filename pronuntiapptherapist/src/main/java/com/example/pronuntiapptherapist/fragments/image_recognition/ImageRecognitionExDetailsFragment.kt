@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentImageRecognitionExDetailsBinding
 import com.example.pronuntiapptherapist.fragments.assignment.AssignExercise
-import com.example.pronuntiapptherapist.models.MediaPlayerManager
+import com.example.common_utils.models.MediaPlayerManager
 import com.squareup.picasso.Picasso
 
 class ImageRecognitionExDetailsFragment : Fragment() {

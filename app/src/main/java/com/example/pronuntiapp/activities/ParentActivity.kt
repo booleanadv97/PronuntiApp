@@ -5,12 +5,12 @@ import android.net.wifi.WifiManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.common_utils.models.ConnectivityLiveData
 import com.example.pronuntiapp.R
 import com.example.pronuntiapp.databinding.ActivityParentBinding
 import com.example.pronuntiapp.fragments.AppointmentsFragment
-import com.example.pronuntiapp.fragments.ExercisesFragment
+import com.example.pronuntiapp.fragments.AssignmentsFragment
 import com.example.pronuntiapp.fragments.HomeFragment
-import com.example.pronuntiapp.models.ConnectivityLiveData
 import com.google.android.material.snackbar.Snackbar
 
 class ParentActivity : AppCompatActivity() {
@@ -19,6 +19,7 @@ class ParentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityParentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(HomeFragment())
         val connectivityLiveData = ConnectivityLiveData(this)
         connectivityLiveData.observe(this) { isConnected ->
             if (!isConnected) {
@@ -38,7 +39,7 @@ class ParentActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.appointments -> replaceFragment(AppointmentsFragment())
-                R.id.exercises -> replaceFragment(ExercisesFragment())
+                R.id.assignments -> replaceFragment(AssignmentsFragment())
                 else -> {}
             }
             true

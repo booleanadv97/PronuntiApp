@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.models.audio
+package com.example.common_utils.models
 
 data class AudioExercise(
     val exerciseName : String? = "",

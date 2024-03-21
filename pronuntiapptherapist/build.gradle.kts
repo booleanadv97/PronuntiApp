@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":common-utils"))
     implementation(libs.firebase.storage)
 
     // Java language implementation

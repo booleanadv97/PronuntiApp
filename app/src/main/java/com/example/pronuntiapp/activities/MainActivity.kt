@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, ParentActivity::class.java))
             }
             binding.buttonContinueAsPatient.setOnClickListener{
-
+                startActivity(Intent(this, PatientActivity::class.java))
             }
         }else {
             startActivity(Intent(this, Login::class.java))

@@ -4,6 +4,7 @@ package com.example.pronuntiapptherapist.models
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.common_utils.models.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -21,14 +22,7 @@ class ManageParentsViewModel : ViewModel() {
                 var currentList = emptyList<User>()
                 if(snapshot.exists()) {
                     for (child in snapshot.children) {
-                        currentList = currentList + (
-                            User(
-                                child.getValue<User>()?.userId,
-                                child.getValue<User>()?.email,
-                                child.getValue<User>()?.firstName,
-                                child.getValue<User>()?.lastName
-                            )
-                        )
+                        currentList = currentList + child.getValue<User>()!!
                         _parentsList.postValue(currentList)
                     }
                 }

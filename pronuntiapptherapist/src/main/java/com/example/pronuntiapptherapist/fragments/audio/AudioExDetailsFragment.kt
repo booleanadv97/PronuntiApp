@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentAudioExDetailsBinding
 import com.example.pronuntiapptherapist.fragments.assignment.AssignExercise
-import com.example.pronuntiapptherapist.models.MediaPlayerManager
+import com.example.common_utils.models.MediaPlayerManager
 
 class AudioExDetailsFragment : Fragment() {
     private lateinit var binding : FragmentAudioExDetailsBinding

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ImageRecognitionExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageImageRecognitionExercisesBinding
-import com.example.pronuntiapptherapist.models.image_recognition.ImageRecognitionExercise
+import com.example.common_utils.models.ImageRecognitionExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.models.audio.AudioExercise
+import com.example.common_utils.models.AudioExercise
 
 class AudioExerciseGridViewAdapter(private val context: Context,
                                    private val dataSource: List<AudioExercise>) : BaseAdapter() {

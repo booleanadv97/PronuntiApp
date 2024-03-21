@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/therapist_home_page"
+    <item android:title="@string/home_page_txt_land"
         android:id="@+id/home"
         android:icon="@drawable/baseline_home_24"
         />
-    <item android:title="@string/therapist_exercises_page"
-        android:id="@+id/exercises"
+    <item android:title="@string/assignments_txt_land"
+        android:id="@+id/assignments"
         android:icon="@drawable/baseline_book_24"/>
     <item android:title="@string/nav_bar_appointments_txt"
         android:id="@+id/appointments"

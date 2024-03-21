@@ -11,7 +11,7 @@ import com.example.pronuntiapptherapist.fragments.HomeFragment
 import com.example.pronuntiapptherapist.fragments.ManageExercisesFragment
 import com.example.pronuntiapptherapist.fragments.ManageParentsFragment
 import com.example.pronuntiapptherapist.fragments.appointment.AppointmentsFragment
-import com.example.pronuntiapptherapist.models.ConnectivityLiveData
+import com.example.common_utils.models.ConnectivityLiveData
 import com.google.android.material.snackbar.Snackbar
 
 

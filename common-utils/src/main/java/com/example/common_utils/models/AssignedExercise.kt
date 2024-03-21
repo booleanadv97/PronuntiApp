@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.models.assignment
+package com.example.common_utils.models
 
 data class AssignedExercise(
     val userId : String? = "",

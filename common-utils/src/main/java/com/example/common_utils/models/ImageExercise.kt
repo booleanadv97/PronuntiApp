@@ -1,4 +1,4 @@
-package com.example.pronuntiapptherapist.models.image
+package com.example.common_utils.models
 
 data class ImageExercise(
     val exerciseName : String? = "",

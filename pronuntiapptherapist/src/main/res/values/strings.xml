@@ -74,9 +74,9 @@
 
     <!-- NavBar-->
     <string name="therapist_home_page">Home</string>
-    <string name="therapist_parents_page">Parents</string>
-    <string name="therapist_exercises_page">Exercises</string>
-    <string name="therapist_appointments_page">Appointments</string>
+    <string name="therapist_parents_page">Genitori</string>
+    <string name="therapist_exercises_page">Esercizi</string>
+    <string name="therapist_appointments_page">Appuntamenti</string>
     <!-- Exercise details -->
     <string name="ex_details_land_txt">Exercise details</string>
     <string name="txt_image">Immagine</string>
@@ -101,5 +101,6 @@
     <string name="appointment_hour_txt">Ora appuntamento</string>
     <string name="btn_add_appointment_txt">Aggiungi appuntamento</string>
     <string name="appointment_check_txt">Appuntamento approvato</string>
-
+    <!-- AddAppointment -->
+    <string name="choose_appointment_date">Scegli data appuntamento</string>
 </resources>

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ImageExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageImageExercisesBinding
-import com.example.pronuntiapptherapist.models.image.ImageExercise
+import com.example.common_utils.models.ImageExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase

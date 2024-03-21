@@ -1,4 +1,4 @@
-package com.example.pronuntiapp.models.appointment
+package com.example.common_utils.models
 
 data class Appointment(
     val appointmentId : String ? = "",

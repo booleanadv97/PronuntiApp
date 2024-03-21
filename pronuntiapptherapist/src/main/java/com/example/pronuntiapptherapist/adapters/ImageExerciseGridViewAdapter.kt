@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.models.image.ImageExercise
+import com.example.common_utils.models.ImageExercise
 import com.squareup.picasso.Picasso
 
 

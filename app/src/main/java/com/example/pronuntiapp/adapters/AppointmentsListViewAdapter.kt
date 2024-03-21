@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.pronuntiapp.R
-import com.example.pronuntiapp.models.appointment.Appointment
+import com.example.common_utils.models.Appointment
 
 class AppointmentsListViewAdapter(private val context: Context,
                                    private val appointmentsList: List<Appointment>) : BaseAdapter() {

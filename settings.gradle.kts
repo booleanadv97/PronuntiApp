@@ -23,3 +23,4 @@ rootProject.name = "PronuntiApp"
 include(":app")
 include(":app:model")
 include(":pronuntiapptherapist")
+include(":common-utils")
