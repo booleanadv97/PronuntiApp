@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.ActivityTherapistMainBinding
 import com.example.pronuntiapptherapist.fragments.HomeFragment
-import com.example.pronuntiapptherapist.fragments.ManageAppointmentsFragment
 import com.example.pronuntiapptherapist.fragments.ManageExercisesFragment
 import com.example.pronuntiapptherapist.fragments.ManageParentsFragment
+import com.example.pronuntiapptherapist.fragments.appointment.AppointmentsFragment
 import com.example.pronuntiapptherapist.models.ConnectivityLiveData
 import com.google.android.material.snackbar.Snackbar
 
@@ -42,7 +42,7 @@ class TherapistMainActivity : AppCompatActivity() {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.parents -> replaceFragment(ManageParentsFragment())
                 R.id.exercises -> replaceFragment(ManageExercisesFragment())
-                R.id.appointments -> replaceFragment(ManageAppointmentsFragment())
+                R.id.appointments -> replaceFragment(AppointmentsFragment())
                 else -> {}
             }
             true

@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentManageExercisesBinding
-import com.example.pronuntiapptherapist.fragments.AudioExercise.ManageAudioExercisesFragment
-import com.example.pronuntiapptherapist.fragments.ImageExercise.ManageImageExercisesFragment
-import com.example.pronuntiapptherapist.fragments.ImageRecognitionExercise.ManageImageRecognitionExercisesFragment
+import com.example.pronuntiapptherapist.fragments.audio.ManageAudioExercisesFragment
+import com.example.pronuntiapptherapist.fragments.image.ManageImageExercisesFragment
+import com.example.pronuntiapptherapist.fragments.image_recognition.ManageImageRecognitionExercisesFragment
 
 
 class ManageExercisesFragment : Fragment() {

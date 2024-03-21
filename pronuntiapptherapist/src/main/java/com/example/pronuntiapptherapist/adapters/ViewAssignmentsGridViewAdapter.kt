@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.pronuntiapptherapist.R
-import com.example.pronuntiapptherapist.models.Assignment.AssignedExercise
+import com.example.pronuntiapptherapist.models.assignment.AssignedExercise
 
 
 internal class ViewAssignmentsGridViewAdapter(

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/therapist_home_page"
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_home_24"
+        />
+    <item android:title="@string/therapist_exercises_page"
+        android:id="@+id/exercises"
+        android:icon="@drawable/baseline_book_24"/>
+    <item android:title="@string/nav_bar_appointments_txt"
+        android:id="@+id/appointments"
+        android:icon="@drawable/baseline_calendar_month_24"/>
+
+</menu>

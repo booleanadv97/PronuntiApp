@@ -27,7 +27,7 @@
     <string name="fill_fields">Compila tutti i campi richiesti</string>
     <string name="exercise_added">Esercizio aggiunto con successo</string>
     <string name="exercise_not_added">Errore! L\'esercizio non è stato aggiunto</string>
-
+    <string name="no_exercises">Non ci sono esercizi registrati nel sistema</string>
     <!-- AddImageExercise -->
     <string name="textViewExerciseName_text">Nome esercizio</string>
     <string name="editTextImageExerciseName_hint">Inserisci nome esercizio</string>
@@ -69,6 +69,7 @@
 
     <!-- ManageParents-->
     <string name="txt_parents_list_desc">Lista genitori</string>
+    <string name="no_parents">Non ci sono genitori presenti nel sistema</string>
     <!-- -->
 
     <!-- NavBar-->
@@ -92,5 +93,13 @@
     <string name="wrong_date">Errore: data inizio > data fine</string>
     <!-- ViewParentAssignments -->
     <string name="txt_view_assigned_lang">Esercizi assegnati</string>
+    <!-- Appointments -->
+    <string name="nav_bar_appointments_txt">Appointments</string>
+    <string name="no_appointments">Non hai alcun appuntamento</string>
+    <string name="appointments_land_txt">Lista appuntamenti</string>
+    <string name="appointment_date_txt">Data appuntamento</string>
+    <string name="appointment_hour_txt">Ora appuntamento</string>
+    <string name="btn_add_appointment_txt">Aggiungi appuntamento</string>
+    <string name="appointment_check_txt">Appuntamento approvato</string>
 
 </resources>

@@ -1,17 +1,17 @@
 package com.example.pronuntiapptherapist.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ManageParentsGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageParentsBinding
-import com.example.pronuntiapptherapist.fragments.Assignment.ViewParentAssignmentsFragment
+import com.example.pronuntiapptherapist.fragments.assignment.ViewParentAssignmentsFragment
 import com.example.pronuntiapptherapist.models.ManageParentsViewModel
 
 
@@ -26,6 +26,10 @@ class ManageParentsFragment : Fragment() {
         viewModel.getParentsList()
         viewModel.parentsList.observe(viewLifecycleOwner) {
             list ->
+            if(list.isEmpty())
+                binding.txtParentsList.text = requireActivity().resources.getString(R.string.no_parents)
+            else
+                binding.txtParentsList.text = requireActivity().resources.getString(R.string.txt_parents_list_desc)
             val manageParentsAdapter =
                 context?.let { ManageParentsGridViewAdapter(parentsList = list, it) }
             gridView.adapter = manageParentsAdapter

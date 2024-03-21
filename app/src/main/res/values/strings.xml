@@ -24,4 +24,16 @@
     <string name="users_table_h2">Cognome</string>
     <string name="users_table_h3">Nome</string>
 
+    <!-- Home-->
+    <string name="continue_as_parent">Continua come genitore</string>
+    <string name="continue_as_patient">Continua come paziente</string>
+    <!-- -->
+    <!-- Appointments -->
+    <string name="nav_bar_appointments_txt">Appointments</string>
+    <string name="no_appointments">Non hai alcun appuntamento</string>
+    <string name="appointments_land_txt">Lista appuntamenti</string>
+    <string name="appointment_date_txt">Data appuntamento</string>
+    <string name="appointment_hour_txt">Ora appuntamento</string>
+    <string name="btn_add_appointment_txt">Aggiungi appuntamento</string>
+    <string name="appointment_check_txt">Appuntamento approvato</string>
 </resources>
