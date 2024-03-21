@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import android.net.Network
 import androidx.lifecycle.LiveData
 
-class ConnectivityLiveData(private val context: Context) : LiveData<Boolean>() {
+class ConnectivityLiveData(context: Context) : LiveData<Boolean>() {
 
     private val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
