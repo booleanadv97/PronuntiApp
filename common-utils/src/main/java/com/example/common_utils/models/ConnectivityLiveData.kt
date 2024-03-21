@@ -1,5 +1,6 @@
 package com.example.common_utils.models
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
@@ -19,6 +20,7 @@ class ConnectivityLiveData(private val context: Context) : LiveData<Boolean>() {
         }
     }
 
+    @SuppressLint("MissingPermission")
     override fun onActive() {
         super.onActive()
         connectivityManager.registerDefaultNetworkCallback(networkCallback)
