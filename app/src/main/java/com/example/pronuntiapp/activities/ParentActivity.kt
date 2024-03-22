@@ -19,7 +19,8 @@ class ParentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityParentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(HomeFragment())
+        if(savedInstanceState == null)
+            replaceFragment(HomeFragment())
         val connectivityLiveData = ConnectivityLiveData(this)
         connectivityLiveData.observe(this) { isConnected ->
             if (!isConnected) {
@@ -48,7 +49,7 @@ class ParentActivity : AppCompatActivity() {
     private fun replaceFragment(fragment : Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayoutMain, fragment)
+        fragmentTransaction.replace(R.id.frameLayoutParent, fragment)
         fragmentTransaction.commit()
     }
 }

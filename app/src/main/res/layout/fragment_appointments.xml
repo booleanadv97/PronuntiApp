@@ -23,6 +23,7 @@
         <ListView
             android:id="@+id/listViewAppointments"
             android:layout_width="match_parent"
+            android:nestedScrollingEnabled="true"
             android:layout_height="400dp" />
 
         <Button

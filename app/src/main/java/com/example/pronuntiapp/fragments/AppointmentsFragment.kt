@@ -2,6 +2,7 @@ package com.example.pronuntiapp.fragments
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,11 @@ class AppointmentsFragment : Fragment() {
     private lateinit var binding : FragmentAppointmentsBinding
     private lateinit var viewModel : AppointmentsViewModel
     private lateinit var listView : ListView
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        viewModel = ViewModelProvider(this)[AppointmentsViewModel::class.java]
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mAuth = FirebaseAuth.getInstance()
@@ -86,7 +92,6 @@ class AppointmentsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAppointmentsBinding.inflate(inflater)
-        viewModel = ViewModelProvider(this)[AppointmentsViewModel::class.java]
         return binding.root
     }
 }

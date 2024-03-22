@@ -12,6 +12,7 @@
         android:layout_height="487dp"
         android:horizontalSpacing="6dp"
         android:numColumns="1"
+        android:nestedScrollingEnabled="true"
         android:verticalSpacing="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,6 +8,7 @@
 
     <GridView
         android:id="@+id/gridViewExercises"
+        android:nestedScrollingEnabled="true"
         android:layout_width="374dp"
         android:layout_height="487dp"
         android:horizontalSpacing="6dp"

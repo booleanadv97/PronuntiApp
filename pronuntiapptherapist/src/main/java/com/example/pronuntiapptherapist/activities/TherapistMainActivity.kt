@@ -5,13 +5,13 @@ import android.net.wifi.WifiManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.common_utils.models.ConnectivityLiveData
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.ActivityTherapistMainBinding
 import com.example.pronuntiapptherapist.fragments.HomeFragment
 import com.example.pronuntiapptherapist.fragments.ManageExercisesFragment
 import com.example.pronuntiapptherapist.fragments.ManageParentsFragment
 import com.example.pronuntiapptherapist.fragments.appointment.AppointmentsFragment
-import com.example.common_utils.models.ConnectivityLiveData
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -36,7 +36,8 @@ class TherapistMainActivity : AppCompatActivity() {
         }
         binding = ActivityTherapistMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(HomeFragment())
+        if(savedInstanceState == null)
+            replaceFragment(HomeFragment())
         binding.bottomNavigationView.setOnItemSelectedListener{
             when(it.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())

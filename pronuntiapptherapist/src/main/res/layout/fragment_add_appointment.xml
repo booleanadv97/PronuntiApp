@@ -18,6 +18,7 @@
         android:text="@string/txt_choose_parent" />
 
     <GridView
+        android:nestedScrollingEnabled="true"
         android:id="@+id/gridViewParents"
         android:layout_width="match_parent"
         android:layout_height="450dp" />
