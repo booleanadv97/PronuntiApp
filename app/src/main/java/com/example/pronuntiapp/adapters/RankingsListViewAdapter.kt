@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.example.common_utils.models.User
 import com.example.pronuntiapp.R
 
+@Suppress("DEPRECATION")
 class RankingsListViewAdapter(private val context: Context,
                               private val userList: List<User>) : BaseAdapter() {
 
@@ -31,7 +32,6 @@ class RankingsListViewAdapter(private val context: Context,
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val rowView = inflater.inflate(R.layout.rankings_listview_item, parent, false)
-        val user : User = getItem(position)
         val txtRank: TextView = rowView.findViewById(R.id.txtRank)
         val rank = position + 1
         val txtPoints : TextView = rowView.findViewById(R.id.txtPoints)

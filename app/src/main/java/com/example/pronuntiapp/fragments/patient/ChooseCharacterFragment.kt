@@ -25,7 +25,7 @@ class ChooseCharacterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getPatientPoints(currentUser)
         viewModel.patientPoints.observe(viewLifecycleOwner) { value ->
-            val txtPoints: String =
+            val txtPoints =
                 "${requireActivity().resources.getString(R.string.patient_points_txt)} :  ${value.toString()}"
             binding.patientPoints.text = txtPoints
         }
