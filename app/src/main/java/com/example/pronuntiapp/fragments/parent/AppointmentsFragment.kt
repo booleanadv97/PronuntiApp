@@ -1,4 +1,4 @@
-package com.example.pronuntiapp.fragments
+package com.example.pronuntiapp.fragments.parent
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapp.R
 import com.example.pronuntiapp.adapters.AppointmentsListViewAdapter
 import com.example.pronuntiapp.databinding.FragmentAppointmentsBinding
-import com.example.pronuntiapp.models.appointment.AppointmentsViewModel
+import com.example.pronuntiapp.models.parent.appointment.AppointmentsViewModel
 import com.google.firebase.auth.FirebaseAuth
 import java.util.Calendar
 

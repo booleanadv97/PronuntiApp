@@ -1,4 +1,4 @@
-package com.example.pronuntiapp.fragments
+package com.example.pronuntiapp.fragments.parent
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.pronuntiapp.adapters.ViewAssignmentsGridViewAdapter
 import com.example.pronuntiapp.databinding.FragmentAssignmentsBinding
-import com.example.pronuntiapp.models.assignment.ViewAssignments
+import com.example.pronuntiapp.models.parent.assignment.ViewAssignments
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 

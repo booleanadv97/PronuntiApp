@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import com.example.common_utils.models.ConnectivityLiveData
 import com.example.pronuntiapp.R
 import com.example.pronuntiapp.databinding.ActivityParentBinding
-import com.example.pronuntiapp.fragments.AppointmentsFragment
-import com.example.pronuntiapp.fragments.AssignmentsFragment
-import com.example.pronuntiapp.fragments.HomeFragment
+import com.example.pronuntiapp.fragments.parent.AppointmentsFragment
+import com.example.pronuntiapp.fragments.parent.AssignmentsFragment
+import com.example.pronuntiapp.fragments.parent.HomeFragment
 import com.google.android.material.snackbar.Snackbar
 
 class ParentActivity : AppCompatActivity() {

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.gms.google-services")
 }
-
+val lottieVersion = "3.4.0"
 android {
     namespace = "com.example.pronuntiapp"
     compileSdk = 34
@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.lottie)
     implementation(project(":common-utils"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

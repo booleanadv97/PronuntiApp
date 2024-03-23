@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/containerExercises"
-    tools:context="com.example.pronuntiapp.fragments.AssignmentsFragment">
+    tools:context="com.example.pronuntiapp.fragments.parent.AssignmentsFragment">
 
     <GridView
         android:id="@+id/gridViewExercises"

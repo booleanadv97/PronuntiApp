@@ -1,4 +1,4 @@
-package com.example.pronuntiapp.fragments
+package com.example.pronuntiapp.fragments.parent
 
 import android.os.Bundle
 import android.view.LayoutInflater

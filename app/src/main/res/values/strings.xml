@@ -49,5 +49,13 @@
     <string name="patient_button_start_txt">INIZIA</string>
     <string name="patient_change_char_button_txt">CAMBIA PERSONAGGIO</string>
     <string name="patient_top_button_txt">CLASSIFICA</string>
+    <!-- ChangeCharacter-->
+    <string name="change_character_txt">Scegli il tuo personaggio</string>
+    <string name="patient_points_txt">I tuoi punti</string>
+    <!-- Rankings -->
+    <string name="txt_rankings_land">Classifica</string>
+    <string name="txt_rankings_position">Rank</string>
+    <string name="txt_rankings_user">Utente</string>
+    <string name="txt_rankings_points">Punti</string>
     <!--  -->
 </resources>

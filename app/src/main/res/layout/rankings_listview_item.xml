@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/characters_prices_bg"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
+        <TextView
+            android:id="@+id/txtRank"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:shadowColor="@color/black"
+            android:shadowRadius="20"
+            android:text="@string/txt_rankings_position"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="RtlHardcoded" />
+
+
+        <TextView
+            android:id="@+id/txtUser"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:shadowColor="@color/black"
+            android:shadowRadius="20"
+            android:text="@string/txt_rankings_user"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtPoints"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:shadowColor="@color/black"
+            android:shadowRadius="20"
+            android:text="@string/txt_rankings_position"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="RtlHardcoded" />
+</androidx.cardview.widget.CardView>

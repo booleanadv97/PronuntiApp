@@ -1,4 +1,4 @@
-package com.example.pronuntiapp.models.assignment
+package com.example.pronuntiapp.models.parent.assignment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

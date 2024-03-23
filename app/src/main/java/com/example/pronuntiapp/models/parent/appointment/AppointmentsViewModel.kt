@@ -1,4 +1,4 @@
-package com.example.pronuntiapp.models.appointment
+package com.example.pronuntiapp.models.parent.appointment
 
 import android.util.Log
 import androidx.lifecycle.LiveData
