@@ -23,6 +23,7 @@
     <string name="users_table_h1">Email</string>
     <string name="users_table_h2">Cognome</string>
     <string name="users_table_h3">Nome</string>
+    <string name="no_assignments">Non hai esercizi da svolgere per oggi!</string>
 
     <!-- HomeParent-->
     <string name="continue_as_parent">Continua come genitore</string>
@@ -57,5 +58,14 @@
     <string name="txt_rankings_position">Rank</string>
     <string name="txt_rankings_user">Utente</string>
     <string name="txt_rankings_points">Punti</string>
+
+    <!-- ExerciseReward -->
+    <string name="txt_reward_land">Ricompensa:</string>
+    <string name="txt_earned_points">Hai guadagnato 2 punti!</string>
+    <!-- PlayImageExercise -->
+    <string name="txt_img_ex_instructions">Tieni premuta l\'icona accanto per rispondere</string>
+
+    <!-- ChooseExercise -->
+    <string name="txt_choose_exercise">Muoviti verso un nemico per iniziare gli esercizi!</string>
     <!--  -->
 </resources>

@@ -17,9 +17,9 @@ import com.google.firebase.auth.auth
 class ChooseCharacterFragment : Fragment() {
     private lateinit var binding: FragmentChooseCharacterBinding
     private lateinit var viewModel: ChooseCharacterViewModel
-    private lateinit var hero_1: LottieAnimationView
-    private lateinit var hero_2: LottieAnimationView
-    private lateinit var hero_3: LottieAnimationView
+    private lateinit var hero1: LottieAnimationView
+    private lateinit var hero2: LottieAnimationView
+    private lateinit var hero3: LottieAnimationView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val currentUser: String = Firebase.auth.currentUser?.uid!!
         super.onViewCreated(view, savedInstanceState)
@@ -32,10 +32,10 @@ class ChooseCharacterFragment : Fragment() {
         binding.txtPriceHero1.text = viewModel.prices["hero_1"].toString()
         binding.txtPriceHero2.text = viewModel.prices["hero_2"].toString()
         binding.txtPriceHero3.text = viewModel.prices["hero_3"].toString()
-        hero_1 = binding.hero1
-        hero_2 = binding.hero2
-        hero_3 = binding.hero3
-        hero_1.setOnClickListener {
+        hero1 = binding.hero1
+        hero2 = binding.hero2
+        hero3 = binding.hero3
+        hero1.setOnClickListener {
             viewModel.changeCharacter(currentUser, "hero_1")
             viewModel.changeResult.observe(viewLifecycleOwner) {
                 if (it.isNotEmpty()) {
@@ -51,7 +51,7 @@ class ChooseCharacterFragment : Fragment() {
                 }
             }
         }
-        hero_2.setOnClickListener {
+        hero2.setOnClickListener {
             viewModel.changeCharacter(currentUser, "hero_2")
             viewModel.changeResult.observe(viewLifecycleOwner) {
                 if (it.isNotEmpty()) {
@@ -67,7 +67,7 @@ class ChooseCharacterFragment : Fragment() {
                 }
             }
         }
-        hero_3.setOnClickListener {
+        hero3.setOnClickListener {
             viewModel.changeCharacter(currentUser, "hero_3")
             viewModel.changeResult.observe(viewLifecycleOwner) {
                 if (it.isNotEmpty()) {

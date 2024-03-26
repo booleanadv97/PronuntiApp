@@ -78,7 +78,7 @@
     <string name="therapist_exercises_page">Esercizi</string>
     <string name="therapist_appointments_page">Appuntamenti</string>
     <!-- Exercise details -->
-    <string name="ex_details_land_txt">Exercise details</string>
+    <string name="ex_details_land_txt">Dettagli esercizio</string>
     <string name="txt_image">Immagine</string>
     <string name="correct_img_txt">Immagine corretta</string>
     <string name="alt_img_txt">Immagine alternativa</string>
@@ -103,4 +103,11 @@
     <string name="appointment_check_txt">Appuntamento approvato</string>
     <!-- AddAppointment -->
     <string name="choose_appointment_date">Scegli data appuntamento</string>
+    <!-- ChooseReward -->
+    <string name="choose_reward_land_txt">Scegli ricompensa</string>
+    <string name="reward_img_txt">Immagine</string>
+    <string name="reward_video_txt">Video</string>
+    <string name="reward_txt">Frase</string>
+    <string name="reward_source_txt">Inserisci contenuto</string>
+    <!-- -->
 </resources>

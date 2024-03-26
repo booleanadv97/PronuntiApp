@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(libs.lottie)
+    implementation(libs.picasso)
     implementation(project(":common-utils"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -55,6 +56,7 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
     implementation(project(":common-utils"))
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

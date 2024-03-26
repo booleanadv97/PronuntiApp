@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameReward"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.assignment.ChooseReward">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtReward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/choose_reward_land_txt"
+            android:textAlignment="center"
+            android:textSize="22sp" />
+
+        <FrameLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnImgReward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="@string/reward_img_txt"
+                tools:ignore="ButtonStyle,RtlHardcoded" />
+
+            <Button
+                android:id="@+id/btnVideoReward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:text="@string/reward_video_txt"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/btnPhrase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/reward_txt"
+                tools:ignore="ButtonStyle,RtlHardcoded" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

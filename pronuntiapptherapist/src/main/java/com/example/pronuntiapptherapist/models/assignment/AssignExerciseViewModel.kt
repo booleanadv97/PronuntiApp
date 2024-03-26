@@ -27,54 +27,37 @@ class AssignExerciseViewModel : ViewModel() {
         parentId: String,
         exerciseType: String,
         exerciseName: String,
-        startDate: String,
-        endDate: String
+        startDate: Long,
+        endDate: Long,
+        rewardType: String,
+        reward: String
     ) {
+        val assignedId = UUID.randomUUID().toString()
         val newAssign =
-            AssignedExercise(parentId, exerciseType, exerciseName, "", startDate, endDate, "")
-        assignedExercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists())
-                    for (child in snapshot.children) {
-                        val childData = child.getValue<AssignedExercise>()
-                        if (newAssign == childData)
-                            _exerciseResult.value = "Esercizio già assegnato"
-                        else {
-                            val assignedId = UUID.randomUUID().toString()
-                            assignedExercisesRef.child(assignedId).setValue(newAssign)
-                                .addOnSuccessListener {
-                                    _exerciseResult.value = EXERCISE_RESULT_OK
-                                    Log.d("$this", "Created new assign $assignedId")
-                                }
-                                .addOnFailureListener {
-                                    _exerciseResult.value = it.stackTraceToString()
-                                    Log.d(
-                                        "$this",
-                                        "Failed to create new assign $assignedId, ${it.stackTraceToString()}"
-                                    )
-                                }
-                        }
-                    }
-                else{
-                    val assignedId = UUID.randomUUID().toString()
-                    assignedExercisesRef.child(assignedId).setValue(newAssign)
-                        .addOnSuccessListener {
-                            _exerciseResult.value = EXERCISE_RESULT_OK
-                            Log.d("$this", "Created new assign $assignedId")
-                        }
-                        .addOnFailureListener {
-                            _exerciseResult.value = it.stackTraceToString()
-                            Log.d(
-                                "$this",
-                                "Failed to create new assign $assignedId, ${it.stackTraceToString()}"
-                            )
-                        }
-                }
-            }
+            AssignedExercise(
+                assignedId,
+                parentId,
+                exerciseType,
+                exerciseName,
+                startDate,
+                endDate,
+                "",
+                rewardType,
+                reward
+            )
 
-            override fun onCancelled(error: DatabaseError) {
+        assignedExercisesRef.child(assignedId).setValue(newAssign)
+            .addOnSuccessListener {
+                _exerciseResult.value = EXERCISE_RESULT_OK
+                Log.d("$this", "Created new assign $assignedId")
             }
-        })
+            .addOnFailureListener {
+                _exerciseResult.value = it.stackTraceToString()
+                Log.d(
+                    "$this",
+                    "Failed to create new assign $assignedId, ${it.stackTraceToString()}"
+                )
+            }
     }
 
     fun resetResult() {
