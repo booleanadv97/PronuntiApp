@@ -16,7 +16,6 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.VideoView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -31,6 +30,7 @@ import com.squareup.picasso.Picasso
 import java.io.File
 
 
+@Suppress("DEPRECATION")
 class PlayImageExerciseFragment : Fragment() {
     private lateinit var viewModel : PlayImgExViewModel
     private lateinit var binding : FragmentPlayImageExerciseBinding
@@ -103,7 +103,7 @@ class PlayImageExerciseFragment : Fragment() {
                                             mediaRecorder.release()
                                             viewModel.audioAnsId = viewModel.randomString()
                                             viewModel.mp4Uri = Uri.fromFile(File(viewModel.outputMP4File))
-                                            viewModel.addExerciseOnMP4Upload(userId)
+                                            viewModel.addExerciseOnMP4Upload()
                                             viewModel.addAnswerResult.observe(viewLifecycleOwner){
                                                 if(it.isNotEmpty()) {
                                                     if (it == viewModel.ADD_ANSWER_RESULT_OK) {
@@ -134,7 +134,6 @@ class PlayImageExerciseFragment : Fragment() {
                                                                     Picasso.get().load(reward).into(rewardImg)
                                                                 }
                                                                 if(rewardType == "video"){
-                                                                    val videoView : VideoView
                                                                     val inflater = LayoutInflater.from(requireContext())
                                                                     val containerView = requireActivity().findViewById<FrameLayout>(
                                                                         R.id.framePatientGame)

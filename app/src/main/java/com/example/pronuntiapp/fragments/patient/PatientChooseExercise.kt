@@ -50,10 +50,10 @@ class PatientChooseExercise : Fragment() {
                             val imageExRect = Rect()
                             val imageReconRect = Rect()
                             val audioExerciseRect = Rect()
-                            val hero = hero.getHitRect(heroRect)
-                            val imageRect = imageExerciseChar.getHitRect(imageExRect)
-                            val imageRecon = imageReconChar.getHitRect(imageReconRect)
-                            val audioRect = audioExerciseChar.getHitRect(audioExerciseRect)
+                            hero.getHitRect(heroRect)
+                            imageExerciseChar.getHitRect(imageExRect)
+                            imageReconChar.getHitRect(imageReconRect)
+                            audioExerciseChar.getHitRect(audioExerciseRect)
                             if (heroRect.intersect(imageExRect)) {
                                 val fragmentManager = requireActivity().supportFragmentManager
                                 val fragmentTransaction = fragmentManager.beginTransaction()

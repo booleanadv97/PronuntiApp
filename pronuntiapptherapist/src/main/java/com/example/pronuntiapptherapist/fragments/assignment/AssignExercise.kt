@@ -16,7 +16,6 @@ import com.example.pronuntiapptherapist.databinding.FragmentAssignExerciseBindin
 import com.example.pronuntiapptherapist.models.assignment.AssignExerciseViewModel
 import java.util.Calendar
 
-@Suppress("DEPRECATION")
 class AssignExercise : Fragment() {
     private lateinit var binding: FragmentAssignExerciseBinding
     private lateinit var viewModel: AssignExerciseViewModel

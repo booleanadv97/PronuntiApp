@@ -101,7 +101,7 @@ class PlayImgExViewModel : ViewModel() {
             .map(charPool::get)
             .joinToString("")
 
-    fun addExerciseOnMP4Upload(userId: String) {
+    fun addExerciseOnMP4Upload() {
         audioAnsId = randomString()
         storageRef.child("answers/ImageExercises/$audioAnsId").putFile(mp4Uri)
             .addOnSuccessListener {
@@ -184,14 +184,11 @@ class PlayImgExViewModel : ViewModel() {
                                             var answeredToday = false
                                             for (child in answersSnapshot.children) {
                                                 val answer = child.getValue<Answer>()
-                                                val checkIsSameDay = checkIsSameDay(
-                                                    todayInMillis,
-                                                    answer?.ansDate!!)
-                                                    if (exercise.assignId.contentEquals(answer.assignId)  && checkIsSameDay
-                                                    ) {
-                                                        answeredToday = true
-                                                    }
+                                                val checkIsSameDay = checkIsSameDay(todayInMillis, answer?.ansDate!!)
+                                                if (exercise.assignId.contentEquals(answer.assignId) && checkIsSameDay) {
+                                                    answeredToday = true
                                                 }
+                                            }
                                             if (!answeredToday) {
                                                 currentList =
                                                     currentList + exercise
