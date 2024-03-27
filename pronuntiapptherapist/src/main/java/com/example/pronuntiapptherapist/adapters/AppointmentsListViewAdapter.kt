@@ -9,6 +9,8 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.common_utils.models.Appointment
 import com.example.pronuntiapptherapist.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class AppointmentsListViewAdapter(private val context: Context,
                                    private val appointmentsList: List<Appointment>) : BaseAdapter() {
@@ -37,14 +39,12 @@ class AppointmentsListViewAdapter(private val context: Context,
         val appointment : Appointment = getItem(position)
         val txtAppointmentDate: TextView = rowView.findViewById(R.id.txtDate)
         val txtAppointmentTherapistCheck: TextView = rowView.findViewById(R.id.txtTherapistCheck)
-        val txtAppointmentDateTxt = "${context.getString(R.string.appointment_date_txt)} : ${appointment.appointmentDate}"
+        val date = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.ITALY).format(appointment.appointmentDate)
+        val txtAppointmentDateTxt = "${context.getString(R.string.appointment_date_txt)} : $date"
         txtAppointmentDate.text = txtAppointmentDateTxt
         val check = if(appointment.therapistCheck == "") "No" else appointment.therapistCheck
         val txtAppointmentTherapistCheckTxt = "${context.getString(R.string.appointment_check_txt)} : ${check}"
         txtAppointmentTherapistCheck.text = txtAppointmentTherapistCheckTxt
-        val txtAppointmentHour: TextView = rowView.findViewById(R.id.txtHour)
-        val txtAppointmentHourTxt = "${context.getString(R.string.appointment_hour_txt)} : ${appointment.appointmentHour}"
-        txtAppointmentHour.text = txtAppointmentHourTxt
         return rowView
     }
 }

@@ -1,124 +1,130 @@
 <resources>
     <string name="app_name">PronuntiApp Therapist</string>
-    <string name="title_activity_register">register</string>
+    <string name="title_activity_register">Register</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_up">Registrati</string>
+    <string name="action_sign_up">Sign up</string>
     <string name="action_sign_in">Login</string>
-    <string name="action_register">Non hai un account? Registrati!</string>
-    <string name="hint_password">Inserisci password &#8230;</string>
-    <string name="hint_cognome">Inserisci cognome &#8230;</string>
-    <string name="hint_nome">Inserisci nome &#8230;</string>
-    <string name="hint_email">Inserisci e-mail &#8230;</string>
-    <string name="welcome">"Benvenuto nel tuo profilo,\n%1s"</string>
+    <string name="action_register">Don\'t have an account? Sign in!</string>
+    <string name="hint_password">Type your password &#8230;</string>
+    <string name="hint_cognome">Type your first name &#8230;</string>
+    <string name="hint_nome">Type your last name &#8230;</string>
+    <string name="hint_email">Type your e-mail &#8230;</string>
+    <string name="welcome">"Welcome,\n%1s"</string>
     <string name="action_sign_in_short">"Sign in"</string>
-    <string name="invalid_username">Username non valido</string>
-    <string name="invalid_password">Password deve avere almeno 5 caratteri</string>
-    <string name="login_failed">"Login fallito"</string>
+    <string name="invalid_username">Invalid username</string>
+    <string name="invalid_password">Password must have at least 5 characters</string>
+    <string name="login_failed">"Login failed"</string>
     <string name="action_sign_out">Logout</string>
-    <string name="invalid_input">Input non valido</string>
-    <string name="registered_users">Utenti registrati: %1d.</string>
-    <string name="image_exercises_land_text">Esercizi di denominazione</string>
+    <string name="invalid_input">Invalid input</string>
+    <string name="registered_users">Registered users: %1d.</string>
+    <string name="image_exercises_land_text">Naming exercises</string>
     <string name="users_table_h1">Email</string>
-    <string name="users_table_h2">Cognome</string>
-    <string name="users_table_h3">Nome</string>
-    <string name="submit">Invia</string>
-    <string name="upload">Carica</string>
-    <string name="fill_fields">Compila tutti i campi richiesti</string>
-    <string name="exercise_added">Esercizio aggiunto con successo</string>
-    <string name="exercise_not_added">Errore! L\'esercizio non è stato aggiunto</string>
-    <string name="no_exercises">Non ci sono esercizi registrati nel sistema</string>
+    <string name="users_table_h2">First name</string>
+    <string name="users_table_h3">Last name</string>
+    <string name="submit">Submit</string>
+    <string name="upload">Upload</string>
+    <string name="fill_fields">Fill in all the required fields</string>
+    <string name="exercise_added">Exercise added successfully</string>
+    <string name="exercise_not_added">Error! The exercise was not added</string>
+    <string name="no_exercises">There are no exercises in the system</string>
     <!-- AddImageExercise -->
-    <string name="textViewExerciseName_text">Nome esercizio</string>
-    <string name="editTextImageExerciseName_hint">Inserisci nome esercizio</string>
-    <string name="add_exercise">Aggiungi esercizio</string>
-    <string name="textViewExerciseDescription_text">Descrizione</string>
-    <string name="textViewSubmitImage_text">Carica immagine</string>
-    <string name="editTextExerciseDescription_text">Inserisci descrizione esercizio</string>
+    <string name="textViewExerciseName_text">Exercise name</string>
+    <string name="editTextImageExerciseName_hint">Type exercise name</string>
+    <string name="add_exercise">Add exercise</string>
+    <string name="textViewExerciseDescription_text">Description</string>
+    <string name="textViewSubmitImage_text">Upload image</string>
+    <string name="editTextExerciseDescription_text">Enter exercise description</string>
     <!--  -->
 
     <!-- ManageExercises -->
-    <string name="image_exercises">Gestisci esercizi di denominazione immagini</string>
-    <string name="audio_seq_repeat">Gestici esercizi ripetizione di sequenze di parole</string>
-    <string name="image_recognition">Gestisci esercizi di riconoscimento di coppie minime</string>
+    <string name="image_exercises">Manage image naming exercises</string>
+    <string name="audio_seq_repeat">Manage exercises by repeating sequences of words</string>
+    <string name="image_recognition">Manage minimal pair recognition exercises</string>
     <!--  -->
 
     <!-- AddImageRecognitionExercise-->
-    <string name="txt_correct_image">Carica immagine contenente la risposta corretta</string>
-    <string name="txt_alt_image">Carica immagine alternativa</string>
-    <string name="txt_audio">Registra risposta</string>
+    <string name="txt_correct_image">Upload image containing the correct answer</string>
+    <string name="txt_alt_image">Upload alternative image</string>
+    <string name="txt_audio">Record response</string>
     <string name="rec_start">Start</string>
     <string name="rec_stop">Stop</string>
-    <string name="txt_upload_button_correct_img">Carica immagine</string>
-    <string name="txt_upload_button_alt_img">Carica</string>
+    <string name="txt_upload_button_correct_img">Upload image</string>
+    <string name="txt_upload_button_alt_img">Upload</string>
     <!--  -->
 
     <!-- ManageImageRecognitionExercises-->
-    <string name="txt_manage_image_recognition_land">Esercizi di riconoscimento di coppie minime </string>
+    <string name="txt_manage_image_recognition_land">Minimal pair recognition exercises </string>
     <!-- -->
 
     <!-- AddImageRecognitionWaitUploadFragment-->
-    <string name="txt_wait">Completamento upload in corso &#8230;</string>
-    <string name="txt_upload_complete">Upload completato</string>
+    <string name="txt_wait">Upload completion in progress &#8230;</string>
+    <string name="txt_upload_complete">Upload completed</string>
 
     <!-- ManageAudioExercises-->
-    <string name="txt_audio_exercises_land">Esercizi di ripetizione di sequenze di parole</string>
+    <string name="txt_audio_exercises_land">Word sequence repetition exercises</string>
     <string name="audio_exercise_play">Play</string>
     <string name="audio_exercise_stop">Stop</string>
     <!-- -->
 
     <!-- ManageParents-->
-    <string name="txt_parents_list_desc">Lista genitori</string>
-    <string name="no_parents">Non ci sono genitori presenti nel sistema</string>
+    <string name="txt_parents_list_desc">Parents list</string>
+    <string name="no_parents">There are no parents present in the system</string>
     <!-- -->
 
     <!-- NavBar-->
     <string name="therapist_home_page">Home</string>
-    <string name="therapist_parents_page">Genitori</string>
-    <string name="therapist_exercises_page">Esercizi</string>
-    <string name="therapist_appointments_page">Appuntamenti</string>
+    <string name="therapist_parents_page">Parents</string>
+    <string name="therapist_exercises_page">Exercises</string>
+    <string name="therapist_appointments_page">Appointments</string>
     <!-- Exercise details -->
-    <string name="ex_details_land_txt">Dettagli esercizio</string>
-    <string name="txt_image">Immagine</string>
-    <string name="correct_img_txt">Immagine corretta</string>
-    <string name="alt_img_txt">Immagine alternativa</string>
+    <string name="ex_details_land_txt">Exercise details</string>
+    <string name="txt_image">Image</string>
+    <string name="correct_img_txt">Corrected image</string>
+    <string name="alt_img_txt">Alternative image</string>
     <string name="txt_audio_details">Audio</string>
-    <string name="txt_exercise_name">Nome esercizio</string>
-    <string name="txt_exercise_description">Descrizione esercizio</string>
-    <string name="assign_exercise_txt">Assegna esercizio</string>
+    <string name="txt_exercise_name">Exercise name</string>
+    <string name="txt_exercise_description">Exercise description</string>
+    <string name="assign_exercise_txt">Assign exercise</string>
     <!-- AssignExercise -->
-    <string name="txt_choose_parent">Scegli il genitore del bambino</string>
-    <string name="txt_start_date">Scegli data inizio</string>
-    <string name="txt_end_date">Scegli data fine</string>
-    <string name="wrong_date">Errore: data inizio > data fine</string>
+    <string name="txt_choose_parent">Choose the child\'s parent</string>
+    <string name="txt_start_date">Choose start date</string>
+    <string name="txt_end_date">Choose end date</string>
+    <string name="wrong_date">Error: start date > end date</string>
     <!-- ViewParentAssignments -->
-    <string name="txt_view_assigned_lang">Esercizi assegnati</string>
+    <string name="txt_view_assigned_lang">Assigned exercises</string>
     <!-- Appointments -->
     <string name="nav_bar_appointments_txt">Appointments</string>
-    <string name="no_appointments">Non hai alcun appuntamento</string>
-    <string name="appointments_land_txt">Lista appuntamenti</string>
-    <string name="appointment_date_txt">Data appuntamento</string>
-    <string name="appointment_hour_txt">Ora appuntamento</string>
-    <string name="btn_add_appointment_txt">Aggiungi appuntamento</string>
-    <string name="appointment_check_txt">Appuntamento approvato</string>
+    <string name="no_appointments">You don\'t have any appointments</string>
+    <string name="appointments_land_txt">Appointment list</string>
+    <string name="appointment_date_txt">Appointment date</string>
+    <string name="appointment_parent">Parent</string>
+    <string name="btn_add_appointment_txt">Add appointment</string>
+    <string name="appointment_check_txt">Appointment approved</string>
     <!-- AddAppointment -->
-    <string name="choose_appointment_date">Scegli data appuntamento</string>
+    <string name="choose_appointment_date">Choose appointment date</string>
     <!-- ChooseReward -->
-    <string name="choose_reward_land_txt">Scegli ricompensa</string>
-    <string name="reward_img_txt">Immagine</string>
+    <string name="choose_reward_land_txt">Choose reward</string>
+    <string name="reward_img_txt">Image</string>
     <string name="reward_video_txt">Video</string>
-    <string name="reward_txt">Frase</string>
-    <string name="reward_source_txt">Inserisci contenuto</string>
+    <string name="reward_txt">Phrase</string>
+    <string name="reward_source_txt">Insert content</string>
     <!-- -->
 
     <!-- Permissions -->
-    <string name="permission_not_granted"> non consentita. Attivala dalle impostazioni per usare l\'app.</string>
-
+    <string name="permission_not_granted"> not allowed. Activate it from settings to use the app.</string>
 
     <!-- AssignmentAnswers -->
-    <string name="txt_assignment_answer_date">Data risposta</string>
-    <string name="txt_assignment_answers_land">Risposte registrate</string>
-    <string name="txt_assignment_answer_correct">Risposta corretta</string>
-    <string name="txt_assignment_btn_check">Segna come completato</string>
+    <string name="txt_assignment_answer_date">Answered</string>
+    <string name="txt_assignment_answers_land">Answers</string>
+    <string name="txt_assignment_answer_correct">Correct answer</string>
+    <string name="txt_assignment_btn_check">Mark as completed</string>
+    <!--  -->
+
+    <!-- TherapistHome -->
+    <string name="txt_no_appointments_scheduled">You don\'t have any appointments scheduled.</string>
+    <string name="txt_appointments_scheduled"> appointments scheduled.</string>
+    <string name="txt_no_unverified_assignments"> assignments scheduled.</string>
+    <string name="txt_unverified_assignments"> assignments to check.</string>
     <!--  -->
 </resources>

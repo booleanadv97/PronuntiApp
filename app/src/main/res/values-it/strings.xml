@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name">PronuntiApp</string>
+    <string name="title_activity_register">Register</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_up">Registrati</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_register">Non hai un account? Registrati!</string>
+    <string name="hint_password">Inserisci password &#8230;</string>
+    <string name="hint_cognome">Inserisci cognome &#8230;</string>
+    <string name="hint_nome">Inserisci nome &#8230;</string>
+    <string name="hint_email">Inserisci e-mail &#8230;</string>
+    <string name="action_sign_in_short">"Sign in"</string>
+    <string name="invalid_username">Username non valido</string>
+    <string name="invalid_password">Password deve avere almeno 5 caratteri</string>
+    <string name="login_failed">"Login fallito"</string>
+    <string name="action_sign_out">Logout</string>
+    <string name="invalid_input">Input non valido</string>
+    <string name="registered_users">Utenti registrati: %1d.</string>
+    <string name="home_page_txt_land">Home</string>
+    <string name="assignments_txt_land">Compiti</string>
+    <string name="users_table_h1">Email</string>
+    <string name="users_table_h2">Cognome</string>
+    <string name="users_table_h3">Nome</string>
+    <string name="no_assignments">Non hai esercizi da svolgere per oggi!</string>
+
+    <!-- HomeParent-->
+    <string name="continue_as_parent">Continua come genitore</string>
+    <string name="continue_as_patient">Continua come paziente</string>
+    <!-- -->
+    <!-- Appointments -->
+    <string name="nav_bar_appointments_txt">Appuntamenti</string>
+    <string name="no_appointments">Non hai alcun appuntamento</string>
+    <string name="appointments_land_txt">Lista appuntamenti</string>
+    <string name="appointment_date_txt">Data appuntamento</string>
+    <string name="appointment_hour_txt">Ora appuntamento</string>
+    <string name="btn_add_appointment_txt">Aggiungi appuntamento</string>
+    <string name="appointment_check_txt">Appuntamento approvato</string>
+
+    <!-- Assignments -->
+    <string name="txt_exercise_name">Nome esercizio</string>
+    <string name="txt_view_assigned_lang">Lista compiti</string>
+    <string name="txtStartDateTxt">Data inizio</string>
+    <string name="txtEndDateTxt">Data fine</string>
+    <string name="txtExerciseTypeTxt">Tipologia</string>
+
+    <!-- HomePatient -->
+    <string name="home_patient_txt_land">Bentornato!</string>
+    <string name="patient_button_start_txt">INIZIA</string>
+    <string name="patient_change_char_button_txt">CAMBIA PERSONAGGIO</string>
+    <string name="patient_top_button_txt">CLASSIFICA</string>
+    <!-- ChangeCharacter-->
+    <string name="change_character_txt">Scegli il tuo personaggio</string>
+    <string name="patient_points_txt">I tuoi punti</string>
+    <!-- Rankings -->
+    <string name="txt_rankings_land">Classifica</string>
+    <string name="txt_rankings_position">Rank</string>
+    <string name="txt_rankings_user">Utente</string>
+    <string name="txt_rankings_points">Punti</string>
+
+    <!-- ExerciseReward -->
+    <string name="txt_reward_land">Ricompensa:</string>
+    <string name="txt_earned_points">Hai guadagnato 2 punti!</string>
+    <!--  -->
+
+    <!-- ChooseExercise -->
+    <string name="txt_choose_exercise">Muoviti verso un nemico per iniziare gli esercizi!</string>
+    <!--  -->
+
+    <!-- IncorrectAnswer -->
+    <string name="txt_incorrect_answer">Purtroppo la risposta fornita è sbagliata! Non hai ricevuto alcuna ricompensa.</string>
+    <!--  -->
+
+    <!-- PlayImageExercise -->
+    <string name="txt_img_ex_instructions">Tieni premuta l\'icona accanto per rispondere</string>
+    <!--  -->
+
+    <!-- PlayImageReconExercise -->
+    <string name="txt_image_recon_instructions">Chiedi aiuto al tuo personaggio e seleziona l\'immagine corretta</string>
+    <!--  -->
+
+    <!-- PlayAudioExercise -->
+    <string name="txt_audio_ex_instructions">Confronta il nemico e registra la risposta tenendo premuto sull\'icona accanto</string>
+    <!--  -->
+
+    <!-- Permissions -->
+    <string name="permission_not_granted"> non consentita. Attivala dalle impostazioni per usare l\'app.</string>
+
+    <!-- AssignmentAnswers -->
+    <string name="txt_assignment_answer_date">Data risposta</string>
+    <string name="txt_assignment_answers_land">Risposte registrate</string>
+    <string name="txt_assignment_answer_correct">Risposta corretta</string>
+    <string name="txt_assignment_btn_check">Segna come completato</string>
+    <string name="audio_exercise_play">Play</string>
+    <string name="audio_exercise_stop">Stop</string>
+    <!--  -->
+
+    <!-- ParentHome-->
+    <string name="txt_no_appointments">Non hai alcun appuntamento in corso.</string>
+    <string name="txt_welcome_back">Bentornato</string>
+    <string name="txt_scheduled_appointments"> appuntamenti in corso.</string>
+    <string name="txt_no_assignments">Non ci sono compiti da svolgere.</string>
+    <string name="txt_scheduled_assignments">compiti da svolgere.</string>
+    <!-- -->
+</resources>

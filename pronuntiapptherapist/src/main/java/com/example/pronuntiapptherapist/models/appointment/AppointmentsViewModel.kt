@@ -76,15 +76,15 @@ class AppointmentsViewModel : ViewModel() {
         })
     }
 
-    fun addAppointment(parentId: String, date : String, hour : String){
+    fun addAppointment(parentId: String, date : Long){
         val appointmentId = UUID.randomUUID().toString()
-        val appointment = Appointment(appointmentId, parentId, date, hour, "Si")
+        val appointment = Appointment(appointmentId, parentId, date, "Si")
         appointmentsRef.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 var flag = false
                 for(child in snapshot.children){
                     val childParent : String = child.getValue<Appointment>()?.parentId!!
-                    val childDate : String = child.getValue<Appointment>()?.appointmentDate!!
+                    val childDate : Long = child.getValue<Appointment>()?.appointmentDate!!
                     if(childParent == parentId && childDate == date)
                         flag = true
                 }

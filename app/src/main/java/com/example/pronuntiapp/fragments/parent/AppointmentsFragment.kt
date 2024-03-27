@@ -52,16 +52,14 @@ class AppointmentsFragment : Fragment() {
             val chourday = c.get(Calendar.HOUR_OF_DAY)
             val cminuteday = c.get(Calendar.MINUTE)
             var hour : String
-            var date : String
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
                 { _, year, monthOfYear, dayOfMonth ->
-                    date = (dayOfMonth.toString() + "-" + (monthOfYear + 1) + "-" + year)
                     val timePicker = TimePickerDialog(requireContext(), { _, hourOfDay, minuteOfDay ->
-                        val strHour : String = if(hourOfDay < 10) "0$hourOfDay" else hourOfDay.toString()
-                        val strMinute : String = if(minuteOfDay < 10) "0$minuteOfDay" else minuteOfDay.toString()
-                        hour = "$strHour:$strMinute"
-                        viewModel.addAppointment(parentId, date, hour)
+                        val aCalendar = Calendar.getInstance()
+                        aCalendar.set(year, monthOfYear, dayOfMonth, hourOfDay, minuteOfDay)
+                        val date = aCalendar.timeInMillis
+                        viewModel.addAppointment(parentId, date)
                         viewModel.addAppointmentResult.observe(viewLifecycleOwner){
                             if(it.isNotEmpty()) {
                                 if (it == viewModel.APPOINTMENT_RESULT_OK) {
