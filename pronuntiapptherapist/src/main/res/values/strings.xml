@@ -113,5 +113,12 @@
 
     <!-- Permissions -->
     <string name="permission_not_granted"> non consentita. Attivala dalle impostazioni per usare l\'app.</string>
+
+
+    <!-- AssignmentAnswers -->
+    <string name="txt_assignment_answer_date">Data risposta</string>
+    <string name="txt_assignment_answers_land">Risposte registrate</string>
+    <string name="txt_assignment_answer_correct">Risposta corretta</string>
+    <string name="txt_assignment_btn_check">Segna come completato</string>
     <!--  -->
 </resources>

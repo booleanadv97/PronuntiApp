@@ -67,7 +67,7 @@ class PlayImageReconExFragment : Fragment() {
                             if (event != null) {
                                 when (event.action) {
                                     MotionEvent.ACTION_DOWN -> {
-                                        viewModel.answerImageId = exercise.imgCorrectAnswerId
+                                        viewModel.answerCorrect = "Yes"
                                         addAnswer(true)
                                         return true
                                     }
@@ -81,7 +81,7 @@ class PlayImageReconExFragment : Fragment() {
                             if (event != null) {
                                 when (event.action) {
                                     MotionEvent.ACTION_DOWN -> {
-                                        viewModel.answerImageId = exercise.imgAlternativeId
+                                        viewModel.answerCorrect = "No"
                                         addAnswer(false)
                                         return true
                                     }

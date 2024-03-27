@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.GridView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.pronuntiapp.R
 import com.example.pronuntiapp.adapters.ViewAssignmentsGridViewAdapter
 import com.example.pronuntiapp.databinding.FragmentAssignmentsBinding
 import com.example.pronuntiapp.models.parent.assignment.ViewAssignments
@@ -29,6 +31,20 @@ class AssignmentsFragment : Fragment() {
             val exerciseAdapter =
                 context?.let { ViewAssignmentsGridViewAdapter(assignmentsList = listAssignments, it) }
             gridView.adapter = exerciseAdapter
+            gridView.onItemClickListener =
+                AdapterView.OnItemClickListener { _, _, position, _ ->
+                    val bundle = Bundle()
+                    bundle.putString("assignId",listAssignments[position].assignId)
+                    bundle.putString("exerciseType",listAssignments[position].exerciseType)
+                    val fragmentManager = requireActivity().supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    val targetFragment = AssignmentAnswersFragment()
+                    targetFragment.arguments = bundle
+                    fragmentTransaction.replace(R.id.frameLayoutParent, targetFragment)
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
+                }
+
         }
     }
     override fun onCreateView(

@@ -1,3 +1,4 @@
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
@@ -5,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.pronuntiapptherapist.R
 import com.example.common_utils.models.AudioExercise
+import com.example.pronuntiapptherapist.R
 
 class AudioExerciseGridViewAdapter(private val context: Context,
                                    private val dataSource: List<AudioExercise>) : BaseAdapter() {
@@ -18,17 +19,17 @@ class AudioExerciseGridViewAdapter(private val context: Context,
         return dataSource.size
     }
 
-    //2
+
     override fun getItem(position: Int): Any {
         return dataSource[position]
     }
 
-    //3
+
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
 
-    //4
+
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val rowView = inflater.inflate(R.layout.audio_exercises_listview_item, parent, false)

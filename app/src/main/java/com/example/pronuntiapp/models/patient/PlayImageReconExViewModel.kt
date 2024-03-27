@@ -25,7 +25,7 @@ class PlayImageReconExViewModel : ViewModel() {
     private val imageReconExRef = database.getReference("Image Recognition Exercises")
     private val answersRef = database.getReference("Image Recognition Exercises Answers")
     private val usersRef = database.getReference("users")
-    var answerImageId : String? = ""
+    var answerCorrect : String? = ""
     private val STRING_LENGTH = 32
     val ADD_ANSWER_RESULT_OK = "OK"
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
@@ -105,7 +105,7 @@ class PlayImageReconExViewModel : ViewModel() {
 
     fun addImageReconExAnswer() {
         val answerId = randomString()
-        val imageAnswer = ImageReconAnswer(answerId, _imageReconExList.value?.first()?.assignId!!, answerImageId, Instant.now().toEpochMilli())
+        val imageAnswer = ImageReconAnswer(answerId, _imageReconExList.value?.first()?.assignId!!, answerCorrect, Instant.now().toEpochMilli())
         answersRef.child(answerId).setValue(imageAnswer)
             .addOnSuccessListener {
                 _addAnswerResult.value = ADD_ANSWER_RESULT_OK
