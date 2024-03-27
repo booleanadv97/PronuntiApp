@@ -49,7 +49,6 @@ class AddAppointmentFragment : Fragment() {
                 val cday = c.get(Calendar.DAY_OF_MONTH)
                 val chourday = c.get(Calendar.HOUR_OF_DAY)
                 val cminuteday = c.get(Calendar.MINUTE)
-                var hour: String
                 val datePickerDialog = DatePickerDialog(
                     requireContext(),
                     { _, year, monthOfYear, dayOfMonth ->
