@@ -13,13 +13,8 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 
 class AssignmentAnswersViewModel : ViewModel() {
-    val THERAPIST_CHECK_OK = "Si"
-    val MARK_AS_COMPLETE_OK = "Stato del compito cambiato con successo!"
-    val THERAPIST_CHECK_FIELD = "therapistCheck"
-    val ASSIGN_NOT_COMPLETED = "Il paziente non ha ancora completato il compito!"
     val database =
         FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
-    private val assignmentsRef = database.getReference("Assigned Exercises")
     private val audioAnswersRef = database.getReference("Audio Exercises Answers")
     private val imageAnswersRef = database.getReference("Image Exercises Answers")
     private val imageReconAnswersRef = database.getReference("Image Recognition Exercises Answers")
@@ -29,7 +24,6 @@ class AssignmentAnswersViewModel : ViewModel() {
     val audioAnswers : LiveData<List<AudioAnswer>> = _audioAnswers
     private val _imageReconAnswers : MutableLiveData<List<ImageReconAnswer>> = MutableLiveData(emptyList())
     val imageReconAnswers : LiveData<List<ImageReconAnswer>> = _imageReconAnswers
-    private val _markResult = MutableLiveData<String>()
     fun getAudioAssignAnswers(assignId : String){
         audioAnswersRef.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
