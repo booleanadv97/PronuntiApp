@@ -8,6 +8,8 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.common_utils.models.AssignedExercise
 import com.example.pronuntiapp.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 internal class ViewAssignmentsGridViewAdapter(
@@ -52,16 +54,15 @@ internal class ViewAssignmentsGridViewAdapter(
         val exerciseType = context.resources.getString(R.string.txtExerciseTypeTxt)
         val txtExerciseTypeTxt = "$exerciseType: ${assignmentsList[position].exerciseType}"
         txtExerciseType.text = txtExerciseTypeTxt
+        val sDate = SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(assignmentsList[position].startDate)
+        val eDate = SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(assignmentsList[position].endDate)
         val startDate = context.resources.getString(R.string.txtStartDateTxt)
-        val txtStartDateTxt = "$startDate:  ${assignmentsList[position].startDate}"
+        val txtStartDateTxt = "$startDate:  $sDate"
         txtStartDate.text = txtStartDateTxt
         val endDate = context.resources.getString(R.string.txtEndDateTxt)
-        val txtEndDateTxt = "$endDate:  ${assignmentsList[position].endDate}"
+        val txtEndDateTxt = "$endDate:  $eDate"
         txtEndDate.text = txtEndDateTxt
-        val txtCheckTxt = if(assignmentsList[position].therapistCheck!!.isNotEmpty())
-            assignmentsList[position].therapistCheck!!
-        else
-            "No"
+        val txtCheckTxt = assignmentsList[position].therapistCheck!!.ifEmpty { "No" }
         txtCheck.text = txtCheckTxt
         return convertView
     }

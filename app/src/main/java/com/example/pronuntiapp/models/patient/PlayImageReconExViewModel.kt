@@ -1,13 +1,12 @@
 package com.example.pronuntiapp.models.patient
 
-import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.common_utils.models.AssignedExercise
-import com.example.common_utils.models.ImageAnswer
-import com.example.common_utils.models.ImageExercise
+import com.example.common_utils.models.ImageRecognitionExercise
+import com.example.common_utils.models.ImageReconAnswer
 import com.example.common_utils.models.User
 import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
@@ -21,24 +20,21 @@ import java.util.Calendar
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.streams.asSequence
 
-class PlayImgExViewModel : ViewModel() {
+class PlayImageReconExViewModel : ViewModel() {
     val database =
         FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
     private val assignedExercisesRef = database.getReference("Assigned Exercises")
-    private val imageExRef = database.getReference("Image Exercises")
-    private val answersRef = database.getReference("Image Exercises Answers")
+    private val imageReconExRef = database.getReference("Image Recognition Exercises")
+    private val answersRef = database.getReference("Image Recognition Exercises Answers")
     private val usersRef = database.getReference("users")
-    lateinit var outputMP4File: String
-    private var audioUrl: String? = ""
-    lateinit var mp4Uri: Uri
+    var answerImageId : String? = ""
     private val STRING_LENGTH = 32
     val ADD_ANSWER_RESULT_OK = "OK"
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-    var audioAnsId: String? = ""
-    private var _imageExList: MutableLiveData<List<AssignedExercise>> = MutableLiveData(emptyList())
-    val imageExList: LiveData<List<AssignedExercise>> = _imageExList
-    private var _currentImgEx = MutableLiveData<ImageExercise>()
-    val currentImgEx: LiveData<ImageExercise> = _currentImgEx
+    private var _imageReconExList: MutableLiveData<List<AssignedExercise>> = MutableLiveData(emptyList())
+    val imageReconExList: LiveData<List<AssignedExercise>> = _imageReconExList
+    private var _currentEx = MutableLiveData<ImageRecognitionExercise>()
+    val currentEx: LiveData<ImageRecognitionExercise> = _currentEx
     private val storageRef = Firebase.storage.reference
     private val _addAnswerResult = MutableLiveData<String>()
     val addAnswerResult: LiveData<String> = _addAnswerResult
@@ -59,12 +55,12 @@ class PlayImgExViewModel : ViewModel() {
     }
 
     fun getRewards() {
-        assignedExercisesRef.child(_imageExList.value?.first()?.assignId!!)
+        assignedExercisesRef.child(_imageReconExList.value?.first()?.assignId!!)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     _rewardType.value = snapshot.getValue<AssignedExercise>()?.rewardType!!
                     _reward.value = snapshot.getValue<AssignedExercise>()?.reward!!
-                    _imageExList.value = _imageExList.value!!.drop(1)
+                    _imageReconExList.value = _imageReconExList.value!!.drop(1)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -88,12 +84,12 @@ class PlayImgExViewModel : ViewModel() {
             })
     }
 
-    fun getImageEx() {
-        imageExRef.child(_imageExList.value?.first()?.exerciseName!!)
+    fun getImageReconEx() {
+        imageReconExRef.child(_imageReconExList.value?.first()?.exerciseName!!)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        _currentImgEx.value = snapshot.getValue<ImageExercise>()
+                        _currentEx.value = snapshot.getValue<ImageRecognitionExercise>()
                     }
                 }
 
@@ -109,22 +105,11 @@ class PlayImgExViewModel : ViewModel() {
             .map(charPool::get)
             .joinToString("")
 
-    fun addExerciseOnMP4Upload() {
-        audioAnsId = randomString()
-        storageRef.child("answers/ImageExercises/$audioAnsId").putFile(mp4Uri)
-            .addOnSuccessListener {
-                val audioRef = storageRef.child("answers/ImageExercises/$audioAnsId")
-                val downloadUrlTask = audioRef.getDownloadUrl()
-                downloadUrlTask.addOnSuccessListener { uri ->
-                    audioUrl = uri.toString()
-                    addImageExAnswer(_imageExList.value?.first()?.assignId!!)
-                }
-            }
-    }
 
-    private fun addImageExAnswer(assignId: String) {
-        val imageAnswer = ImageAnswer(audioAnsId, audioUrl, assignId, Instant.now().toEpochMilli())
-        answersRef.child(audioAnsId!!).setValue(imageAnswer)
+    fun addImageReconExAnswer() {
+        val answerId = randomString()
+        val imageAnswer = ImageReconAnswer(answerId, _imageReconExList.value?.first()?.assignId!!, answerImageId, Instant.now().toEpochMilli())
+        answersRef.child(answerId).setValue(imageAnswer)
             .addOnSuccessListener {
                 _addAnswerResult.value = ADD_ANSWER_RESULT_OK
             }
@@ -170,14 +155,14 @@ class PlayImgExViewModel : ViewModel() {
         return (tDay == dDay && tMonth == dMonth && tYear == dYear)
     }
 
-    fun getAssignedImageEx(userId: String) {
+    fun getAssignedImageReconEx(userId: String) {
         assignedExercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var currentList = emptyList<AssignedExercise>()
                 if (snapshot.exists()) {
                     for (assignedExercise in snapshot.children) {
                         val exercise = assignedExercise.getValue<AssignedExercise>()!!
-                        if (exercise.userId == userId && exercise.exerciseType == "Image Exercise") {
+                        if (exercise.userId == userId && exercise.exerciseType == "Image Recognition Exercise") {
                             val todayInMillis = Instant.now().toEpochMilli()
                             if (isDateWithinRange(
                                     todayInMillis,
@@ -191,21 +176,21 @@ class PlayImgExViewModel : ViewModel() {
                                         if (answersSnapshot.exists()) {
                                             var answeredToday = false
                                             for (child in answersSnapshot.children) {
-                                                val imageAnswer = child.getValue<ImageAnswer>()
-                                                val checkIsSameDay = checkIsSameDay(todayInMillis, imageAnswer?.ansDate!!)
-                                                if (exercise.assignId.contentEquals(imageAnswer.assignId) && checkIsSameDay) {
+                                                val imageReconAnswer = child.getValue<ImageReconAnswer>()
+                                                val checkIsSameDay = checkIsSameDay(todayInMillis, imageReconAnswer?.ansDate!!)
+                                                if (exercise.assignId.contentEquals(imageReconAnswer.assignId) && checkIsSameDay) {
                                                     answeredToday = true
                                                 }
                                             }
                                             if (!answeredToday) {
                                                 currentList =
                                                     currentList + exercise
-                                                _imageExList.postValue(currentList)
+                                                _imageReconExList.postValue(currentList)
                                             }
                                         } else {
                                             currentList =
                                                 currentList + exercise
-                                            _imageExList.postValue(currentList)
+                                            _imageReconExList.postValue(currentList)
                                         }
                                     }
 

@@ -14,7 +14,7 @@ import com.example.pronuntiapp.models.patient.ChooseCharacterViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
-class ChooseCharacterFragment : Fragment() {
+class PatientChooseCharacterFragment : Fragment() {
     private lateinit var binding: FragmentChooseCharacterBinding
     private lateinit var viewModel: ChooseCharacterViewModel
     private lateinit var hero1: LottieAnimationView

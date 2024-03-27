@@ -8,13 +8,17 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.airbnb.lottie.LottieAnimationView
 import com.example.pronuntiapp.R
 import com.example.pronuntiapp.databinding.FragmentPatientChooseExerciseBinding
+import com.example.pronuntiapp.models.patient.ChooseExerciseViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
-class PatientChooseExercise : Fragment() {
+class PatientChooseExerciseFragment : Fragment() {
+    private lateinit var viewModel : ChooseExerciseViewModel
     private lateinit var binding: FragmentPatientChooseExerciseBinding
     private lateinit var mainLayout: ViewGroup
     private lateinit var hero: LottieAnimationView
@@ -26,8 +30,25 @@ class PatientChooseExercise : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val userId = Firebase.auth.currentUser?.uid
         mainLayout = binding.main
         hero = binding.hero
+        hero.visibility = View.INVISIBLE
+        var flag = false
+        viewModel.getHero(userId!!)
+        viewModel.userHero.observe(viewLifecycleOwner){
+            if(!flag) {
+                when (it) {
+                    "hero_1" -> hero.setAnimation(R.raw.hero_1)
+                    "hero_2" -> hero.setAnimation(R.raw.hero_2)
+                    "hero_3" -> hero.setAnimation(R.raw.hero_3)
+                    else -> hero.setAnimation(R.raw.hero_1)
+                }
+                hero.visibility = View.VISIBLE
+                hero.loop(true)
+                flag = true
+            }
+        }
         imageExerciseChar = binding.imageExercise
         imageReconChar = binding.imageReconExercise
         audioExerciseChar = binding.AudioExercise
@@ -57,15 +78,23 @@ class PatientChooseExercise : Fragment() {
                             if (heroRect.intersect(imageExRect)) {
                                 val fragmentManager = requireActivity().supportFragmentManager
                                 val fragmentTransaction = fragmentManager.beginTransaction()
-                                fragmentTransaction.replace(R.id.framePatientGame, PlayImageExerciseFragment())
+                                fragmentTransaction.replace(R.id.mainFrame, PlayImageExFragment())
                                 fragmentTransaction.addToBackStack(null)
                                 fragmentTransaction.commit()
                             }
                             if (heroRect.intersect(imageReconRect)) {
-                                Toast.makeText(context,"imageRecon",Toast.LENGTH_SHORT).show()
+                                val fragmentManager = requireActivity().supportFragmentManager
+                                val fragmentTransaction = fragmentManager.beginTransaction()
+                                fragmentTransaction.replace(R.id.mainFrame, PlayImageReconExFragment())
+                                fragmentTransaction.addToBackStack(null)
+                                fragmentTransaction.commit()
                             }
                             if (heroRect.intersect(audioExerciseRect)) {
-                                Toast.makeText(context,"audioEx",Toast.LENGTH_SHORT).show()
+                                val fragmentManager = requireActivity().supportFragmentManager
+                                val fragmentTransaction = fragmentManager.beginTransaction()
+                                fragmentTransaction.replace(R.id.mainFrame, PlayAudioExFragment())
+                                fragmentTransaction.addToBackStack(null)
+                                fragmentTransaction.commit()
                             }
                         }
 
@@ -89,6 +118,7 @@ class PatientChooseExercise : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPatientChooseExerciseBinding.inflate(inflater)
+        viewModel = ViewModelProvider(this)[ChooseExerciseViewModel::class.java]
         return binding.root
     }
 

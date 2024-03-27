@@ -110,4 +110,8 @@
     <string name="reward_txt">Frase</string>
     <string name="reward_source_txt">Inserisci contenuto</string>
     <!-- -->
+
+    <!-- Permissions -->
+    <string name="permission_not_granted"> non consentita. Attivala dalle impostazioni per usare l\'app.</string>
+    <!--  -->
 </resources>

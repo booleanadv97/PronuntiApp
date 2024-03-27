@@ -62,10 +62,29 @@
     <!-- ExerciseReward -->
     <string name="txt_reward_land">Ricompensa:</string>
     <string name="txt_earned_points">Hai guadagnato 2 punti!</string>
-    <!-- PlayImageExercise -->
-    <string name="txt_img_ex_instructions">Tieni premuta l\'icona accanto per rispondere</string>
+    <!--  -->
 
     <!-- ChooseExercise -->
     <string name="txt_choose_exercise">Muoviti verso un nemico per iniziare gli esercizi!</string>
+    <!--  -->
+
+    <!-- IncorrectAnswer -->
+    <string name="txt_incorrect_answer">Purtroppo la risposta fornita è sbagliata! Non hai ricevuto alcuna ricompensa.</string>
+    <!--  -->
+
+    <!-- PlayImageExercise -->
+    <string name="txt_img_ex_instructions">Tieni premuta l\'icona accanto per rispondere</string>
+    <!--  -->
+
+    <!-- PlayImageReconExercise -->
+    <string name="txt_image_recon_instructions">Chiedi aiuto al tuo personaggio e seleziona l\'immagine corretta</string>
+    <!--  -->
+
+    <!-- PlayAudioExercise -->
+    <string name="txt_audio_ex_instructions">Confronta il nemico e registra la risposta tenendo premuto sull\'icona accanto</string>
+    <!--  -->
+
+    <!-- Permissions -->
+    <string name="permission_not_granted"> non consentita. Attivala dalle impostazioni per usare l\'app.</string>
     <!--  -->
 </resources>

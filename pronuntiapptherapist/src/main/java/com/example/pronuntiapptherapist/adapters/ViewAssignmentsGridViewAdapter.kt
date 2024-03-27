@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.pronuntiapptherapist.R
 import com.example.common_utils.models.AssignedExercise
+import com.example.pronuntiapptherapist.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 internal class ViewAssignmentsGridViewAdapter(
@@ -51,9 +53,11 @@ internal class ViewAssignmentsGridViewAdapter(
         txtExerciseName.text = txtExerciseNameTxt
         val txtExerciseTypeTxt = "Exercise type: ${assignmentsList[position].exerciseType}"
         txtExerciseType.text = txtExerciseTypeTxt
-        val txtStartDateTxt = "Start date:  ${assignmentsList[position].startDate}"
+        val sDate = SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(assignmentsList[position].startDate)
+        val eDate = SimpleDateFormat("dd-MM-yyyy", Locale.ITALY).format(assignmentsList[position].endDate)
+        val txtStartDateTxt = "Start date:  ${sDate}"
         txtStartDate.text = txtStartDateTxt
-        val txtEndDateTxt = "End date:  ${assignmentsList[position].endDate}"
+        val txtEndDateTxt = "End date:  ${eDate}"
         txtEndDate.text = txtEndDateTxt
         val txtCheckTxt = if(assignmentsList[position].therapistCheck!!.isNotEmpty())
             assignmentsList[position].therapistCheck!!

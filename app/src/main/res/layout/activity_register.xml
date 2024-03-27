@@ -1,97 +1,74 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/signup"
+    android:fillViewport="true"
+    android:clipChildren="false"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="341dp"
-        android:layout_height="367dp"
-        android:layout_marginBottom="348dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/appicon_nobg"
-        android:contentDescription="@string/app_name" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/registerButtonR"
-        android:layout_width="154dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/action_sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordR"
-        app:layout_constraintVertical_bias="1.0" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/appicon_nobg" />
 
-    <EditText
-        android:id="@+id/editTextEmailAddressR"
-        android:layout_width="266dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0"
-        android:autofillHints="" />
+        <EditText
+            android:id="@+id/editTextEmailAddressR"
+            android:layout_width="266dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/editTextPasswordR"
-        android:layout_width="266dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/hint_password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddressR"
-        app:layout_constraintVertical_bias="0.0"
-        android:autofillHints="" />
+        <EditText
+            android:id="@+id/editTextPasswordR"
+            android:layout_width="266dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/editTextFName"
-        android:layout_width="266dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/hint_cognome"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/registerButtonR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordR"
-        app:layout_constraintVertical_bias="0.0"
-        android:autofillHints="" />
+        <EditText
+            android:id="@+id/editTextFName"
+            android:layout_width="266dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hint_cognome"
+            android:inputType="text" />
 
-    <EditText
-        android:id="@+id/editTextLName"
-        android:layout_width="265dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/hint_nome"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/registerButtonR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFName"
-        app:layout_constraintVertical_bias="0.0"
-        android:autofillHints="" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/editTextLName"
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hint_nome"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/registerButtonR"
+            android:layout_width="154dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="@string/action_sign_up" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

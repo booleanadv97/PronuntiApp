@@ -94,6 +94,7 @@ class AssignExercise : Fragment() {
                     val fragmentManager = requireActivity().supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.replace(R.id.frameLayoutTherapist, targetFragment)
+                    fragmentTransaction.addToBackStack(null)
                     fragmentTransaction.commit()
                 } else {
                     Toast.makeText(

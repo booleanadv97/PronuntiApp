@@ -16,6 +16,7 @@ import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.FragmentChooseRewardBinding
 import com.example.pronuntiapptherapist.models.assignment.AssignExerciseViewModel
 
+@Suppress("DEPRECATION")
 class ChooseReward : Fragment() {
     private lateinit var binding: FragmentChooseRewardBinding
     private lateinit var viewModel: AssignExerciseViewModel
@@ -125,6 +126,7 @@ class ChooseReward : Fragment() {
                     val containerView =
                         requireActivity().findViewById<FrameLayout>(R.id.frameLayoutTherapist)
                     containerView.removeAllViews()
+                    fragmentManager?.popBackStack()
                     fragmentManager?.popBackStack()
                 } else {
                     Toast.makeText(

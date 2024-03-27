@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.lottie)
     implementation(libs.picasso)
     implementation(project(":common-utils"))
+    implementation(libs.androidx.core)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

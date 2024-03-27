@@ -1,8 +1,16 @@
 package com.example.pronuntiapptherapist.activities
 
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.READ_MEDIA_IMAGES
+import android.Manifest.permission.READ_MEDIA_VIDEO
+import android.Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED
+import android.Manifest.permission.RECORD_AUDIO
 import android.content.Intent
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.common_utils.models.ConnectivityLiveData
@@ -17,8 +25,25 @@ import com.google.android.material.snackbar.Snackbar
 
 class TherapistMainActivity : AppCompatActivity() {
     lateinit var binding : ActivityTherapistMainBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onStart() {
+        super.onStart()
+        val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+            results ->
+            for ((permission, granted) in results) {
+                if (granted) {
+                    // Permission granted
+                } else {
+                   Toast.makeText(this, "$permission${resources.getString(R.string.permission_not_granted)}",Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            requestPermissions.launch(arrayOf(RECORD_AUDIO, READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_VISUAL_USER_SELECTED))
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermissions.launch(arrayOf(RECORD_AUDIO, READ_MEDIA_IMAGES, READ_MEDIA_VIDEO))
+        } else {
+            requestPermissions.launch(arrayOf(RECORD_AUDIO, READ_EXTERNAL_STORAGE))
+        }
         val connectivityLiveData = ConnectivityLiveData(this)
         connectivityLiveData.observe(this) { isConnected ->
             if (!isConnected) {
@@ -34,6 +59,10 @@ class TherapistMainActivity : AppCompatActivity() {
                 snackBarNoInternet.show()
             }
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityTherapistMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if(savedInstanceState == null)

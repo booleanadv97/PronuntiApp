@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.common_utils.models.AssignedExercise
-import com.example.common_utils.models.ImageAnswer
-import com.example.common_utils.models.ImageExercise
+import com.example.common_utils.models.AudioAnswer
+import com.example.common_utils.models.AudioExercise
 import com.example.common_utils.models.User
 import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
@@ -21,12 +21,12 @@ import java.util.Calendar
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.streams.asSequence
 
-class PlayImgExViewModel : ViewModel() {
+class PlayAudioExViewModel : ViewModel() {
     val database =
         FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
     private val assignedExercisesRef = database.getReference("Assigned Exercises")
-    private val imageExRef = database.getReference("Image Exercises")
-    private val answersRef = database.getReference("Image Exercises Answers")
+    private val audioExRef = database.getReference("Audio Exercises")
+    private val answersRef = database.getReference("Audio Exercises Answers")
     private val usersRef = database.getReference("users")
     lateinit var outputMP4File: String
     private var audioUrl: String? = ""
@@ -35,10 +35,10 @@ class PlayImgExViewModel : ViewModel() {
     val ADD_ANSWER_RESULT_OK = "OK"
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
     var audioAnsId: String? = ""
-    private var _imageExList: MutableLiveData<List<AssignedExercise>> = MutableLiveData(emptyList())
-    val imageExList: LiveData<List<AssignedExercise>> = _imageExList
-    private var _currentImgEx = MutableLiveData<ImageExercise>()
-    val currentImgEx: LiveData<ImageExercise> = _currentImgEx
+    private var _audioExList: MutableLiveData<List<AssignedExercise>> = MutableLiveData(emptyList())
+    val audioExList: LiveData<List<AssignedExercise>> = _audioExList
+    private var _currentAudioEx = MutableLiveData<AudioExercise>()
+    val currentAudioEx: LiveData<AudioExercise> = _currentAudioEx
     private val storageRef = Firebase.storage.reference
     private val _addAnswerResult = MutableLiveData<String>()
     val addAnswerResult: LiveData<String> = _addAnswerResult
@@ -59,12 +59,12 @@ class PlayImgExViewModel : ViewModel() {
     }
 
     fun getRewards() {
-        assignedExercisesRef.child(_imageExList.value?.first()?.assignId!!)
+        assignedExercisesRef.child(_audioExList.value?.first()?.assignId!!)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     _rewardType.value = snapshot.getValue<AssignedExercise>()?.rewardType!!
                     _reward.value = snapshot.getValue<AssignedExercise>()?.reward!!
-                    _imageExList.value = _imageExList.value!!.drop(1)
+                    _audioExList.value = _audioExList.value!!.drop(1)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -88,12 +88,12 @@ class PlayImgExViewModel : ViewModel() {
             })
     }
 
-    fun getImageEx() {
-        imageExRef.child(_imageExList.value?.first()?.exerciseName!!)
+    fun getAudioEx() {
+        audioExRef.child(_audioExList.value?.first()?.exerciseName!!)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        _currentImgEx.value = snapshot.getValue<ImageExercise>()
+                        _currentAudioEx.value = snapshot.getValue<AudioExercise>()
                     }
                 }
 
@@ -111,20 +111,20 @@ class PlayImgExViewModel : ViewModel() {
 
     fun addExerciseOnMP4Upload() {
         audioAnsId = randomString()
-        storageRef.child("answers/ImageExercises/$audioAnsId").putFile(mp4Uri)
+        storageRef.child("answers/audioExercises/$audioAnsId").putFile(mp4Uri)
             .addOnSuccessListener {
-                val audioRef = storageRef.child("answers/ImageExercises/$audioAnsId")
+                val audioRef = storageRef.child("answers/audioExercises/$audioAnsId")
                 val downloadUrlTask = audioRef.getDownloadUrl()
                 downloadUrlTask.addOnSuccessListener { uri ->
                     audioUrl = uri.toString()
-                    addImageExAnswer(_imageExList.value?.first()?.assignId!!)
+                    addAudioExAnswer(_audioExList.value?.first()?.assignId!!)
                 }
             }
     }
 
-    private fun addImageExAnswer(assignId: String) {
-        val imageAnswer = ImageAnswer(audioAnsId, audioUrl, assignId, Instant.now().toEpochMilli())
-        answersRef.child(audioAnsId!!).setValue(imageAnswer)
+    private fun addAudioExAnswer(assignId: String) {
+        val audioAnswer = AudioAnswer(audioAnsId, audioUrl, assignId, Instant.now().toEpochMilli())
+        answersRef.child(audioAnsId!!).setValue(audioAnswer)
             .addOnSuccessListener {
                 _addAnswerResult.value = ADD_ANSWER_RESULT_OK
             }
@@ -170,14 +170,14 @@ class PlayImgExViewModel : ViewModel() {
         return (tDay == dDay && tMonth == dMonth && tYear == dYear)
     }
 
-    fun getAssignedImageEx(userId: String) {
+    fun getAssignedAudioEx(userId: String) {
         assignedExercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var currentList = emptyList<AssignedExercise>()
                 if (snapshot.exists()) {
                     for (assignedExercise in snapshot.children) {
                         val exercise = assignedExercise.getValue<AssignedExercise>()!!
-                        if (exercise.userId == userId && exercise.exerciseType == "Image Exercise") {
+                        if (exercise.userId == userId && exercise.exerciseType == "Audio Exercise") {
                             val todayInMillis = Instant.now().toEpochMilli()
                             if (isDateWithinRange(
                                     todayInMillis,
@@ -191,21 +191,21 @@ class PlayImgExViewModel : ViewModel() {
                                         if (answersSnapshot.exists()) {
                                             var answeredToday = false
                                             for (child in answersSnapshot.children) {
-                                                val imageAnswer = child.getValue<ImageAnswer>()
-                                                val checkIsSameDay = checkIsSameDay(todayInMillis, imageAnswer?.ansDate!!)
-                                                if (exercise.assignId.contentEquals(imageAnswer.assignId) && checkIsSameDay) {
+                                                val audioAnswer = child.getValue<AudioAnswer>()
+                                                val checkIsSameDay = checkIsSameDay(todayInMillis, audioAnswer?.ansDate!!)
+                                                if (exercise.assignId.contentEquals(audioAnswer.assignId) && checkIsSameDay) {
                                                     answeredToday = true
                                                 }
                                             }
                                             if (!answeredToday) {
                                                 currentList =
                                                     currentList + exercise
-                                                _imageExList.postValue(currentList)
+                                                _audioExList.postValue(currentList)
                                             }
                                         } else {
                                             currentList =
                                                 currentList + exercise
-                                            _imageExList.postValue(currentList)
+                                            _audioExList.postValue(currentList)
                                         }
                                     }
 
