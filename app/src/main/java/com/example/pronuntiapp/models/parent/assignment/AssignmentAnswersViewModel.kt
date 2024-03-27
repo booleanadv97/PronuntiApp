@@ -1,10 +1,8 @@
 package com.example.pronuntiapp.models.parent.assignment
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.common_utils.models.AssignedExercise
 import com.example.common_utils.models.AudioAnswer
 import com.example.common_utils.models.ImageAnswer
 import com.example.common_utils.models.ImageReconAnswer
@@ -13,7 +11,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
-import java.util.Calendar
 
 class AssignmentAnswersViewModel : ViewModel() {
     val THERAPIST_CHECK_OK = "Si"
@@ -33,34 +30,6 @@ class AssignmentAnswersViewModel : ViewModel() {
     private val _imageReconAnswers : MutableLiveData<List<ImageReconAnswer>> = MutableLiveData(emptyList())
     val imageReconAnswers : LiveData<List<ImageReconAnswer>> = _imageReconAnswers
     private val _markResult = MutableLiveData<String>()
-    val markResult : LiveData<String> = _markResult
-
-    fun resetMarkResult(){
-        _markResult.value = ""
-    }
-    fun markAssignAsComplete(assignId : String){
-        assignmentsRef.child(assignId).addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val endDate = snapshot.getValue<AssignedExercise>()?.endDate
-                val c = Calendar.getInstance()
-                val currDate = c.timeInMillis
-                if(currDate >= endDate!!) {
-                    assignmentsRef.child(assignId).child(THERAPIST_CHECK_FIELD).setValue(THERAPIST_CHECK_OK)
-                        .addOnSuccessListener {
-                            _markResult.value = MARK_AS_COMPLETE_OK
-                        }
-                        .addOnFailureListener {
-                            _markResult.value = "Errore, non è stato possibile cambiare lo stato del compito"
-                            Log.d("$this", it.stackTraceToString())
-                        }
-                }
-                else
-                    _markResult.value = ASSIGN_NOT_COMPLETED
-            }
-            override fun onCancelled(error: DatabaseError) {
-            }
-        })
-    }
     fun getAudioAssignAnswers(assignId : String){
         audioAnswersRef.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
