@@ -8,13 +8,11 @@ import com.example.common_utils.models.AssignedExercise
 import com.example.common_utils.models.ImageRecognitionExercise
 import com.example.common_utils.models.ImageReconAnswer
 import com.example.common_utils.models.User
-import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
-import com.google.firebase.storage.storage
 import java.time.Instant
 import java.util.Calendar
 import java.util.concurrent.ThreadLocalRandom
@@ -35,7 +33,6 @@ class PlayImageReconExViewModel : ViewModel() {
     val imageReconExList: LiveData<List<AssignedExercise>> = _imageReconExList
     private var _currentEx = MutableLiveData<ImageRecognitionExercise>()
     val currentEx: LiveData<ImageRecognitionExercise> = _currentEx
-    private val storageRef = Firebase.storage.reference
     private val _addAnswerResult = MutableLiveData<String>()
     val addAnswerResult: LiveData<String> = _addAnswerResult
     private val _rewardType = MutableLiveData<String>()

@@ -26,7 +26,8 @@
             android:layout_gravity="center"
             android:ems="10"
             android:hint="@string/hint_email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/editTextPasswordL"
@@ -36,7 +37,8 @@
             android:layout_gravity="center"
             android:ems="10"
             android:hint="@string/hint_password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/loginButton"

@@ -17,6 +17,7 @@ import com.example.pronuntiapp.models.patient.ChooseExerciseViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
+@Suppress("DEPRECATION")
 class PatientChooseExerciseFragment : Fragment() {
     private lateinit var viewModel : ChooseExerciseViewModel
     private lateinit var binding: FragmentPatientChooseExerciseBinding
