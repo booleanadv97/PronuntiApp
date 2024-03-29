@@ -16,7 +16,6 @@ class MainActivityViewModel : ViewModel() {
     private val STRING_LENGTH = 32
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
     val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
-    private val usersRef = database.getReference("users")
     private val storageRef = Firebase.storage.reference
     private val audioExercisesRef =
         FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
@@ -51,9 +50,9 @@ class MainActivityViewModel : ViewModel() {
         val uTask = storageRef.child("imageExercises/$imageId").putFile(uri)
         uTask.addOnSuccessListener {
             storageRef.child("imageExercises")
-                .child(imageId!!).downloadUrl.addOnSuccessListener { uri ->
+                .child(imageId).downloadUrl.addOnSuccessListener { uri ->
                     val imgUrl = uri.toString()
-                    imageExercisesRef.child(exerciseName!!)
+                    imageExercisesRef.child(exerciseName)
                         .setValue(
                             ImageExercise(
                                 exerciseName,

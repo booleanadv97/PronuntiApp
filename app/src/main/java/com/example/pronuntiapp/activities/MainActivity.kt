@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             builder.setTitle(resources.getString(R.string.access_type))
             builder.setMessage(resources.getString(R.string.ask_access_type))
             builder.setPositiveButton(resources.getString(R.string.access_default_ok)) { dialog, which ->
-                mAuth!!.createUserWithEmailAndPassword(
+                mAuth.createUserWithEmailAndPassword(
                     viewModel.defaultEmail,
                     viewModel.defaultPassword
                 )
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                             viewModel.image_recon_correct_img_2 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_1)
                             viewModel.image_recon_alt_img_2 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_2)
                             viewModel.addUserToRTDB(task.result?.user?.uid.toString())
-                            mAuth!!.signInWithEmailAndPassword(viewModel.defaultEmail, viewModel.defaultPassword)
+                            mAuth.signInWithEmailAndPassword(viewModel.defaultEmail, viewModel.defaultPassword)
                                 .addOnCompleteListener(
                                     this
                                 ) { task: Task<AuthResult?> ->
@@ -143,11 +143,11 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             val exception = task.exception
                             if (exception is FirebaseAuthUserCollisionException) {
-                                mAuth!!.signInWithEmailAndPassword(viewModel.defaultEmail, viewModel.defaultPassword)
+                                mAuth.signInWithEmailAndPassword(viewModel.defaultEmail, viewModel.defaultPassword)
                                     .addOnCompleteListener(
                                         this
-                                    ) { task: Task<AuthResult?> ->
-                                        if (task.isSuccessful) {
+                                    ) { alreadyExistsTask: Task<AuthResult?> ->
+                                        if (alreadyExistsTask.isSuccessful) {
                                             binding.buttonContinueAsParent.visibility = View.VISIBLE
                                             binding.buttonContinueAsPatient.visibility = View.VISIBLE
                                             binding.buttonContinueAsParent.setOnClickListener {
