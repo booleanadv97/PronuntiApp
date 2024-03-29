@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "455564018208",
-    "firebase_url": "https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "pronuntiappfirebase",
-    "storage_bucket": "pronuntiappfirebase.appspot.com"
+    "project_number": "465436291045",
+    "firebase_url": "https://pronuntiappfinal-default-rtdb.firebaseio.com",
+    "project_id": "pronuntiappfinal",
+    "storage_bucket": "pronuntiappfinal.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:455564018208:android:1b3dded108423278863245",
+        "mobilesdk_app_id": "1:465436291045:android:31d8208d7bd43762a0c90c",
         "android_client_info": {
           "package_name": "com.example.pronuntiapp"
         }
@@ -16,7 +16,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAvAD_FwJ3GrNBtUHeX1RKq5AbJa589T3M"
+          "current_key": "AIzaSyBW8bYQYCgRLU4SJTUvZbxGirw8LjuV_Qw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465436291045:android:37630aff60007be7a0c90c",
+        "android_client_info": {
+          "package_name": "com.example.pronuntiapptherapist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW8bYQYCgRLU4SJTUvZbxGirw8LjuV_Qw"
         }
       ],
       "services": {
