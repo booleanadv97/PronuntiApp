@@ -128,8 +128,8 @@ class MainActivity : AppCompatActivity() {
                             mAuth.signInWithEmailAndPassword(viewModel.defaultEmail, viewModel.defaultPassword)
                                 .addOnCompleteListener(
                                     this
-                                ) { task: Task<AuthResult?> ->
-                                    if (task.isSuccessful) {
+                                ) { signInNewDefaultTask: Task<AuthResult?> ->
+                                    if (signInNewDefaultTask.isSuccessful) {
                                         binding.buttonContinueAsParent.visibility = View.VISIBLE
                                         binding.buttonContinueAsPatient.visibility = View.VISIBLE
                                         binding.buttonContinueAsParent.setOnClickListener {
