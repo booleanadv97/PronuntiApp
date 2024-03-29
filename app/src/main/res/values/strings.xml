@@ -40,6 +40,7 @@
     <!-- Assignments -->
     <string name="txt_exercise_name">Exercise name</string>
     <string name="txt_view_assigned_lang">Assignments list</string>
+    <string name="txt_no_assigns">The are no assignments for the moment!</string>
     <string name="txtStartDateTxt">Start date</string>
     <string name="txtEndDateTxt">End date</string>
     <string name="txtExerciseTypeTxt">Type</string>

@@ -28,6 +28,10 @@ class AssignmentsFragment : Fragment() {
         viewModel.getAssignedExercises(parentId)
         viewModel.assignedExercisesList.observe(viewLifecycleOwner){
                 listAssignments ->
+            if(listAssignments.isEmpty())
+                binding.txtAssignedList.text = resources.getString(R.string.no_assignments)
+            else
+                binding.txtAssignedList.text = resources.getString(R.string.assignments_txt_land)
             val exerciseAdapter =
                 context?.let { ViewAssignmentsGridViewAdapter(assignmentsList = listAssignments, it) }
             gridView.adapter = exerciseAdapter

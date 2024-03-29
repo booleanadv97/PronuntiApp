@@ -42,6 +42,7 @@
     <string name="txt_view_assigned_lang">Lista compiti</string>
     <string name="txtStartDateTxt">Data inizio</string>
     <string name="txtEndDateTxt">Data fine</string>
+    <string name="txt_no_assigns">Non ci sono compiti al momento!</string>
     <string name="txtExerciseTypeTxt">Tipologia</string>
 
     <!-- HomePatient -->
