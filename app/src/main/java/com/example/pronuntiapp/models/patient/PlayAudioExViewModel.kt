@@ -23,7 +23,7 @@ import kotlin.streams.asSequence
 
 class PlayAudioExViewModel : ViewModel() {
     val database =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+        FirebaseDatabase.getInstance()
     private val assignedExercisesRef = database.getReference("Assigned Exercises")
     private val audioExRef = database.getReference("Audio Exercises")
     private val answersRef = database.getReference("Audio Exercises Answers")

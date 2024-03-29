@@ -21,7 +21,7 @@ class AssignmentAnswersViewModel : ViewModel() {
     val THERAPIST_CHECK_FIELD = "therapistCheck"
     val ASSIGN_NOT_COMPLETED = "Il paziente non ha ancora completato il compito!"
     val database =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+        FirebaseDatabase.getInstance()
     private val assignmentsRef = database.getReference("Assigned Exercises")
     private val audioAnswersRef = database.getReference("Audio Exercises Answers")
     private val imageAnswersRef = database.getReference("Image Exercises Answers")

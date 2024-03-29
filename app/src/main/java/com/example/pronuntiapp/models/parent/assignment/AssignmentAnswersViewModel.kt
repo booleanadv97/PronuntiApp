@@ -14,7 +14,7 @@ import com.google.firebase.database.getValue
 
 class AssignmentAnswersViewModel : ViewModel() {
     val database =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+        FirebaseDatabase.getInstance()
     private val audioAnswersRef = database.getReference("Audio Exercises Answers")
     private val imageAnswersRef = database.getReference("Image Exercises Answers")
     private val imageReconAnswersRef = database.getReference("Image Recognition Exercises Answers")

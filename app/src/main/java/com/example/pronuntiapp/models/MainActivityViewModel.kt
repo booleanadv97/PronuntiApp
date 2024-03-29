@@ -15,18 +15,19 @@ import kotlin.streams.asSequence
 class MainActivityViewModel : ViewModel() {
     private val STRING_LENGTH = 32
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    val database = FirebaseDatabase.getInstance()
     private val storageRef = Firebase.storage.reference
     private val audioExercisesRef =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
+        FirebaseDatabase.getInstance().reference.child(
             "Audio Exercises"
         )
     private val imageExercisesRef =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
+        FirebaseDatabase.getInstance().reference.child(
             "Image Exercises"
         )
     private val imageRecognitionRef =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
+        FirebaseDatabase.getInstance(
+        ).reference.child(
             "Image Recognition Exercises"
         )
     val defaultEmail = "default@user.user"

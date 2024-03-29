@@ -12,7 +12,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 
 class ManageParentsViewModel : ViewModel() {
-    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    val database = FirebaseDatabase.getInstance()
     private val usersRef = database.getReference("users")
     var _parentsList : MutableLiveData<List<User>> = MutableLiveData(emptyList())
     val parentsList : LiveData<List<User>> = _parentsList

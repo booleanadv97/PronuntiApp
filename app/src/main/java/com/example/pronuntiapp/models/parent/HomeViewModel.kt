@@ -14,7 +14,7 @@ import com.google.firebase.database.getValue
 
 class HomeViewModel : ViewModel() {
     val database =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+        FirebaseDatabase.getInstance()
     private val usersRef = database.getReference("users")
     private val assignmentsRef = database.getReference("Assigned Exercises")
     private val appointmentsRef = database.getReference("Appointments")

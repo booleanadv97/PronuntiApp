@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.database.FirebaseDatabase
 
 class ChooseExerciseViewModel : ViewModel() {
-    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    val database = FirebaseDatabase.getInstance()
     private val usersRef = database.getReference("users")
     private var _userHero = MutableLiveData<String>()
     val userHero : LiveData<String> = _userHero

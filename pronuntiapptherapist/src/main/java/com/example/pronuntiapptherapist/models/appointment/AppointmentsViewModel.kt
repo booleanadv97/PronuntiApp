@@ -14,7 +14,7 @@ import com.google.firebase.database.getValue
 import java.util.UUID
 
 class AppointmentsViewModel : ViewModel() {
-    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    val database = FirebaseDatabase.getInstance()
     private val appointmentsRef = database.getReference("Appointments")
     private val usersRef = database.getReference("users")
     private val _appointmentsList : MutableLiveData<List<Appointment>> = MutableLiveData(emptyList())

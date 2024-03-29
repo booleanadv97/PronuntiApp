@@ -20,7 +20,7 @@ import kotlin.streams.asSequence
 
 class PlayImageReconExViewModel : ViewModel() {
     val database =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+        FirebaseDatabase.getInstance()
     private val assignedExercisesRef = database.getReference("Assigned Exercises")
     private val imageReconExRef = database.getReference("Image Recognition Exercises")
     private val answersRef = database.getReference("Image Recognition Exercises Answers")

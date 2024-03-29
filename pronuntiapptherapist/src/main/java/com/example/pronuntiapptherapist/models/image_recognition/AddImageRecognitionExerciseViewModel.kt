@@ -44,7 +44,7 @@ class AddImageRecognitionExerciseViewModel : ViewModel() {
     private val _addExerciseResult = MutableLiveData<String>()
     val addExerciseResult : LiveData<String> = _addExerciseResult
     private val exercisesRef =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
+        FirebaseDatabase.getInstance().reference.child(
             "Image Recognition Exercises"
         )
     fun addExerciseToRTDB(name: String, description: String) {

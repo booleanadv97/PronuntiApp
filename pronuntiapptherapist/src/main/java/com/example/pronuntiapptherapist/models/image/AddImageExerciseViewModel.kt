@@ -31,7 +31,7 @@ class AddImageExerciseViewModel : ViewModel() {
     private val _progressBarLevel = MutableLiveData<Int>()
     val progressBarLevel : LiveData<Int> = _progressBarLevel
     private val imgExercisesRef =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app").reference.child(
+        FirebaseDatabase.getInstance().reference.child(
             "Image Exercises"
         )
     private val STRING_LENGTH = 32

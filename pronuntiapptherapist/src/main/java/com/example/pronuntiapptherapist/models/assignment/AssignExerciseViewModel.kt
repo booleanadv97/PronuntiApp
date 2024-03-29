@@ -16,7 +16,7 @@ import java.util.UUID
 class AssignExerciseViewModel : ViewModel() {
     val EXERCISE_RESULT_OK = "OK"
     val database =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+        FirebaseDatabase.getInstance()
     private val parentsRef = database.getReference("users")
     private val assignedExercisesRef = database.getReference("Assigned Exercises")
     var _parentsList: MutableLiveData<List<User>> = MutableLiveData(emptyList())

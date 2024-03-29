@@ -13,7 +13,7 @@ import kotlin.math.abs
 
 class ChooseCharacterViewModel : ViewModel() {
     private val database =
-        FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+        FirebaseDatabase.getInstance()
     private val usersRef = database.getReference("users")
     private val _changeResult = MutableLiveData<String>()
     private val _patientPoints = MutableLiveData<Int>()

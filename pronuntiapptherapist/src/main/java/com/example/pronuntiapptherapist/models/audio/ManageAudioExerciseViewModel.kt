@@ -11,7 +11,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 
 class ManageAudioExerciseViewModel : ViewModel() {
-    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    val database = FirebaseDatabase.getInstance()
     private val audioExercisesRef = database.getReference("Audio Exercises")
     var _exerciseList : MutableLiveData<List<AudioExercise>> = MutableLiveData(emptyList())
     val exerciseList : LiveData<List<AudioExercise>> = _exerciseList

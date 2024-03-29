@@ -11,7 +11,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 
 class RankingsViewModel : ViewModel() {
-    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    val database = FirebaseDatabase.getInstance()
     private val users = database.getReference("users")
     private var _usersList : MutableLiveData<List<User>> = MutableLiveData(emptyList())
     val usersList : LiveData<List<User>> = _usersList

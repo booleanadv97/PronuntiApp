@@ -11,7 +11,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 
 class ViewAssignments : ViewModel() {
-    val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    val database = FirebaseDatabase.getInstance()
    private val assignedExercisesRef = database.getReference("Assigned Exercises")
     private var _assignedExercisesList : MutableLiveData<List<AssignedExercise>> = MutableLiveData(emptyList())
     val assignedExercisesList : LiveData<List<AssignedExercise>> = _assignedExercisesList

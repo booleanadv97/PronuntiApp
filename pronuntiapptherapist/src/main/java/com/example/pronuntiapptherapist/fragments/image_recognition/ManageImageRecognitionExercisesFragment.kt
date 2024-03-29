@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
 import androidx.fragment.app.Fragment
+import com.example.common_utils.models.ImageRecognitionExercise
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.adapters.ImageRecognitionExerciseGridViewAdapter
 import com.example.pronuntiapptherapist.databinding.FragmentManageImageRecognitionExercisesBinding
-import com.example.common_utils.models.ImageRecognitionExercise
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -20,7 +20,7 @@ import com.google.firebase.database.getValue
 class ManageImageRecognitionExercisesFragment : Fragment() {
     lateinit var gridView : GridView
     private lateinit var binding : FragmentManageImageRecognitionExercisesBinding
-    private val database = FirebaseDatabase.getInstance("https://pronuntiappfirebase-default-rtdb.europe-west1.firebasedatabase.app")
+    private val database = FirebaseDatabase.getInstance()
     private val imgExercisesRef = database.getReference("Image Recognition Exercises")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
