@@ -48,6 +48,7 @@ class PlayAudioExViewModel : ViewModel() {
     val reward: LiveData<String> = _reward
     private var _userHero = MutableLiveData<String>()
     val userHero : LiveData<String> = _userHero
+    var hasAnswered : Boolean = false
 
     fun getHero(userId : String){
         usersRef.child(userId).child("character").get().addOnSuccessListener {
@@ -93,7 +94,7 @@ class PlayAudioExViewModel : ViewModel() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        _currentAudioEx.value = snapshot.getValue<AudioExercise>()
+                        _currentAudioEx.value = snapshot.getValue<AudioExercise>()!!
                     }
                 }
 

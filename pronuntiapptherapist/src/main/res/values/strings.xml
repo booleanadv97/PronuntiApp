@@ -124,7 +124,7 @@
     <!-- TherapistHome -->
     <string name="txt_no_appointments_scheduled">You don\'t have any appointments scheduled.</string>
     <string name="txt_appointments_scheduled"> appointments scheduled.</string>
-    <string name="txt_no_unverified_assignments"> assignments scheduled.</string>
+    <string name="txt_no_unverified_assignments"> You don\'t have any assignments to check.</string>
     <string name="txt_unverified_assignments"> assignments to check.</string>
     <!--  -->
 </resources>

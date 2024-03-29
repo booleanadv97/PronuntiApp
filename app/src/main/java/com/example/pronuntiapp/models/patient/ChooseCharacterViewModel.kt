@@ -34,7 +34,8 @@ class ChooseCharacterViewModel : ViewModel() {
     fun getPatientPoints(userId: String) {
         usersRef.child(userId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                _patientPoints.value = snapshot.child("points").getValue<Int>()
+                if(snapshot.exists())
+                    _patientPoints.value = snapshot.child("points").getValue<Int>()!!
             }
 
             override fun onCancelled(error: DatabaseError) {

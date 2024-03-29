@@ -28,7 +28,8 @@ class HomeViewModel : ViewModel() {
     fun getUserData(){
         usersRef.child(userId!!).addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                _user.value = snapshot.getValue<User>()
+                if(snapshot.exists())
+                    _user.value = snapshot.getValue<User>()!!
             }
             override fun onCancelled(error: DatabaseError) {
             }

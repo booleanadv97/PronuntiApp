@@ -72,13 +72,17 @@ class PlayAudioExFragment : Fragment() {
                             if (event != null) {
                                 when (event.action) {
                                     MotionEvent.ACTION_DOWN -> {
-                                        startRecordingAnswer()
+                                        if(!viewModel.hasAnswered) {
+                                            startRecordingAnswer()
+                                        }
                                         return true
                                     }
 
                                     MotionEvent.ACTION_UP -> {
-                                        stopRecordingAnswer()
-                                        getAddAnswerResult(userId)
+                                        if(!viewModel.hasAnswered) {
+                                            stopRecordingAnswer()
+                                            getAddAnswerResult(userId)
+                                        }
                                         return true
                                     }
                                 }
@@ -244,6 +248,7 @@ class PlayAudioExFragment : Fragment() {
         viewModel.audioAnsId = viewModel.randomString()
         viewModel.mp4Uri =
             Uri.fromFile(File(viewModel.outputMP4File))
+        viewModel.hasAnswered = true
         viewModel.addExerciseOnMP4Upload()
     }
     private fun startRecordingAnswer(){

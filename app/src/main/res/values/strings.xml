@@ -103,4 +103,11 @@
     <string name="txt_no_assignments">There are no assignments scheduled.</string>
     <string name="txt_scheduled_assignments">assignments to do.</string>
     <!-- -->
+
+    <!-- MainActivity -->
+    <string name="access_type">Access type</string>
+    <string name="ask_access_type">Do you want to continue as the default user?</string>
+    <string name="access_default_ok">Yes</string>
+    <string name="access_default_no">No</string>
+    <!-- -->
 </resources>
