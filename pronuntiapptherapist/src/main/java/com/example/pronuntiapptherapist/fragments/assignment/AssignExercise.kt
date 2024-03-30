@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.FrameLayout
 import android.widget.GridView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -120,6 +121,9 @@ class AssignExercise : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val containerView =
+            requireActivity().findViewById<FrameLayout>(R.id.frameLayoutTherapist)
+        containerView.removeAllViews()
         binding = FragmentAssignExerciseBinding.inflate(inflater)
         viewModel = ViewModelProvider(this)[AssignExerciseViewModel::class.java]
         return binding.root

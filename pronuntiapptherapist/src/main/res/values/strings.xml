@@ -80,7 +80,7 @@
     <!-- Exercise details -->
     <string name="ex_details_land_txt">Exercise details</string>
     <string name="txt_image">Image</string>
-    <string name="correct_img_txt">Corrected image</string>
+    <string name="correct_img_txt">Correct image</string>
     <string name="alt_img_txt">Alternative image</string>
     <string name="txt_audio_details">Audio</string>
     <string name="txt_exercise_name">Exercise name</string>
