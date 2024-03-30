@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.common_utils.models.ConnectivityLiveData
 import com.example.pronuntiapptherapist.R
 import com.example.pronuntiapptherapist.databinding.ActivityTherapistMainBinding
@@ -27,6 +28,7 @@ class TherapistMainActivity : AppCompatActivity() {
     lateinit var binding : ActivityTherapistMainBinding
     override fun onStart() {
         super.onStart()
+
         val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
             results ->
             for ((permission, granted) in results) {
@@ -65,9 +67,15 @@ class TherapistMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTherapistMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if(savedInstanceState == null)
-            replaceFragment(HomeFragment())
+        if(savedInstanceState == null) {
+            val fragmentManager = supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.frameLayoutTherapist, HomeFragment())
+            fragmentTransaction.commit()
+        }
         binding.bottomNavigationView.setOnItemSelectedListener{
+            if(supportFragmentManager.backStackEntryCount > 0)
+                supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
             when(it.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.parents -> replaceFragment(ManageParentsFragment())
@@ -78,6 +86,9 @@ class TherapistMainActivity : AppCompatActivity() {
             true
         }
     }
+
+
+
      private fun replaceFragment(fragment : Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
