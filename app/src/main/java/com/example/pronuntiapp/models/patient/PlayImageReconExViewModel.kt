@@ -153,7 +153,7 @@ class PlayImageReconExViewModel : ViewModel() {
     }
 
     fun getAssignedImageReconEx(userId: String) {
-        assignedExercisesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        assignedExercisesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var currentList = emptyList<AssignedExercise>()
                 if (snapshot.exists()) {
@@ -167,7 +167,7 @@ class PlayImageReconExViewModel : ViewModel() {
                                     exercise.endDate!!
                                 )
                             ) {
-                                answersRef.addListenerForSingleValueEvent(object :
+                                answersRef.addValueEventListener(object :
                                     ValueEventListener {
                                     override fun onDataChange(answersSnapshot: DataSnapshot) {
                                         if (answersSnapshot.exists()) {

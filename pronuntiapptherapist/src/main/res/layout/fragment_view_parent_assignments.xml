@@ -1,37 +1,34 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerExercises"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/containerExercises"
     tools:context="com.example.pronuntiapptherapist.fragments.assignment.ViewParentAssignmentsFragment">
 
-    <GridView
-        android:id="@+id/gridViewExercises"
-        android:layout_width="374dp"
-        android:layout_height="487dp"
-        android:horizontalSpacing="6dp"
-        android:nestedScrollingEnabled="true"
-        android:numColumns="1"
-        android:verticalSpacing="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
-
-    <TextView
-        android:id="@+id/txtAssignedList"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_view_assigned_lang"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/gridViewExercises"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737" />
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtAssignedList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="@string/txt_view_assigned_lang"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <GridView
+            android:id="@+id/gridViewExercises"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:nestedScrollingEnabled="true"
+            android:numColumns="1"
+            android:verticalSpacing="10dp" />
+    </LinearLayout>
+</FrameLayout>

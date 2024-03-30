@@ -1,171 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/containerAddImageExercise"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <LinearLayout
-        android:id="@+id/frame1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/textViewExerciseName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textViewExerciseName_text" />
-
-        <EditText
-            android:id="@+id/editTextImageExerciseName"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/frame1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:required="true"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/editTextImageExerciseName_hint"
-            android:inputType="text"
-            android:text="" />
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_shape_25"
+            android:orientation="vertical"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/textViewExerciseName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/textViewExerciseName_text" />
 
-        <TextView
-            android:id="@+id/textViewExerciseDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textViewExerciseDescription_text" />
+                <EditText
+                    android:id="@+id/editTextImageExerciseName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:autofillHints=""
+                    android:hint="@string/editTextImageExerciseName_hint"
+                    android:inputType="text"
+                    android:required="true"
+                    android:text="" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <EditText
-            android:id="@+id/editTextExerciseDescription"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/frame2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:required="true"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/editTextExerciseDescription_text"
-            android:inputType="textMultiLine" />
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_shape_25"
+            android:orientation="vertical"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/frameLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/textViewExerciseDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/textViewExerciseDescription_text" />
 
-        <TextView
-            android:id="@+id/textViewSubmitCorrectImage"
+                <EditText
+                    android:id="@+id/editTextExerciseDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:autofillHints=""
+                    android:hint="@string/editTextExerciseDescription_text"
+                    android:inputType="textMultiLine"
+                    android:required="true" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/frame3"
             android:layout_width="match_parent"
-            android:textAlignment="center"
             android:layout_height="wrap_content"
-            android:text="@string/txt_correct_image" />
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_shape_25"
+            android:orientation="vertical"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewSubmitCorrectImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/txt_correct_image"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/buttonUploadCorrectImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="@string/txt_upload_button_correct_img" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/frame4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_shape_25"
+            android:orientation="vertical"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewSubmitAltImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="@string/txt_alt_image"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/buttonUploadAltImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="@string/txt_upload_button_alt_img" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/frame5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_shape_25"
+            android:orientation="vertical"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtAudioAnswer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="@string/txt_audio"
+                    android:textAlignment="center" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonStartRec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="@string/rec_start"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/buttonStopRec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:text="@string/rec_stop"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/buttonUploadCorrectImage"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_upload_button_correct_img" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/frameLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/textViewSubmitAltImage"
+            android:id="@+id/buttonSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="@string/txt_alt_image" />
-
-        <Button
-            android:id="@+id/buttonUploadAltImage"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_upload_button_alt_img" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/frameLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/txtAudioAnswer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="@string/txt_audio" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-        <Button
-            android:id="@+id/buttonStartRec"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:text="@string/rec_start"
-            tools:ignore="ButtonStyle"
-            />
-
-        <Button
-            android:id="@+id/buttonStopRec"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:text="@string/rec_stop"
-            tools:ignore="ButtonStyle" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonSubmit"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:layout_height="wrap_content"
-        android:text="@string/submit" />
+            android:layout_margin="20dp"
+            android:text="@string/submit" />
     </LinearLayout>
 </ScrollView>

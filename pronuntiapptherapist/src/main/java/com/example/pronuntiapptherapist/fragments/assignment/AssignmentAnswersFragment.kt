@@ -29,14 +29,17 @@ class AssignmentAnswersFragment : Fragment() {
         val therapistCheck = arguments?.getString("therapistCheck")!!
         gridView = binding.gridViewAnswers
         btnCheck = binding.btnCheck
-        if(therapistCheck.isNotEmpty()) {
-            btnCheck.isEnabled = false
-            btnCheck.visibility = View.INVISIBLE
-        }
+        btnCheck.isEnabled = false
+        btnCheck.visibility = View.INVISIBLE
         when (exerciseType) {
             "Image Exercise" -> {
                 viewModel.getImageAssignAnswers(assignId)
                 viewModel.imageAnswers.observe(viewLifecycleOwner) { list ->
+                    if(list.isNotEmpty())
+                    {
+                        btnCheck.isEnabled = true
+                        btnCheck.visibility = View.VISIBLE
+                    }
                     val exerciseAdapter =
                         context?.let { ImageAnswersGridViewAdapter(it, answers = list) }
                     gridView.adapter = exerciseAdapter
@@ -46,6 +49,11 @@ class AssignmentAnswersFragment : Fragment() {
             "Image Recognition Exercise" -> {
                 viewModel.getImageReconAssignAnswers(assignId)
                 viewModel.imageReconAnswers.observe(viewLifecycleOwner) { list ->
+                    if(list.isNotEmpty())
+                    {
+                        btnCheck.isEnabled = true
+                        btnCheck.visibility = View.VISIBLE
+                    }
                     val exerciseAdapter =
                         context?.let { ImageReconAnswersGridViewAdapter(it, answers = list) }
                     gridView.adapter = exerciseAdapter
@@ -55,6 +63,11 @@ class AssignmentAnswersFragment : Fragment() {
             "Audio Exercise" -> {
                 viewModel.getAudioAssignAnswers(assignId)
                 viewModel.audioAnswers.observe(viewLifecycleOwner) { list ->
+                    if(list.isNotEmpty())
+                    {
+                        btnCheck.isEnabled = true
+                        btnCheck.visibility = View.VISIBLE
+                    }
                     val exerciseAdapter =
                         context?.let { AudioAnswersGridViewAdapter(it, answers = list) }
                     gridView.adapter = exerciseAdapter
@@ -75,6 +88,8 @@ class AssignmentAnswersFragment : Fragment() {
             }
         }
     }
+
+
 
 
     override fun onCreateView(

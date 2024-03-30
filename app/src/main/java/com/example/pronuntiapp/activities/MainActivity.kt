@@ -7,6 +7,8 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -21,6 +23,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -94,80 +97,133 @@ class MainActivity : AppCompatActivity() {
         val mAuth = FirebaseAuth.getInstance()
         val currentUser = mAuth.currentUser
         if (currentUser != null) {
-            binding.buttonContinueAsParent.visibility = View.VISIBLE
-            binding.buttonContinueAsPatient.visibility = View.VISIBLE
-            binding.buttonContinueAsParent.setOnClickListener {
-                startActivity(Intent(this, ParentActivity::class.java))
-            }
-            binding.buttonContinueAsPatient.setOnClickListener {
-                startActivity(Intent(this, PatientActivity::class.java))
-            }
-        } else {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle(resources.getString(R.string.access_type))
-            builder.setMessage(resources.getString(R.string.ask_access_type))
-            builder.setPositiveButton(resources.getString(R.string.access_default_ok)) { dialog, which ->
-                mAuth.createUserWithEmailAndPassword(
-                    viewModel.defaultEmail,
-                    viewModel.defaultPassword
-                )
-                    .addOnCompleteListener(this) { task: Task<AuthResult?> ->
-                        if (task.isSuccessful) {
-                            viewModel.audio_exercise_1_uri = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.audio_exercise_1)
-                            viewModel.audio_exercise_2_uri = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.audio_exercise_2)
-                            viewModel.audio_exercise_3_uri = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.audio_exercise_3)
-                            viewModel.image_exercise_1_uri = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_1)
-                            viewModel.image_exercise_2_uri = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_2)
-                            viewModel.image_recon_audio_1 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.image_recon_1_audio)
-                            viewModel.image_recon_audio_2 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.image_recon_2_audio)
-                            viewModel.image_recon_correct_img_1 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_2)
-                            viewModel.image_recon_alt_img_1 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_1)
-                            viewModel.image_recon_correct_img_2 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_1)
-                            viewModel.image_recon_alt_img_2 = Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_2)
-                            viewModel.addUserToRTDB(task.result?.user?.uid.toString())
-                            mAuth.signInWithEmailAndPassword(viewModel.defaultEmail, viewModel.defaultPassword)
+            currentUser.getIdToken(true)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        enablePath()
+                    } else {
+                        continueDialog()
+                    }
+                }
+        }else{
+            continueDialog()
+        }
+    }
+
+    private fun continueDialog(){
+        val mAuth = FirebaseAuth.getInstance()
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(resources.getString(R.string.access_type))
+        builder.setMessage(resources.getString(R.string.ask_access_type))
+        builder.setPositiveButton(resources.getString(R.string.access_default_ok)) { _, _ ->
+            mAuth.createUserWithEmailAndPassword(
+                viewModel.defaultEmail,
+                viewModel.defaultPassword
+            )
+                .addOnCompleteListener(this) { task: Task<AuthResult?> ->
+                    if (task.isSuccessful) {
+                        initDefaultSetup(task)
+                        mAuth.signInWithEmailAndPassword(
+                            viewModel.defaultEmail,
+                            viewModel.defaultPassword
+                        )
+                            .addOnCompleteListener(
+                                this
+                            ) { signInNewDefaultTask: Task<AuthResult?> ->
+                                if (signInNewDefaultTask.isSuccessful) {
+                                    enablePath()
+                                }
+                            }
+                    } else {
+                        val exception = task.exception
+                        if (exception is FirebaseAuthUserCollisionException) {
+                            mAuth.signInWithEmailAndPassword(
+                                viewModel.defaultEmail,
+                                viewModel.defaultPassword
+                            )
                                 .addOnCompleteListener(
                                     this
-                                ) { signInNewDefaultTask: Task<AuthResult?> ->
-                                    if (signInNewDefaultTask.isSuccessful) {
-                                        binding.buttonContinueAsParent.visibility = View.VISIBLE
-                                        binding.buttonContinueAsPatient.visibility = View.VISIBLE
-                                        binding.buttonContinueAsParent.setOnClickListener {
-                                            startActivity(Intent(this, ParentActivity::class.java))
-                                        }
-                                        binding.buttonContinueAsPatient.setOnClickListener {
-                                            startActivity(Intent(this, PatientActivity::class.java))
-                                        }
+                                ) { alreadyExistsTask: Task<AuthResult?> ->
+                                    if (alreadyExistsTask.isSuccessful) {
+                                        enablePath()
                                     }
                                 }
-                        } else {
-                            val exception = task.exception
-                            if (exception is FirebaseAuthUserCollisionException) {
-                                mAuth.signInWithEmailAndPassword(viewModel.defaultEmail, viewModel.defaultPassword)
-                                    .addOnCompleteListener(
-                                        this
-                                    ) { alreadyExistsTask: Task<AuthResult?> ->
-                                        if (alreadyExistsTask.isSuccessful) {
-                                            binding.buttonContinueAsParent.visibility = View.VISIBLE
-                                            binding.buttonContinueAsPatient.visibility = View.VISIBLE
-                                            binding.buttonContinueAsParent.setOnClickListener {
-                                                startActivity(Intent(this, ParentActivity::class.java))
-                                            }
-                                            binding.buttonContinueAsPatient.setOnClickListener {
-                                                startActivity(Intent(this, PatientActivity::class.java))
-                                            }
-                                        }
-                                    }
-                            }
                         }
                     }
-            }
-            builder.setNegativeButton(resources.getString(R.string.access_default_no)) { dialog, which ->
-                startActivity(Intent(this, Login::class.java))
-                finish()
-            }
-            val dialog = builder.create()
-            dialog.show()
+                }
         }
+        builder.setNegativeButton(resources.getString(R.string.access_default_no)) { _, _ ->
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun enablePath(){
+        binding.buttonContinueAsParent.visibility =
+            View.VISIBLE
+        binding.buttonContinueAsPatient.visibility =
+            View.VISIBLE
+        binding.buttonContinueAsParent.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    ParentActivity::class.java
+                )
+            )
+        }
+        binding.buttonContinueAsPatient.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    PatientActivity::class.java
+                )
+            )
+        }
+    }
+    private fun initDefaultSetup(task : Task<AuthResult?>) {
+        loadDefaultResources()
+        setContentView(R.layout.fragment_wait_upload)
+        viewModel.addUserToRTDB(task.result?.user?.uid.toString())
+        viewModel.progressBarLevel.observe(this) { progressBarLevel ->
+            val txtProgress =
+                findViewById<TextView>(R.id.txtProgress)
+            val progressBar =
+                findViewById<ProgressBar>(R.id.progressBarUpload)
+            progressBar.progress = progressBarLevel
+            if (progressBarLevel < 100) {
+                viewModel.txtProgress.observe(this) { text ->
+                    txtProgress.text = text
+                }
+            } else {
+                setContentView(R.layout.activity_main)
+            }
+        }
+    }
+    private fun loadDefaultResources(){
+        viewModel.audio_exercise_1_uri =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.audio_exercise_1)
+        viewModel.audio_exercise_2_uri =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.audio_exercise_2)
+        viewModel.audio_exercise_3_uri =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.audio_exercise_3)
+        viewModel.image_exercise_1_uri =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_1)
+        viewModel.image_exercise_2_uri =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_2)
+        viewModel.image_recon_audio_1 =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.image_recon_1_audio)
+        viewModel.image_recon_audio_2 =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.image_recon_2_audio)
+        viewModel.image_recon_correct_img_1 =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_2)
+        viewModel.image_recon_alt_img_1 =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_1)
+        viewModel.image_recon_correct_img_2 =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_1)
+        viewModel.image_recon_alt_img_2 =
+            Uri.parse("android.resource://" + this.packageName + "/" + R.raw.default_image_exercise_2)
+
     }
 }

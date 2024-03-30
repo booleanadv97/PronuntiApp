@@ -4,16 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_margin="20dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp">
         <LinearLayout
-            android:padding="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_gravity=""
-            android:layout_marginTop="5dp"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -21,9 +18,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:drawablePadding="5dp"
-                android:padding="4dp"
                 android:text="@string/app_name"
                 app:drawableLeftCompat="@drawable/icon_calendar" />
 
@@ -38,6 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/audio_exercise_play"
+                    android:layout_margin="10dp"
                     tools:ignore="ButtonStyle" />
 
                 <Button
@@ -46,6 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/audio_exercise_stop"
+                    android:layout_margin="10dp"
                     tools:ignore="ButtonStyle" />
             </LinearLayout>
         </LinearLayout>

@@ -7,8 +7,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:orientation="vertical"
         tools:ignore="UselessParent">
+
         <TextView
             android:id="@+id/txtReward"
             android:layout_width="match_parent"
@@ -21,22 +23,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/reward_source_txt">
-            </TextView>
+                android:layout_margin="5dp"
+                android:text="@string/reward_source_txt" />
+
             <EditText
                 android:id="@+id/editTextReward"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autofillHints=""
                 android:hint="@string/reward_source_txt"
-                android:inputType="text"
-                android:autofillHints="" />
+                android:inputType="text" />
 
             <Button
                 android:id="@+id/btnSubmit"

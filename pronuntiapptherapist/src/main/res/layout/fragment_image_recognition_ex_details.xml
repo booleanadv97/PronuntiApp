@@ -14,8 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="20dp"
             android:text="@string/ex_details_land_txt"
             android:textAlignment="center"
             android:textSize="20sp" />
@@ -23,7 +22,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="20dp"
             app:cardCornerRadius="5dp"
             app:cardElevation="5dp">
 
@@ -31,52 +30,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:id="@+id/txtExerciseName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="10dp"
                     android:drawablePadding="5dp"
-                    android:padding="4dp"
                     android:text="@string/txt_exercise_name"
                     app:drawableLeftCompat="@drawable/icon_note" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/txtExerciseDescription"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtExerciseDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:drawablePadding="5dp"
-                        android:padding="4dp"
-                        android:text="@string/txt_exercise_description"
-                        app:drawableLeftCompat="@drawable/icon_signature" />
-                </LinearLayout>
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="5dp"
+                    android:text="@string/txt_exercise_description"
+                    app:drawableLeftCompat="@drawable/icon_signature" />
 
                 <TextView
                     android:id="@+id/txtImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="5dp"
                     android:text="@string/correct_img_txt"
                     app:drawableLeftCompat="@drawable/icon_gallery" />
 
                 <ImageView
                     android:id="@+id/correctImageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/image_width"
+                    android:layout_height="@dimen/image_height"
+                    android:layout_gravity="center"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_launcher_foreground" />
 
@@ -85,41 +75,48 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="5dp"
                     android:text="@string/alt_img_txt"
                     app:drawableLeftCompat="@drawable/icon_gallery" />
 
                 <ImageView
                     android:id="@+id/altImageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/image_width"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/image_height"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_launcher_foreground" />
+
                 <TextView
                     android:id="@+id/txtAudio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
+                    android:layout_margin="10dp"
                     android:text="@string/txt_audio_details"
-                    app:drawableLeftCompat="@drawable/icon_music_note"
-                    />
+                    android:drawablePadding="5dp"
+                    app:drawableLeftCompat="@drawable/icon_music_note" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/btnPlay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:layout_gravity="center"
                         android:text="@string/audio_exercise_play"
                         tools:ignore="ButtonStyle" />
+
                     <Button
                         android:id="@+id/btnStop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:layout_gravity="center"
                         android:text="@string/audio_exercise_stop"
                         tools:ignore="ButtonStyle" />
@@ -132,8 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
+            android:layout_margin="30dp"
             android:text="@string/assign_exercise_txt" />
     </LinearLayout>
 </ScrollView>

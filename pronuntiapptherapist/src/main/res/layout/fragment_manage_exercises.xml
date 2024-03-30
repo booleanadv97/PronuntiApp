@@ -5,116 +5,119 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:layout_gravity="center"
         android:orientation="vertical"
         tools:ignore="UselessParent">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewImageExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewImageExercise"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-            <ImageView
-                android:id="@+id/imageImageExercise"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/image_exercises"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/image_exercise" />
-
-            <TextView
-                android:id="@+id/txtImageExercise"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/image_exercises"
-                android:textSize="20sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/imageImageExercise"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/image_exercises"
+                    android:src="@drawable/image_exercise" />
+
+                <TextView
+                    android:id="@+id/txtImageExercise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="@string/image_exercises"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewAudioSeq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewAudioSeq"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-            <ImageView
-                android:id="@+id/imageAudioSeq"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:contentDescription="@string/audio_seq_repeat"
-                android:src="@drawable/audio_seq_repeat" />
-
-            <TextView
-                android:id="@+id/txtAudioSeq"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/audio_seq_repeat"
-                android:textSize="20sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewImageRecognition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+                <ImageView
+                    android:id="@+id/imageAudioSeq"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/audio_seq_repeat"
+                    android:src="@drawable/audio_seq_repeat" />
 
-        <LinearLayout
+                <TextView
+                    android:id="@+id/txtAudioSeq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="@string/audio_seq_repeat"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewImageRecognition"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-            <ImageView
-                android:id="@+id/image_recognition"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/image_recognition"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/image_recognition" />
-
-            <TextView
-                android:id="@+id/txtImageRecognition"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="20sp"
-                android:text="@string/image_recognition" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/image_recognition"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/image_recognition"
+                    android:src="@drawable/image_recognition" />
+
+                <TextView
+                    android:id="@+id/txtImageRecognition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:text="@string/image_recognition"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </FrameLayout>

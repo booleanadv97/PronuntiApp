@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="5dp"
+    android:layout_margin="20dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp">
 
@@ -14,15 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:layout_margin="10dp"
         tools:ignore="UseCompoundDrawables">
         <TextView
             android:id="@+id/txtDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:padding="4dp"
+            android:layout_margin="10dp"
             android:text="@string/app_name"
             android:drawablePadding="5dp"
             app:drawableLeftCompat="@drawable/icon_calendar" />
@@ -32,9 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="20dp"
-            android:padding="4dp"
+            android:layout_margin="10dp"
             android:text="@string/app_name"
             app:drawableLeftCompat="@drawable/icon_check" />
     </LinearLayout>

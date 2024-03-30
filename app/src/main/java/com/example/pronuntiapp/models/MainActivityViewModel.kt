@@ -1,6 +1,8 @@
 package com.example.pronuntiapp.models
 
 import android.net.Uri
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.common_utils.models.AudioExercise
 import com.example.common_utils.models.ImageExercise
@@ -17,6 +19,11 @@ class MainActivityViewModel : ViewModel() {
     private val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
     val database = FirebaseDatabase.getInstance()
     private val storageRef = Firebase.storage.reference
+    private val _progressBarLevel = MutableLiveData<Int>(0)
+    val progressBarLevel : LiveData<Int> = _progressBarLevel
+    private val _txtProgress = MutableLiveData<String>()
+    val txtProgress : LiveData<String> = _txtProgress
+
     private val audioExercisesRef =
         FirebaseDatabase.getInstance().reference.child(
             "Audio Exercises"
@@ -63,6 +70,8 @@ class MainActivityViewModel : ViewModel() {
                             )
                         )
                 }
+                _progressBarLevel.value = _progressBarLevel.value?.plus(15)
+                _txtProgress.value = "${_progressBarLevel.value}%"
         }
     }
 
@@ -92,6 +101,8 @@ class MainActivityViewModel : ViewModel() {
                                     audioAnsId,
                                     audioUrl)
                                 imageRecognitionRef.child(newExercise.exerciseName.toString()).setValue(newExercise)
+                                _progressBarLevel.value = _progressBarLevel.value?.plus(15)
+                                _txtProgress.value = "${_progressBarLevel.value}%"
                             }
                         }
                     }
@@ -113,6 +124,8 @@ class MainActivityViewModel : ViewModel() {
                     audioUrl,
                     audioAnsId)
                 audioExercisesRef.child(newExercise.exerciseName.toString()).setValue(newExercise)
+                _progressBarLevel.value = _progressBarLevel.value?.plus(15)
+                _txtProgress.value = "${_progressBarLevel.value}%"
             }
         }
     }
@@ -142,6 +155,8 @@ class MainActivityViewModel : ViewModel() {
     }
 
     fun addUserToRTDB(uid : String){
+        _progressBarLevel.value = 0
+        _txtProgress.value = "${_progressBarLevel.value}%"
         val ref = database.getReference("/users/$uid")
         val user = User(uid, defaultEmail, defaultFirstName, defaultLastName)
         ref.setValue(user)

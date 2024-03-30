@@ -1,47 +1,43 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerExercises"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/containerExercises"
     tools:context="com.example.pronuntiapptherapist.fragments.assignment.ViewParentAssignmentsFragment">
 
-    <Button
-        android:id="@+id/btnCheck"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_assignment_btn_check"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridViewAnswers" />
+        android:layout_margin="20dp"
+        android:orientation="vertical">
 
-    <GridView
-        android:id="@+id/gridViewAnswers"
-        android:layout_width="374dp"
-        android:layout_height="487dp"
-        android:horizontalSpacing="6dp"
-        android:nestedScrollingEnabled="true"
-        android:numColumns="1"
-        android:verticalSpacing="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        <TextView
+            android:id="@+id/txtAssignedList"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_assignment_answers_land"
+            android:textSize="24sp"
+            android:layout_margin="10dp" />
 
-    <TextView
-        android:id="@+id/txtAssignedList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_assignment_answers_land"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/gridViewAnswers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737" />
+        <GridView
+            android:id="@+id/gridViewAnswers"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="400dp"
+            android:nestedScrollingEnabled="true"
+            android:numColumns="1"
+            android:verticalSpacing="10dp"
+            android:layout_margin="10dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/txt_assignment_btn_check"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+</FrameLayout>

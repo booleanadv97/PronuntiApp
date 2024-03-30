@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <TextView
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -19,7 +18,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="20dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
         <LinearLayout
@@ -33,7 +32,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:padding="4dp"
                 android:text="@string/app_name"
                 android:drawablePadding="5dp"
                 app:drawableLeftCompat="@drawable/icon_note" />
@@ -41,15 +39,12 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="20dp">
+                android:layout_margin="10dp">
                 <TextView
                     android:id="@+id/txtExerciseDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:padding="4dp"
+                    android:layout_margin="10dp"
                     android:drawablePadding="5dp"
                     app:drawableLeftCompat="@drawable/icon_signature"
                     android:text="@string/app_name"
@@ -58,9 +53,7 @@
                     android:id="@+id/txtAudio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:padding="4dp"
+                    android:layout_margin="10dp"
                     android:text="@string/txt_audio_details"
                     app:drawableLeftCompat="@drawable/icon_music_note"
                     />
@@ -74,6 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/audio_exercise_play"
+                        android:layout_margin="10dp"
                         tools:ignore="ButtonStyle" />
                     <Button
                         android:id="@+id/btnStop"
@@ -81,6 +75,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/audio_exercise_stop"
+                        android:layout_margin="10dp"
                         tools:ignore="ButtonStyle" />
                 </LinearLayout>
             </LinearLayout>

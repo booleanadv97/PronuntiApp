@@ -1,100 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/containerAddImageExercise"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/frame1"
-        android:layout_width="350dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
 
-        <TextView
-            android:id="@+id/textViewExerciseName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/textViewExerciseName_text" />
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextImageExerciseName"
-            android:layout_width="203dp"
-            android:layout_height="49dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/editTextImageExerciseName_hint"
-            android:inputType="text"
-            android:text="" />
+            <TextView
+                android:id="@+id/textViewExerciseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/textViewExerciseName_text" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/editTextImageExerciseName"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:autofillHints=""
+                android:hint="@string/editTextImageExerciseName_hint"
+                android:inputType="text"
+                android:text="" />
+        </LinearLayout>
 
-    <LinearLayout
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/frameLayout"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
-        android:layout_height="200dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
 
-        <TextView
-            android:id="@+id/textViewExerciseDescription"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/textViewExerciseDescription_text" />
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextExerciseDescription"
-            android:layout_width="295dp"
-            android:layout_height="137dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/editTextExerciseDescription_text"
-            android:inputType="textMultiLine" />
+            <TextView
+                android:id="@+id/textViewExerciseDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/textViewExerciseDescription_text" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/editTextExerciseDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:autofillHints=""
+                android:hint="@string/editTextExerciseDescription_text"
+                android:inputType="textMultiLine" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/frameLayout2"
-        android:layout_width="350dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_shape_25"
-        android:orientation="horizontal"
-        android:padding="20dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
 
-        <TextView
-            android:id="@+id/textViewSubmitImage"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="44dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="9dp"
-            android:text="@string/textViewSubmitImage_text" />
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/buttonUpload"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:text="@string/upload" />
+            <TextView
+                android:id="@+id/textViewSubmitImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/textViewSubmitImage_text" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/buttonUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/upload" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"
         android:text="@string/submit" />
 
 

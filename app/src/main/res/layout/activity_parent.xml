@@ -49,10 +49,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true"
+            android:layout_margin="20dp"
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:layout_marginTop="20dp"
                 android:id="@+id/frameLayoutParent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
