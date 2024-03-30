@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
                     txtProgress.text = text
                 }
             } else {
-                setContentView(R.layout.activity_main)
+                setContentView(binding.root)
             }
         }
     }
