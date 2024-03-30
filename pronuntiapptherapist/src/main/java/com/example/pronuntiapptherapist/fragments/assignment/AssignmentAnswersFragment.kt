@@ -26,7 +26,6 @@ class AssignmentAnswersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val assignId = arguments?.getString("assignId")!!
         val exerciseType = arguments?.getString("exerciseType")!!
-        val therapistCheck = arguments?.getString("therapistCheck")!!
         gridView = binding.gridViewAnswers
         btnCheck = binding.btnCheck
         btnCheck.isEnabled = false

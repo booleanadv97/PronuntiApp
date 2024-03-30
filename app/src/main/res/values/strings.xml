@@ -110,6 +110,6 @@
     <string name="ask_access_type">Do you want to continue as the default user?</string>
     <string name="access_default_ok">Yes</string>
     <string name="access_default_no">No</string>
-    <string name="txt_wait">Wait for default user setup ...</string>
+    <string name="txt_wait">Wait for default user setup &#8230;</string>
     <!-- -->
 </resources>

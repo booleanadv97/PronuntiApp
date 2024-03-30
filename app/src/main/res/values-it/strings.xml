@@ -109,6 +109,6 @@
     <string name="ask_access_type">Vuoi continuare come utente default?</string>
     <string name="access_default_ok">Si</string>
     <string name="access_default_no">No</string>
-    <string name="txt_wait">Aspetta l\'impostazione dell\'account default ...</string>
+    <string name="txt_wait">Aspetta l\'impostazione dell\'account default &#8230;</string>
     <!-- -->
 </resources>
